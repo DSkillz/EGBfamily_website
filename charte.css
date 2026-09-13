@@ -1,0 +1,302 @@
+/* ============================================================
+   EGB Family — Charte Graphique
+   Ecurie du Grand Beaulieu, Clermont-Ferrand
+   Palette issue de l'identité visuelle Instagram de l'association
+   ============================================================ */
+
+/* Google Fonts chargées via <link> dans le HTML pour éviter le render-blocking */
+
+/* ── Tokens de couleur ────────────────────────────────────── */
+:root {
+  --color-primary:       #8B5218; /* Brun cuir / sellerie (rubans Instagram) */
+  --color-primary-dark:  #5C3910; /* Brun foncé sellerie                     */
+  --color-primary-light: #A66E30; /* Brun moyen                              */
+
+  --color-secondary:     #CFC0B8; /* Rose-beige lin (fond affiches)          */
+  --color-secondary-dark:#A09088; /* Beige foncé                             */
+  --color-secondary-light:#E4D8D0;/* Beige clair                             */
+
+  --color-accent:        #C4782A; /* Orange doré / terracotta (trait, accent)*/
+  --color-accent-light:  #D99550; /* Orange clair                            */
+
+  --color-bg-light:      #F5EDE6; /* Fond crème chaud                        */
+  --color-bg-warm:       #EDE0D6; /* Fond beige sable                        */
+  --color-text:          #2E1A0E; /* Brun très foncé                         */
+  --color-text-muted:    #7A6050; /* Brun muted                              */
+  --color-white:         #FFFFFF;
+
+  --color-overlay:       rgba(60, 30, 10, 0.62); /* Hero overlay brun chaud */
+}
+
+/* ── Typographies ─────────────────────────────────────────── */
+:root {
+  --font-heading:  'Cormorant Garamond', Georgia, serif;
+  --font-body:     'DM Sans', system-ui, sans-serif;
+  --font-accent:   'Dancing Script', cursive;
+}
+
+/* ── Échelle typographique ────────────────────────────────── */
+:root {
+  --text-xs:   0.75rem;
+  --text-sm:   0.875rem;
+  --text-base: 1rem;
+  --text-lg:   1.125rem;
+  --text-xl:   1.25rem;
+  --text-2xl:  1.5rem;
+  --text-3xl:  1.875rem;
+  --text-4xl:  2.25rem;
+  --text-5xl:  3rem;
+  --text-6xl:  3.75rem;
+  --text-7xl:  4.5rem;
+}
+
+/* ── Espacements ──────────────────────────────────────────── */
+:root {
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+}
+
+/* ── Rayons & Ombres ──────────────────────────────────────── */
+:root {
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-lg:   16px;
+  --radius-full: 9999px;
+
+  --shadow-sm:     0 1px 3px rgba(139, 82, 24, 0.08);
+  --shadow-md:     0 4px 16px rgba(139, 82, 24, 0.13);
+  --shadow-lg:     0 8px 32px rgba(139, 82, 24, 0.20);
+  --shadow-accent: 0 4px 20px rgba(196, 120, 42, 0.35);
+
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 400ms ease;
+}
+
+/* ── Reset ────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-text);
+  background-color: var(--color-white);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Titres ───────────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--color-primary);
+}
+
+h1 { font-size: var(--text-6xl); }
+h2 { font-size: var(--text-4xl); }
+h3 { font-size: var(--text-3xl); }
+h4 { font-size: var(--text-2xl); }
+h5 { font-size: var(--text-xl);  }
+h6 { font-size: var(--text-lg);  }
+
+/* ── Boutons ──────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-8);
+  border: 2px solid transparent;
+  border-radius: var(--radius-full);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border-color: var(--color-primary);
+}
+.btn-primary:hover {
+  background-color: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+.btn-secondary:hover {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  transform: translateY(-2px);
+}
+
+.btn-accent {
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-accent);
+}
+.btn-accent:hover {
+  background-color: #A86020;
+  transform: translateY(-2px);
+}
+
+/* ── Séparateur accent ────────────────────────────────────── */
+.divider-accent {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-light));
+  border: none;
+  border-radius: var(--radius-full);
+  margin: var(--space-4) auto;
+}
+
+/* ── Navbar ───────────────────────────────────────────────── */
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4) var(--space-12);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  box-shadow: var(--shadow-sm);
+}
+
+.navbar-logo img { height: 56px; }
+
+.navbar-links {
+  display: flex;
+  gap: var(--space-8);
+  list-style: none;
+}
+
+.navbar-links a {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+.navbar-links a:hover { color: var(--color-primary); }
+
+/* ── Hero ─────────────────────────────────────────────────── */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: var(--color-secondary);
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--color-overlay);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: var(--color-white);
+  padding: var(--space-8);
+}
+
+.hero-eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-accent-light);
+  margin-bottom: var(--space-4);
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: var(--text-7xl);
+  color: var(--color-white);
+  letter-spacing: 0.04em;
+  line-height: 1;
+  margin-bottom: var(--space-4);
+}
+
+.hero-subtitle {
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--color-secondary-light);
+  margin-bottom: var(--space-8);
+}
+
+/* ── Sections ─────────────────────────────────────────────── */
+.section       { padding: var(--space-24) var(--space-8); }
+.section-white { background-color: var(--color-white); }
+.section-warm  { background-color: var(--color-bg-light); }
+.section-sand  { background-color: var(--color-bg-warm); }
+.section-dark  { background-color: var(--color-primary); color: var(--color-white); }
+.section-taupe { background-color: var(--color-secondary); }
+
+.section-title {
+  font-family: var(--font-heading);
+  text-align: center;
+  color: var(--color-primary);
+  margin-bottom: var(--space-4);
+}
+
+.section-dark .section-title { color: var(--color-white); }
+
+/* ── Cards ────────────────────────────────────────────────── */
+.card {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ── Responsive ───────────────────────────────────────────── */
+@media (max-width: 768px) {
+  h1 { font-size: var(--text-4xl); }
+  h2 { font-size: var(--text-3xl); }
+  h3 { font-size: var(--text-2xl); }
+  .hero-title  { font-size: var(--text-5xl); }
+  .section     { padding: var(--space-16) var(--space-4); }
+  .navbar      { padding: var(--space-3) var(--space-4); }
+  .navbar-links { display: none; }
+}

@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Nos Chevaux — EGB Family | Centre Équestre Clermont-Ferrand</title>
+  <meta name="description" content="Découvrez les ~40 chevaux et poneys d'EGB Family : leurs caractères, leurs races et leurs petites histoires. Un troupeau varié, tous adoptés pour leur bien-être.">
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website">
+  <meta property="og:title"       content="Nos Chevaux — EGB Family">
+  <meta property="og:description" content="Découvrez les pensionnaires d'EGB Family : chevaux et poneys de toutes races, chacun avec sa personnalité unique.">
+  <meta property="og:image"       content="logo_egbfamily.png">
+  <meta property="og:locale"      content="fr_FR">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&family=DM+Sans:wght@400;500&family=Dancing+Script:wght@600&display=swap">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&family=DM+Sans:wght@400;500&family=Dancing+Script:wght@600&display=swap"
+    media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&family=DM+Sans:wght@400;500&family=Dancing+Script:wght@600&display=swap">
+  </noscript>
+
+  <link rel="stylesheet" href="charte.css">
+  <link rel="preload" as="image" href="logo_egbfamily.png">
+
+  <style>
+    /* ── Icons ─────────────────────────────────────────────── */
+    .icon { display:inline-block; width:1em; height:1em; vertical-align:-0.125em; fill:currentColor; }
+    .icon-stroke { fill:none; stroke:currentColor; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; }
+
+    /* ── Skip link ───────────────────────────────────────── */
+    .skip-link {
+      position:absolute; top:-40px; left:0;
+      background:var(--color-primary); color:#fff;
+      padding:8px 16px; z-index:999; border-radius:0 0 4px 0;
+      transition:top .2s;
+    }
+    .skip-link:focus { top:0; }
+
+    /* ── Navbar ─────────────────────────────────────────── */
+    .navbar {
+      position:fixed; top:0; left:0; right:0; z-index:100;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:.75rem 3rem;
+      background:rgba(255,255,255,.97);
+      backdrop-filter:blur(10px);
+      box-shadow:0 1px 0 rgba(139,82,24,.10);
+      transition:padding var(--transition-base);
+    }
+    .navbar-logo { display:flex; align-items:center; gap:.75rem; text-decoration:none; }
+    .navbar-logo img { height:52px; width:52px; }
+    .navbar-logo-text { display:flex; flex-direction:column; line-height:1; }
+    .navbar-logo-egb { font-family:var(--font-heading); font-size:1.35rem; font-weight:600; letter-spacing:.06em; color:var(--color-primary); }
+    .navbar-logo-family { font-family:var(--font-accent); font-size:1.15rem; font-weight:600; }
+    .navbar-logo-sub { font-size:.6rem; font-weight:500; letter-spacing:.18em; text-transform:uppercase; color:var(--color-text-muted); }
+    .navbar-links { display:flex; align-items:center; gap:2rem; list-style:none; }
+    .navbar-links a {
+      font-size:.78rem; font-weight:500; letter-spacing:.1em;
+      text-transform:uppercase; color:var(--color-text); text-decoration:none;
+      position:relative; transition:color var(--transition-fast);
+    }
+    .navbar-links a::after {
+      content:''; position:absolute; bottom:-3px; left:0;
+      width:0; height:1.5px; background:var(--color-accent);
+      transition:width var(--transition-base);
+    }
+    .navbar-links a:hover { color:var(--color-primary); }
+    .navbar-links a:hover::after { width:100%; }
+    .navbar-links a.active { color:var(--color-primary); }
+    .navbar-links a.active::after { width:100%; }
+    .navbar-cta {
+      background:var(--color-primary) !important; color:#fff !important;
+      padding:.5rem 1.25rem; border-radius:var(--radius-full);
+    }
+    .navbar-cta::after { display:none !important; }
+    .navbar-cta:hover { background:var(--color-primary-dark) !important; }
+    .burger {
+      display:none; flex-direction:column; justify-content:center; gap:5px;
+      cursor:pointer; padding:6px; background:none; border:none;
+      width:40px; height:40px;
+    }
+    .burger span {
+      display:block; width:24px; height:2px;
+      background:var(--color-primary); border-radius:2px;
+      transition:transform .35s ease, opacity .25s ease; transform-origin:center;
+    }
+    .burger.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+    .burger.open span:nth-child(2) { opacity:0; transform:scaleX(0); }
+    .burger.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+
+    /* ── Overlay + Drawer ────────────────────────────────── */
+    .drawer-overlay {
+      position:fixed; inset:0; z-index:150;
+      background:rgba(46,26,14,.55); backdrop-filter:blur(3px);
+      opacity:0; pointer-events:none; transition:opacity .35s ease;
+    }
+    .drawer-overlay.open { opacity:1; pointer-events:all; }
+    .drawer {
+      position:fixed; top:0; right:0; bottom:0; z-index:160;
+      width:min(300px, 85vw); background:#fff;
+      display:flex; flex-direction:column;
+      box-shadow:-8px 0 40px rgba(0,0,0,.18);
+      transform:translateX(100%); transition:transform .38s cubic-bezier(.4,0,.2,1);
+      overflow-y:auto;
+    }
+    .drawer.open { transform:translateX(0); }
+    .drawer-header {
+      display:flex; align-items:center; justify-content:space-between;
+      padding:1.1rem 1.25rem; border-bottom:1px solid var(--color-bg-warm); flex-shrink:0;
+    }
+    .drawer-logo { display:flex; align-items:center; gap:.6rem; text-decoration:none; }
+    .drawer-logo img { height:42px; width:42px; }
+    .drawer-logo-text { line-height:1; }
+    .drawer-logo-egb { font-family:var(--font-heading); font-size:1.1rem; font-weight:600; color:var(--color-primary); }
+    .drawer-logo-family { font-family:var(--font-accent); }
+    .drawer-close {
+      background:none; border:none; cursor:pointer; padding:8px;
+      color:var(--color-text-muted); border-radius:var(--radius-sm);
+      transition:background var(--transition-fast),color var(--transition-fast);
+    }
+    .drawer-close:hover { background:var(--color-bg-warm); color:var(--color-primary); }
+    .drawer-close svg { width:18px; height:18px; }
+    .drawer-nav { flex:1; padding:1rem 0; }
+    .drawer-nav a {
+      display:flex; align-items:center; gap:.85rem;
+      padding:.9rem 1.5rem; font-size:.9rem; font-weight:500;
+      color:var(--color-text); text-decoration:none;
+      border-left:3px solid transparent;
+      transition:background var(--transition-fast),color var(--transition-fast),border-color var(--transition-fast);
+    }
+    .drawer-nav a svg { width:18px; height:18px; color:var(--color-secondary-dark); flex-shrink:0; }
+    .drawer-nav a:hover { background:var(--color-bg-light); color:var(--color-primary); border-left-color:var(--color-accent); }
+    .drawer-nav a:hover svg { color:var(--color-primary); }
+    .drawer-nav a.active { color:var(--color-primary); border-left-color:var(--color-primary); background:var(--color-bg-light); }
+    .drawer-divider { height:1px; background:var(--color-bg-warm); margin:.5rem 1.5rem; }
+    .drawer-footer {
+      padding:1.25rem 1.5rem; border-top:1px solid var(--color-bg-warm);
+      display:flex; gap:.75rem; flex-shrink:0;
+    }
+    .drawer-footer a {
+      display:flex; align-items:center; gap:.4rem;
+      font-size:.78rem; font-weight:500; text-decoration:none;
+      color:var(--color-text-muted);
+      transition:color var(--transition-fast);
+    }
+    .drawer-footer a svg { width:16px; height:16px; }
+    .drawer-footer a:hover { color:var(--color-primary); }
+
+    /* ── Page hero ──────────────────────────────────────── */
+    .page-hero {
+      padding: 9rem 2rem 4rem;
+      background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 60%, #A66E30 100%);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .page-hero-eyebrow {
+      font-size:.78rem; font-weight:500; letter-spacing:.25em; text-transform:uppercase;
+      color:var(--color-accent-light); margin-bottom:1rem; position:relative;
+    }
+    .page-hero h1 {
+      font-family:var(--font-heading); font-size:clamp(2.5rem,6vw,4.5rem);
+      color:#fff; font-weight:300; font-style:italic; line-height:1.1;
+      margin-bottom:.75rem; position:relative;
+    }
+    .page-hero p {
+      font-size:1.1rem; color:rgba(255,255,255,.75); max-width:560px;
+      margin:0 auto 1.5rem; position:relative;
+    }
+    .page-hero-badge {
+      display:inline-flex; align-items:center; gap:.5rem;
+      background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.2);
+      padding:.45rem 1rem; border-radius:var(--radius-full);
+      font-size:.8rem; color:rgba(255,255,255,.9); position:relative;
+    }
+    .page-hero-badge svg { width:14px; height:14px; color:var(--color-accent-light); }
+
+    /* ── Breadcrumb ─────────────────────────────────────── */
+    .breadcrumb {
+      background:var(--color-bg-light); padding:.65rem 2rem;
+      font-size:.78rem; color:var(--color-text-muted);
+      border-bottom:1px solid var(--color-bg-warm);
+    }
+    .breadcrumb a { color:var(--color-primary); text-decoration:none; }
+    .breadcrumb a:hover { text-decoration:underline; }
+    .breadcrumb span { margin:0 .4rem; }
+
+    /* ── Intro strip ─────────────────────────────────────── */
+    .intro-strip {
+      background:var(--color-bg-light); padding:3rem 2rem;
+      text-align:center;
+    }
+    .intro-strip p {
+      max-width:680px; margin:0 auto; font-size:1.05rem;
+      color:var(--color-text-muted); line-height:1.8;
+    }
+    .intro-strip strong { color:var(--color-primary); }
+
+    /* ── Grille chevaux ──────────────────────────────────── */
+    .chevaux-section {
+      padding:4rem 2rem 5rem;
+      background:var(--color-white);
+      max-width:1200px; margin:0 auto;
+    }
+    .chevaux-grid {
+      display:grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap:2rem;
+      margin-top:2.5rem;
+    }
+
+    /* ── Carte cheval ────────────────────────────────────── */
+    .horse-card {
+      background:var(--color-white);
+      border-radius:var(--radius-lg);
+      box-shadow:var(--shadow-md);
+      overflow:hidden;
+      transition:transform var(--transition-base), box-shadow var(--transition-base);
+    }
+    .horse-card:hover {
+      transform:translateY(-6px);
+      box-shadow:var(--shadow-lg);
+    }
+    .horse-photo {
+      width:100%; aspect-ratio:4/3; overflow:hidden;
+      background:linear-gradient(135deg, var(--color-secondary-light), var(--color-bg-warm));
+      position:relative; display:flex; align-items:center; justify-content:center;
+    }
+    .horse-photo img {
+      width:100%; height:100%; object-fit:cover;
+      transition:transform .6s ease;
+    }
+    .horse-card:hover .horse-photo img { transform:scale(1.06); }
+    .horse-photo-placeholder {
+      display:flex; flex-direction:column; align-items:center; gap:.75rem;
+      color:var(--color-secondary-dark);
+    }
+    .horse-photo-placeholder svg { width:64px; height:64px; opacity:.45; }
+    .horse-photo-placeholder span { font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; opacity:.6; }
+    .horse-badge {
+      position:absolute; top:.75rem; right:.75rem;
+      background:rgba(255,255,255,.92); backdrop-filter:blur(4px);
+      padding:.3rem .65rem; border-radius:var(--radius-full);
+      font-size:.68rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase;
+      color:var(--color-primary); border:1px solid rgba(139,82,24,.15);
+    }
+    .horse-body { padding:1.25rem 1.4rem 1.5rem; }
+    .horse-name {
+      font-family:var(--font-heading); font-size:1.6rem; font-weight:600;
+      color:var(--color-primary); margin-bottom:.1rem; line-height:1.1;
+    }
+    .horse-breed {
+      font-size:.78rem; font-weight:500; letter-spacing:.08em; text-transform:uppercase;
+      color:var(--color-accent); margin-bottom:.85rem;
+    }
+    .horse-tags {
+      display:flex; flex-wrap:wrap; gap:.4rem; margin-bottom:.9rem;
+    }
+    .horse-tag {
+      padding:.25rem .65rem; border-radius:var(--radius-full);
+      font-size:.7rem; font-weight:500; border:1px solid;
+    }
+    .horse-tag-robe {
+      background:var(--color-bg-warm); border-color:var(--color-secondary);
+      color:var(--color-text-muted);
+    }
+    .horse-tag-age {
+      background:#F5EDE6; border-color:#D9A870; color:var(--color-primary);
+    }
+    .horse-tag-spec {
+      background:#fdf5e0; border-color:var(--color-accent-light); color:#7a6020;
+    }
+    .horse-desc {
+      font-size:.88rem; color:var(--color-text-muted); line-height:1.7;
+      border-top:1px solid var(--color-bg-warm); padding-top:.85rem; margin-top:.1rem;
+    }
+    .horse-emoji {
+      font-size:1.1rem; margin-right:.25rem;
+    }
+
+    /* ── Section titre ──────────────────────────────────── */
+    .chevaux-section-title {
+      font-family:var(--font-heading); font-size:clamp(1.8rem,4vw,2.8rem);
+      color:var(--color-primary); font-weight:300; font-style:italic;
+      text-align:center;
+    }
+    .chevaux-section-sub {
+      text-align:center; color:var(--color-text-muted); font-size:.95rem;
+      margin-top:.5rem; margin-bottom:2rem;
+    }
+    hr.divider-accent {
+      width:60px; height:2px; margin:.75rem auto 0;
+      background:linear-gradient(90deg,var(--color-accent),var(--color-accent-light));
+      border:none; border-radius:var(--radius-full);
+    }
+
+    /* ── CTA bas de page ─────────────────────────────────── */
+    .cta-chevaux {
+      background:linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+      padding:4rem 2rem; text-align:center;
+    }
+    .cta-chevaux h2 {
+      font-family:var(--font-heading); font-size:2.2rem; color:#fff;
+      font-weight:300; font-style:italic; margin-bottom:.75rem;
+    }
+    .cta-chevaux p { color:rgba(255,255,255,.75); margin-bottom:2rem; font-size:1rem; }
+    .btn-white {
+      background:#fff; color:var(--color-primary);
+      padding:.8rem 2rem; border-radius:var(--radius-full);
+      text-decoration:none; font-weight:600; font-size:.88rem;
+      letter-spacing:.08em; text-transform:uppercase; display:inline-block;
+      transition:background var(--transition-fast), transform var(--transition-fast);
+    }
+    .btn-white:hover { background:var(--color-bg-light); transform:translateY(-2px); }
+
+    /* ── Footer ─────────────────────────────────────────── */
+    footer { background:var(--color-primary-dark); color:rgba(255,255,255,.75); padding:3rem 2rem 2rem; }
+    .footer-inner {
+      max-width:1100px; margin:0 auto;
+      display:grid; grid-template-columns:1fr 1fr 1fr; gap:3rem; align-items:start;
+    }
+    .footer-logo-wrap {
+      width:160px; height:160px; border-radius:50%;
+      background:#fff; display:flex; align-items:center; justify-content:center;
+      margin:0 auto 1rem;
+    }
+    .footer-logo-wrap img { height:148px; width:148px; }
+    .footer-brand p { font-size:.85rem; line-height:1.7; text-align:center; }
+    .footer-col h4 { font-family:var(--font-heading); font-size:1.1rem; color:#fff; margin-bottom:1rem; }
+    .footer-links { list-style:none; display:flex; flex-direction:column; gap:.5rem; }
+    .footer-links a { color:rgba(255,255,255,.65); text-decoration:none; font-size:.85rem; transition:color var(--transition-fast); }
+    .footer-links a:hover { color:#fff; }
+    .footer-bottom {
+      border-top:1px solid rgba(255,255,255,.1); margin-top:2rem; padding-top:1.25rem;
+      display:flex; justify-content:space-between; flex-wrap:wrap; gap:.5rem;
+      font-size:.75rem; color:rgba(255,255,255,.4);
+    }
+
+    /* ── Scroll to top ───────────────────────────────────── */
+    .scroll-top {
+      position:fixed; bottom:1.75rem; left:1.75rem; z-index:200;
+      width:46px; height:46px; border-radius:50%; border:none;
+      background:var(--color-primary); color:#fff;
+      display:flex; align-items:center; justify-content:center;
+      cursor:pointer; opacity:0; transform:translateY(12px);
+      pointer-events:none;
+      transition:opacity .3s ease, transform .3s ease, background var(--transition-fast);
+    }
+    .scroll-top.visible { opacity:1; transform:translateY(0); pointer-events:all; }
+    .scroll-top:hover { background:var(--color-primary-dark); }
+    .scroll-top svg { width:20px; height:20px; }
+
+    /* ── WhatsApp ────────────────────────────────────────── */
+    .whatsapp-btn {
+      position:fixed; bottom:1.75rem; right:1.75rem; z-index:200;
+      width:56px; height:56px; border-radius:50%;
+      background:#25D366; color:#fff;
+      display:flex; align-items:center; justify-content:center;
+      box-shadow:0 4px 20px rgba(37,211,102,.40);
+      text-decoration:none;
+    }
+    .whatsapp-btn svg { width:30px; height:30px; fill:#fff; }
+    @keyframes wa-pulse {
+      0%,100% { box-shadow:0 4px 20px rgba(37,211,102,.4); }
+      50%      { box-shadow:0 4px 32px rgba(37,211,102,.7), 0 0 0 8px rgba(37,211,102,.15); }
+    }
+    .whatsapp-btn { animation:wa-pulse 2.5s ease-in-out infinite; }
+
+    /* ── Animations reveal ───────────────────────────────── */
+    .reveal { opacity:0; transform:translateY(28px); transition:opacity .6s ease, transform .6s ease; }
+    .reveal.visible { opacity:1; transform:translateY(0); }
+    .reveal-left { opacity:0; transform:translateX(-32px); transition:opacity .6s ease, transform .6s ease; }
+    .reveal-left.visible { opacity:1; transform:translateX(0); }
+    .reveal-right { opacity:0; transform:translateX(32px); transition:opacity .6s ease, transform .6s ease; }
+    .reveal-right.visible { opacity:1; transform:translateX(0); }
+    .stagger > * { opacity:0; transform:translateY(24px); transition:opacity .5s ease, transform .5s ease; }
+    .stagger.visible > *:nth-child(1)  { opacity:1; transform:none; transition-delay:.05s; }
+    .stagger.visible > *:nth-child(2)  { opacity:1; transform:none; transition-delay:.12s; }
+    .stagger.visible > *:nth-child(3)  { opacity:1; transform:none; transition-delay:.19s; }
+    .stagger.visible > *:nth-child(4)  { opacity:1; transform:none; transition-delay:.26s; }
+    .stagger.visible > *:nth-child(5)  { opacity:1; transform:none; transition-delay:.33s; }
+    .stagger.visible > *:nth-child(6)  { opacity:1; transform:none; transition-delay:.40s; }
+    .stagger.visible > *:nth-child(7)  { opacity:1; transform:none; transition-delay:.47s; }
+    .stagger.visible > *:nth-child(8)  { opacity:1; transform:none; transition-delay:.54s; }
+    .stagger.visible > *:nth-child(9)  { opacity:1; transform:none; transition-delay:.61s; }
+    .stagger.visible > *:nth-child(10) { opacity:1; transform:none; transition-delay:.68s; }
+    .stagger.visible > *:nth-child(11) { opacity:1; transform:none; transition-delay:.75s; }
+    .stagger.visible > *:nth-child(12) { opacity:1; transform:none; transition-delay:.82s; }
+
+    /* ── Responsive ──────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .navbar { padding:.75rem 1.25rem; }
+      .navbar-links { display:none; }
+      .burger { display:flex; }
+      .chevaux-section { padding:3rem 1.25rem 4rem; }
+      .chevaux-grid { grid-template-columns:1fr; }
+      .footer-inner { grid-template-columns:1fr; gap:2rem; }
+      .footer-bottom { flex-direction:column; text-align:center; }
+      .intro-strip { padding:2.5rem 1.25rem; }
+      .page-hero { padding:8rem 1.25rem 3rem; }
+    }
+    @media (min-width:480px) and (max-width:768px) {
+      .chevaux-grid { grid-template-columns:1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SVG Sprite ────────────────────────────────────────────── -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+    <symbol id="i-chevron-up" viewBox="0 0 24 24"><path class="icon-stroke" d="M4.5 15.75l7.5-7.5 7.5 7.5"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path class="icon-stroke" d="M18 18.72a9.09 9.09 0 003.74-.48 3 3 0 00-4.68-2.72m.94 3.2v.03c0 .22-.01.45-.04.66A11.94 11.94 0 0112 21c-2.17 0-4.21-.576-5.96-1.584A6.06 6.06 0 016 18.72m12 0a5.97 5.97 0 00-.94-3.2m0 0A6 6 0 0012 12.75a6 6 0 00-5.06 2.77m0 0a3 3 0 00-4.68 2.72 8.99 8.99 0 003.74.48m.94-3.2a5.97 5.97 0 00-.94 3.2M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"/></symbol>
+    <symbol id="i-graduation" viewBox="0 0 24 24"><path class="icon-stroke" d="M4.26 10.147a60.44 60.44 0 00-.491 6.347A48.63 48.63 0 0112 20.904a48.63 48.63 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.9 59.9 0 0112 3.493a59.9 59.9 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.7 50.7 0 0112 13.489a50.7 50.7 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.38 55.38 0 0112 8.443m-7.007 11.55A5.98 5.98 0 006.75 15.75v-1.5"/></symbol>
+    <symbol id="i-horse" viewBox="0 0 24 24"><path class="icon-stroke" d="M15.5 5c.5-.8 1.5-1 2-1s1 .3 1 .8-.3.7-.8.9c.4.2.8.5.8 1-.1.6-.7.9-1.5.8.3.5.2 1.2-.5 1.4l-.8.2c-.5 1.2-1.8 2-3 2.3l.1 2.6c.7.6 1.1 1.4 1 2.4l-.8 4.3c-.2.9-1 1.3-1.7 1-.6-.3-.8-1.1-.6-1.8l.5-3.3c-.6-.9-.9-2-.6-3.1l-2.4 3.5c-.4 1-.6 2.1-.4 3.1.2.9-.3 1.7-1.1 1.7-.7 0-1.2-.7-1.1-1.5.2-1.4.7-2.7 1.5-3.8l2-3c-.9-.6-1.5-1.5-1.4-2.7l-.8-.9c-.6-.8-.5-1.8.1-2.3.5-.4 1.2-.3 1.6.1l.6.6c1 .1 2.1.5 3 1.3l1.6-.6c1-.4 1.8-1.2 2.2-2.1z"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path class="icon-stroke" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/></symbol>
+    <symbol id="i-photo" viewBox="0 0 24 24"><path class="icon-stroke" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"/></symbol>
+    <symbol id="i-location" viewBox="0 0 24 24"><path d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-2.003 3.5-4.697 3.5-8.327a8 8 0 10-16 0c0 3.63 1.556 6.324 3.5 8.327a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z" fill-rule="evenodd" clip-rule="evenodd"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></symbol>
+    <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></symbol>
+  </svg>
+
+  <a class="skip-link" href="#main">Aller au contenu</a>
+
+  <!-- ════ NAVBAR ════════════════════════════════════════════ -->
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Navigation principale">
+    <a href="index.html" class="navbar-logo" aria-label="EGB Family — accueil">
+      <img src="logo_egbfamily.png" alt="" width="52" height="52" fetchpriority="high">
+      <div class="navbar-logo-text">
+        <span class="navbar-logo-egb">EGB <span class="navbar-logo-family">Family</span></span>
+        <span class="navbar-logo-sub">Centre Équestre Associatif</span>
+      </div>
+    </a>
+    <ul class="navbar-links" role="list">
+      <li><a href="index.html#association">L'association</a></li>
+      <li><a href="index.html#activites">Activités</a></li>
+      <li><a href="chevaux.html" class="active">Nos chevaux</a></li>
+      <li><a href="index.html#tarifs">Tarifs</a></li>
+      <li><a href="index.html#galerie">Galerie</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+      <li><a href="index.html#contact" class="navbar-cta">Nous rejoindre</a></li>
+    </ul>
+    <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="drawer" onclick="openDrawer()">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <main id="main">
+
+    <!-- ════ PAGE HERO ══════════════════════════════════════ -->
+    <section class="page-hero">
+      <p class="page-hero-eyebrow">EGB Family · ~40 chevaux &amp; poneys</p>
+      <h1>Nos chevaux</h1>
+      <p>Chaque cheval a son histoire, sa personnalité, son caractère. Voici quelques-uns des pensionnaires qui font battre le cœur de l'écurie.</p>
+      <span class="page-hero-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><use href="#i-horse"/></svg>
+        Photos à venir — en attendant les vraies, voici leurs portraits
+      </span>
+    </section>
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="Fil d'Ariane">
+      <a href="index.html">Accueil</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">Nos chevaux</span>
+    </nav>
+
+    <!-- ════ INTRO ══════════════════════════════════════════ -->
+    <div class="intro-strip reveal">
+      <p>
+        À l'EGB Family, les chevaux ne sont pas de simples outils pédagogiques : ce sont des <strong>membres de la famille</strong>.
+        Chacun arrive avec son histoire, son passé, ses forces et ses failles. Notre rôle est de les comprendre, de les respecter
+        et de créer avec eux une relation de <strong>confiance durable</strong>.<br><br>
+        Ci-dessous, quelques portraits parmi notre troupeau de <strong>~40 chevaux et poneys</strong>.
+      </p>
+    </div>
+
+    <!-- ════ GRILLE CHEVAUX ═════════════════════════════════ -->
+    <div class="chevaux-section">
+      <h2 class="chevaux-section-title reveal">Quelques membres du troupeau</h2>
+      <p class="chevaux-section-sub reveal">Cliquez sur leur fiche pour les rencontrer à l'écurie !</p>
+      <hr class="divider-accent reveal">
+
+      <div class="chevaux-grid stagger">
+
+        <!-- 1. Eclipse -->
+        <article class="horse-card">
+          <div class="horse-photo">
+            <div class="horse-photo-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-horse"/></svg>
+              <span>Photo à venir</span>
+            </div>
+            <span class="horse-badge">Cheval</span>
+          </div>
+          <div class="horse-body">
+            <h3 class="horse-name">Éclipse</h3>
+            <p class="horse-breed">Selle Français</p>
+            <div class="horse-tags">
+              <span class="horse-tag horse-tag-robe">Noir pangaré</span>
+              <span class="horse-tag horse-tag-age">14 ans</span>
+              <span class="horse-tag horse-tag-spec">Tout niveaux</span>
+            </div>
+            <p class="horse-desc"><span class="horse-emoji">🌟</span>Le vétéran élégant de l'écurie. Éclipse a tout vu, tout connu — il guide les débutants avec une patience infinie et reste de marbre face à n'importe quelle situation.</p>
+          </div>
+        </article>
+
+        <!-- 2. Gitane -->
+        <article class="horse-card">
+          <div class="horse-photo">
+            <div class="horse-photo-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-horse"/></svg>
+              <span>Photo à venir</span>
+            </div>
+            <span class="horse-badge">Jument</span>
+          </div>
+          <div class="horse-body">
+            <h3 class="horse-name">Gitane</h3>
+            <p class="horse-breed">Lusitanienne</p>
+            <div class="horse-tags">
+              <span class="horse-tag horse-tag-robe">Grise</span>
+              <span class="horse-tag horse-tag-age">11 ans</span>
+              <span class="horse-tag horse-tag-spec">Niveau confirmé</span>
+            </div>
+            <p class="horse-desc"><span class="horse-emoji">💃</span>La danseuse de l'écurie. Gitane est aussi expressive qu'élégante : sensible, réactive, elle récompense les aides subtiles et révèle le vrai niveau de ses cavaliers.</p>
+          </div>
+        </article>
+
+        <!-- 3. Tornado -->
+        <article class="horse-card">
+          <div class="horse-photo">
+            <div class="horse-photo-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-horse"/></svg>
+              <span>Photo à venir</span>
+            </div>
+            <span class="horse-badge">Hongre</span>
+          </div>
+          <div class="horse-body">
+            <h3 class="horse-name">Tornado</h3>
+            <p class="horse-breed">Anglo-Arabe</p>
+            <div class="horse-tags">
+              <span class="horse-tag horse-tag-robe">Alezan cuivré</span>
+              <span class="horse-tag horse-tag-age">9 ans</span>
+              <span class="horse-tag horse-tag-spec">CSO · Cross</span>
+            </div>
+            <p class="horse-desc"><span class="horse-emoji">⚡</span>Puissant, généreux, imprévisible sur un bon terrain. Tornado adore les barres et donnera tout ce qu'il a à qui sait l'écouter. Un partenaire de compétition exceptionnel.</p>
+          </div>
+        </article>
+
+        <!-- 4. Caramel -->
+        <article class="horse-card">
+          <div class="horse-photo">
+            <div class="horse-photo-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-horse"/></svg>
+              <span>Photo à venir</span>
+            </div>
+            <span class="horse-badge">Jument</span>
+          </div>
+          <div class="horse-body">
+            <h3 class="horse-name">Caramel</h3>
+            <p class="horse-breed">Haflinger</p>
+            <div class="horse-tags">
+              <span class="horse-tag horse-tag-robe">Isabelle crins lavés</span>
+              <span class="horse-tag horse-tag-age">12 ans</span>
+              <span class="horse-tag horse-tag-spec">Enfants · Débutants</span>
+            </div>
+            <p class="horse-desc"><span class="horse-emoji">🍯</span>La douceur incarnée. Caramel est la préférée des enfants : robuste, câline, jamais fatiguée de transporter de petits cavaliers avec le plus grand sérieux du monde.</p>
+          </div>
+        </article>
+
+        <!-- 5. Spirit -->
+        <article class="horse-card">
+          <div class="horse-photo">
+            <div class="horse-photo-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-horse"/></svg>
+              <span>Photo à venir</span>
+            </div>
+            <span class="horse-badge">Hongre</span>
+          </div>
+          <div class="horse-body">
+            <h3 class="horse-name">Spirit</h3>
+            <p class="horse-breed">Quarter Horse</p>
+            <div class="horse-tags">
+              <span class="horse-tag horse-tag-robe">Bai cerise</span>
+              <span class="horse-tag horse-tag-age">8 ans</span>
+              <span class="horse-tag horse-tag-spec">Polyvalent</span>
+            </div>
+            <p class="horse-desc"><span class="horse-emoji">🌿</span>Le calme absolu. Spirit aborde chaque séance avec sérénité. Son équilibre naturel en fait un excellent cheval d'initiation pour les adultes qui reprennent l'équitation.</p>
+          </div>
+        </article>
+
+        <!-- 6. Opale -->
+        <article class="horse-card">
+          <div class="horse-photo">
+            <div class="horse-photo-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-horse"/></svg>
+              <span>Photo à venir</span>
+            </div>
+            <span class="horse-badge">Jument</span>
+          </div>
+          <div class="horse-body">
+            <h3 class="horse-name">Opale</h3>
+            <p class="horse-breed">Appaloosa</p>
+            <div class="horse-tags">
+              <span class="horse-tag horse-tag-robe">Léopard tacheté</span>
+              <span class="horse-tag horse-tag-age">7 ans</span>
+              <span class="horse-tag horse-tag-spec">Balade · Photo</span>
+            </div>
+            <p class="horse-desc"><span class="horse-emoji">✨</span>La star de la galerie photo. Opale attire tous les regards avec sa robe léopard spectaculaire. Curieuse, joueuse, elle adore les sorties en extérieur.</p>
+          </div>
+        </article>
+
+        <!-- 7. Licorice -->
+        <article class="horse-card">
+          <div class="horse-photo">
+            <div class="horse-photo-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-horse"/></svg>
+              <span>Photo à venir</span>
+            </div>
+            <span class="horse-badge">Étalon</span>
+          </div>
+          <div class="horse-body">
+            <h3 class="horse-name">Licorice</h3>
+            <p class="horse-breed">Frison</p>
+            <div class="horse-tags">
+              <span class="horse-tag horse-tag-robe">Noir jais</span>
+              <span class="horse-tag horse-tag-age">10 ans</span>
+              <span class="horse-tag horse-tag-spec">Dressage</span>
+            </div>
+            <p class="horse-desc"><span class="horse-emoji">🖤</span>Le gentleman de l'écurie. Majestueux dans ses mouvements, Licorice fascine autant qu'il impressionne. Son trot levé est inoubliable pour ceux qui ont la chance de le monter.</p>
+          </div>
+        </article>
+
+        <!-- 8. Myrtille -->
+        <article class="horse-card">
+          <div class="horse-photo">
+            <div class="horse-photo-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-horse"/></svg>
+              <span>Photo à venir</span>
+            </div>
+            <span class="horse-badge">Ponette</span>
+          </div>
+          <div class="horse-body">
+            <h3 class="horse-name">Myrtille</h3>
+            <p class="horse-breed">Poney Welsh B</p>
+            <div class="horse-tags">
+              <span class="horse-tag horse-tag-robe">Gris souris</span>
+              <span class="horse-tag horse-tag-age">15 ans</span>
+              <span class="horse-tag horse-tag-spec">Mini cavaliers</span>
+            </div>
+            <p class="horse-desc"><span class="horse-emoji">🫐</span>La mascotte de l'écurie. Myrtille est petite, têtue et absolument irrésistible. Elle a mis des dizaines d'enfants en selle pour la première fois avec une patience légendaire.</p>
+          </div>
+        </article>
+
+        <!-- 9. Sirocco -->
+        <article class="horse-card">
+          <div class="horse-photo">
+            <div class="horse-photo-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-horse"/></svg>
+              <span>Photo à venir</span>
+            </div>
+            <span class="horse-badge">Hongre</span>
+          </div>
+          <div class="horse-body">
+            <h3 class="horse-name">Sirocco</h3>
+            <p class="horse-breed">Pur-sang Arabe</p>
+            <div class="horse-tags">
+              <span class="horse-tag horse-tag-robe">Gris pommelé</span>
+              <span class="horse-tag horse-tag-age">13 ans</span>
+              <span class="horse-tag horse-tag-spec">Endurance · Balade</span>
+            </div>
+            <p class="horse-desc"><span class="horse-emoji">🌬️</span>Le poète du troupeau. Sirocco est sensible, fin, pétri de noblesse. Sa légèreté naturelle enchante les cavaliers confirmés qui cherchent une connexion profonde.</p>
+          </div>
+        </article>
+
+        <!-- 10. Brindille -->
+        <article class="horse-card">
+          <div class="horse-photo">
+            <div class="horse-photo-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-horse"/></svg>
+              <span>Photo à venir</span>
+            </div>
+            <span class="horse-badge">Ponette</span>
+          </div>
+          <div class="horse-body">
+            <h3 class="horse-name">Brindille</h3>
+            <p class="horse-breed">Connemara</p>
+            <div class="horse-tags">
+              <span class="horse-tag horse-tag-robe">Dun fauve</span>
+              <span class="horse-tag horse-tag-age">6 ans</span>
+              <span class="horse-tag horse-tag-spec">Polyvalente</span>
+            </div>
+            <p class="horse-desc"><span class="horse-emoji">🌿</span>La ponette universelle. Brindille fait aussi bien de l'obstacle que de la balade, elle fait du dressage et passe en cross sans se poser de questions. Courageuse et fiable.</p>
+          </div>
+        </article>
+
+        <!-- 11. Tempête -->
+        <article class="horse-card">
+          <div class="horse-photo">
+            <div class="horse-photo-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-horse"/></svg>
+              <span>Photo à venir</span>
+            </div>
+            <span class="horse-badge">Hongre</span>
+          </div>
+          <div class="horse-body">
+            <h3 class="horse-name">Tempête</h3>
+            <p class="horse-breed">Selle Français</p>
+            <div class="horse-tags">
+              <span class="horse-tag horse-tag-robe">Bai foncé</span>
+              <span class="horse-tag horse-tag-age">6 ans</span>
+              <span class="horse-tag horse-tag-spec">CSO · Jeune</span>
+            </div>
+            <p class="horse-desc"><span class="horse-emoji">⛈️</span>Le futur champion. Tempête est jeune, bouillonnant, plein de feu. Il est en cours de formation et promet un avenir brillant en compétition pour l'association.</p>
+          </div>
+        </article>
+
+        <!-- 12. Cannelle -->
+        <article class="horse-card">
+          <div class="horse-photo">
+            <div class="horse-photo-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-horse"/></svg>
+              <span>Photo à venir</span>
+            </div>
+            <span class="horse-badge">Jument</span>
+          </div>
+          <div class="horse-body">
+            <h3 class="horse-name">Cannelle</h3>
+            <p class="horse-breed">Cob irlandais</p>
+            <div class="horse-tags">
+              <span class="horse-tag horse-tag-robe">Rouan pie</span>
+              <span class="horse-tag horse-tag-age">16 ans</span>
+              <span class="horse-tag horse-tag-spec">Reprise · Seniors</span>
+            </div>
+            <p class="horse-desc"><span class="horse-emoji">🤎</span>La nounou de l'écurie. Cannelle est robuste, stable, rassurante. Elle accueille les cavaliers en reprise d'activité avec une bienveillance déconcertante et ne fait jamais de mauvaises surprises.</p>
+          </div>
+        </article>
+
+      </div><!-- /chevaux-grid -->
+    </div><!-- /chevaux-section -->
+
+  </main>
+
+  <!-- ════ CTA ════════════════════════════════════════════════ -->
+  <section class="cta-chevaux">
+    <h2>Venez les rencontrer !</h2>
+    <p>La meilleure façon de tomber amoureux d'eux, c'est de venir à l'écurie. On vous attend pour une visite ou un premier cours.</p>
+    <a href="index.html#contact" class="btn-white">Prendre contact</a>
+  </section>
+
+  <!-- ════ FOOTER ═════════════════════════════════════════════ -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo-wrap">
+          <img src="logo_egbfamily.png" alt="EGB Family" width="148" height="148" loading="lazy">
+        </div>
+        <p>Centre équestre associatif à Clermont-Ferrand. Une communauté passionnée, ouverte à tous, réunie autour du cheval depuis 2021.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul class="footer-links" role="list">
+          <li><a href="index.html#association">L'association</a></li>
+          <li><a href="index.html#activites">Activités</a></li>
+          <li><a href="chevaux.html">Nos chevaux</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul class="footer-links" role="list">
+          <li><a href="tel:+33684601537">06 84 60 15 37</a></li>
+          <li><a href="mailto:egbfamily63@gmail.com">egbfamily63@gmail.com</a></li>
+          <li><a href="https://www.instagram.com/egb_family/" target="_blank" rel="noopener noreferrer">@egb_family</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 EGB Family — Association Loi 1901 · SIRET 899 874 606 00010</span>
+      <span>3 Chemin du Grand Beaulieu, 63000 Clermont-Ferrand</span>
+    </div>
+  </footer>
+
+  <!-- ════ SCROLL TO TOP ═══════════════════════════════════ -->
+  <button class="scroll-top" id="scroll-top" aria-label="Retour en haut de page" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 19V5M5 12l7-7 7 7"/>
+    </svg>
+  </button>
+
+  <!-- ════ WHATSAPP ════════════════════════════════════════ -->
+  <a href="https://wa.me/33684601537?text=Bonjour%2C%20je%20souhaite%20en%20savoir%20plus%20sur%20EGB%20Family%20!"
+     class="whatsapp-btn" target="_blank" rel="noopener noreferrer" aria-label="Nous contacter sur WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 0C5.372 0 0 5.373 0 12.001c0 2.118.554 4.103 1.522 5.827L.057 23.925l6.264-1.643A11.94 11.94 0 0012 24c6.628 0 12-5.373 12-12.001S18.627 0 11.999 0zm.001 21.818a9.822 9.822 0 01-5.003-1.368l-.359-.214-3.72.976.993-3.622-.234-.372a9.818 9.818 0 01-1.505-5.218c0-5.426 4.415-9.838 9.83-9.838 5.415 0 9.827 4.412 9.827 9.838 0 5.426-4.412 9.818-9.829 9.818z"/>
+    </svg>
+  </a>
+
+  <!-- ════ DRAWER MOBILE ══════════════════════════════════ -->
+  <div class="drawer-overlay" id="drawer-overlay" aria-hidden="true" onclick="closeDrawer()"></div>
+
+  <nav class="drawer" id="drawer" aria-label="Menu mobile" aria-hidden="true">
+    <div class="drawer-header">
+      <a href="index.html" class="drawer-logo" onclick="closeDrawer()">
+        <img src="logo_egbfamily.png" alt="EGB Family" width="42" height="42" loading="lazy">
+        <div class="drawer-logo-text">
+          <span class="drawer-logo-egb">EGB <span class="drawer-logo-family">Family</span></span>
+        </div>
+      </a>
+      <button class="drawer-close" onclick="closeDrawer()" aria-label="Fermer le menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M18 6L6 18M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="drawer-nav" role="list">
+      <a href="index.html#association" role="listitem">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><use href="#i-users"/></svg>
+        L'association
+      </a>
+      <a href="index.html#activites" role="listitem">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><use href="#i-graduation"/></svg>
+        Activités
+      </a>
+      <a href="chevaux.html" role="listitem" class="active">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><use href="#i-horse"/></svg>
+        Nos chevaux
+      </a>
+      <a href="index.html#tarifs" role="listitem">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><use href="#i-star"/></svg>
+        Tarifs
+      </a>
+      <a href="index.html#galerie" role="listitem">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><use href="#i-photo"/></svg>
+        Galerie
+      </a>
+      <div class="drawer-divider"></div>
+      <a href="index.html#contact" role="listitem">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><use href="#i-location"/></svg>
+        Contact &amp; accès
+      </a>
+    </div>
+
+    <div class="drawer-footer">
+      <a href="https://www.instagram.com/egb_family/" target="_blank" rel="noopener noreferrer" aria-label="Instagram EGB Family">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-instagram"/></svg>
+        Instagram
+      </a>
+      <a href="https://www.facebook.com/profile.php?id=100069871481182" target="_blank" rel="noopener noreferrer" aria-label="Facebook EGB Family">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-facebook"/></svg>
+        Facebook
+      </a>
+    </div>
+  </nav>
+
+  <script defer>
+    // ── Scroll to top ────────────────────────────────────────
+    const scrollTopBtn = document.getElementById('scroll-top');
+    window.addEventListener('scroll', () => {
+      scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
+    }, { passive: true });
+
+    // ── Drawer ───────────────────────────────────────────────
+    const drawer  = document.getElementById('drawer');
+    const overlay = document.getElementById('drawer-overlay');
+    const burger  = document.getElementById('burger');
+    let lastFocus;
+
+    function openDrawer() {
+      lastFocus = document.activeElement;
+      drawer.classList.add('open');
+      overlay.classList.add('open');
+      burger.classList.add('open');
+      drawer.setAttribute('aria-hidden', 'false');
+      overlay.setAttribute('aria-hidden', 'false');
+      burger.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+      drawer.querySelector('a, button')?.focus();
+    }
+
+    function closeDrawer() {
+      drawer.classList.remove('open');
+      overlay.classList.remove('open');
+      burger.classList.remove('open');
+      drawer.setAttribute('aria-hidden', 'true');
+      overlay.setAttribute('aria-hidden', 'true');
+      burger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+      lastFocus?.focus();
+    }
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && drawer.classList.contains('open')) closeDrawer();
+    });
+
+    // ── Navbar shrink on scroll ──────────────────────────────
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.style.padding = window.scrollY > 60 ? '.45rem 3rem' : '.75rem 3rem';
+    }, { passive: true });
+
+    // ── Reveal animations ────────────────────────────────────
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .stagger').forEach(el => {
+      revealObserver.observe(el);
+    });
+  </script>
+
+</body>
+</html>

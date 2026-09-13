@@ -1,0 +1,1882 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>EGB Family — Centre Équestre Associatif | Clermont-Ferrand</title>
+  <meta name="description" content="EGB Family, centre équestre associatif à Clermont-Ferrand. Cours d'équitation, stages, pension pour chevaux dans un cadre convivial et familial. Association Loi 1901.">
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website">
+  <meta property="og:title"       content="EGB Family — Centre Équestre Associatif">
+  <meta property="og:description" content="Cours d'équitation, stages et pension chevaux à Clermont-Ferrand dans une ambiance familiale et bienveillante.">
+  <meta property="og:image"       content="logo_egbfamily.png">
+  <meta property="og:locale"      content="fr_FR">
+
+  <!-- Fonts : preconnect + chargement non-bloquant -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&family=DM+Sans:wght@400;500&family=Dancing+Script:wght@600&display=swap">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&family=DM+Sans:wght@400;500&family=Dancing+Script:wght@600&display=swap"
+    media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&family=DM+Sans:wght@400;500&family=Dancing+Script:wght@600&display=swap">
+  </noscript>
+
+  <!-- Feuille de style -->
+  <link rel="stylesheet" href="charte.css">
+
+  <!-- Préchargement logo (LCP) -->
+  <link rel="preload" as="image" href="logo_egbfamily.png">
+
+  <!-- Schema.org — SportsActivityLocation -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SportsActivityLocation",
+    "name": "EGB Family",
+    "description": "Centre équestre associatif à Clermont-Ferrand. Cours d'équitation, stages, pension chevaux.",
+    "url": "",
+    "telephone": "+33684601537",
+    "email": "egbfamily63@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "3 Chemin du Grand Beaulieu",
+      "addressLocality": "Clermont-Ferrand",
+      "postalCode": "63000",
+      "addressCountry": "FR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 45.7597,
+      "longitude": 3.1224
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.6",
+      "reviewCount": "8"
+    },
+    "sameAs": [
+      "https://www.facebook.com/profile.php?id=100069871481182",
+      "https://www.instagram.com/egb_family/"
+    ]
+  }
+  </script>
+
+  <style>
+    /* ── SVG icons helper ─────────────────────────────────── */
+    .icon { display:inline-block; width:1em; height:1em; vertical-align:-0.125em; fill:currentColor; }
+    .icon-stroke { fill:none; stroke:currentColor; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; }
+
+    /* ── Skip link (accessibilité) ────────────────────────── */
+    .skip-link {
+      position:absolute; top:-40px; left:0;
+      background:var(--color-primary); color:#fff;
+      padding:8px 16px; z-index:999; border-radius:0 0 4px 0;
+      transition:top .2s;
+    }
+    .skip-link:focus { top:0; }
+
+    /* ── Navbar ───────────────────────────────────────────── */
+    .navbar {
+      position:fixed; top:0; left:0; right:0; z-index:100;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:.75rem 3rem;
+      background:rgba(255,255,255,.97);
+      backdrop-filter:blur(10px);
+      box-shadow:0 1px 0 rgba(139,82,24,.10);
+      transition:padding var(--transition-base);
+    }
+    .navbar-logo {
+      display:flex; align-items:center; gap:.75rem; text-decoration:none;
+    }
+    .navbar-logo img { height:52px; width:52px; }
+    .navbar-logo-text { display:flex; flex-direction:column; line-height:1; }
+    .navbar-logo-egb {
+      font-family:var(--font-heading); font-size:1.35rem; font-weight:600;
+      letter-spacing:.06em; color:var(--color-primary);
+    }
+    .navbar-logo-family {
+      font-family:var(--font-accent); font-size:1.15rem; font-weight:600;
+    }
+    .navbar-logo-sub {
+      font-size:.6rem; font-weight:500; letter-spacing:.18em;
+      text-transform:uppercase; color:var(--color-text-muted);
+    }
+    .navbar-links { display:flex; align-items:center; gap:2rem; list-style:none; }
+    .navbar-links a {
+      font-size:.78rem; font-weight:500; letter-spacing:.1em;
+      text-transform:uppercase; color:var(--color-text); text-decoration:none;
+      position:relative; transition:color var(--transition-fast);
+    }
+    .navbar-links a::after {
+      content:''; position:absolute; bottom:-3px; left:0;
+      width:0; height:1.5px; background:var(--color-accent);
+      transition:width var(--transition-base);
+    }
+    .navbar-links a:hover { color:var(--color-primary); }
+    .navbar-links a:hover::after { width:100%; }
+    .navbar-cta {
+      background:var(--color-primary) !important;
+      color:#fff !important;
+      padding:.5rem 1.25rem; border-radius:var(--radius-full);
+    }
+    .navbar-cta::after { display:none !important; }
+    .navbar-cta:hover { background:var(--color-primary-dark) !important; }
+    .burger {
+      display:none; flex-direction:column; justify-content:center; gap:5px;
+      cursor:pointer; padding:6px; background:none; border:none;
+      width:40px; height:40px;
+    }
+    .burger span {
+      display:block; width:24px; height:2px;
+      background:var(--color-primary); border-radius:2px;
+      transition:transform .35s ease, opacity .25s ease;
+      transform-origin:center;
+    }
+    .burger.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+    .burger.open span:nth-child(2) { opacity:0; transform:scaleX(0); }
+    .burger.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+
+    /* ── Overlay ──────────────────────────────────────────── */
+    .drawer-overlay {
+      position:fixed; inset:0; z-index:150;
+      background:rgba(46,26,14,.55);
+      backdrop-filter:blur(3px);
+      opacity:0; pointer-events:none;
+      transition:opacity .35s ease;
+    }
+    .drawer-overlay.open { opacity:1; pointer-events:all; }
+
+    /* ── Drawer ───────────────────────────────────────────── */
+    .drawer {
+      position:fixed; top:0; right:0; bottom:0; z-index:160;
+      width:min(300px, 85vw);
+      background:#fff;
+      display:flex; flex-direction:column;
+      box-shadow:-8px 0 40px rgba(0,0,0,.18);
+      transform:translateX(100%);
+      transition:transform .38s cubic-bezier(.4,0,.2,1);
+      overflow-y:auto;
+    }
+    .drawer.open { transform:translateX(0); }
+
+    .drawer-header {
+      display:flex; align-items:center; justify-content:space-between;
+      padding:1.1rem 1.25rem;
+      border-bottom:1px solid var(--color-bg-warm);
+      flex-shrink:0;
+    }
+    .drawer-logo {
+      display:flex; align-items:center; gap:.6rem; text-decoration:none;
+    }
+    .drawer-logo img { height:42px; width:42px; }
+    .drawer-logo-text { line-height:1; }
+    .drawer-logo-egb {
+      font-family:var(--font-heading); font-size:1.1rem; font-weight:600;
+      color:var(--color-primary); display:block;
+    }
+    .drawer-logo-family {
+      font-family:var(--font-accent); font-size:.95rem; font-weight:600;
+      color:var(--color-secondary-dark);
+    }
+
+    .drawer-close {
+      width:36px; height:36px; border-radius:50%;
+      border:none; background:var(--color-bg-light); cursor:pointer;
+      display:flex; align-items:center; justify-content:center;
+      color:var(--color-text); transition:background var(--transition-fast);
+      flex-shrink:0;
+    }
+    .drawer-close:hover { background:var(--color-secondary); }
+    .drawer-close svg { width:18px; height:18px; }
+
+    .drawer-nav {
+      flex:1; padding:1rem 0;
+    }
+    .drawer-nav a {
+      display:flex; align-items:center; gap:.85rem;
+      padding:.9rem 1.5rem;
+      font-size:1rem; font-weight:500; color:var(--color-text);
+      text-decoration:none; border-left:3px solid transparent;
+      transition:background var(--transition-fast),
+                 color var(--transition-fast),
+                 border-color var(--transition-fast);
+    }
+    .drawer-nav a svg { width:18px; height:18px; color:var(--color-secondary-dark); flex-shrink:0; }
+    .drawer-nav a:hover {
+      background:var(--color-bg-light);
+      color:var(--color-primary);
+      border-left-color:var(--color-accent);
+    }
+    .drawer-nav a:hover svg { color:var(--color-primary); }
+
+    .drawer-divider {
+      height:1px; background:var(--color-bg-warm); margin:.5rem 1.5rem;
+    }
+
+    .drawer-cta {
+      padding:1rem 1.5rem; flex-shrink:0;
+      border-top:1px solid var(--color-bg-warm);
+    }
+    .drawer-cta .btn { width:100%; justify-content:center; margin-bottom:.75rem; }
+
+    .drawer-socials {
+      display:flex; gap:.6rem; justify-content:center;
+      padding:.25rem 0 .5rem;
+    }
+    .drawer-socials a {
+      width:38px; height:38px; border-radius:var(--radius-md);
+      background:var(--color-bg-light); display:flex; align-items:center;
+      justify-content:center; color:var(--color-primary); text-decoration:none;
+      transition:all var(--transition-fast);
+    }
+    .drawer-socials a svg { width:18px; height:18px; }
+    .drawer-socials a:hover { background:var(--color-primary); color:#fff; }
+
+    /* ── Hero ─────────────────────────────────────────────── */
+    .hero {
+      position:relative; height:100vh; min-height:580px;
+      display:flex; align-items:center; justify-content:center; overflow:hidden;
+      background:linear-gradient(135deg,#3C1E0A 0%,#8B5218 55%,#A66E30 100%);
+    }
+    .hero-bg {
+      position:absolute; inset:0;
+      background-image:url('photos/instagram/767784226_18100100525607345_665348747523335487_n.jpg');
+      background-size:cover; background-position:center 40%;
+      opacity:1;
+    }
+    .hero-overlay {
+      position:absolute; inset:0;
+      background:linear-gradient(to bottom,rgba(30,45,66,.3) 0%,rgba(139,82,24,.55) 60%,rgba(30,45,66,.85) 100%);
+    }
+    .hero-content {
+      position:relative; z-index:2;
+      text-align:center; padding:0 2rem; max-width:820px;
+    }
+    .hero-eyebrow {
+      display:inline-block;
+      font-size:.72rem; font-weight:500; letter-spacing:.3em;
+      text-transform:uppercase; color:#fff;
+      margin-bottom:1rem; opacity:0;
+      background:rgba(139,82,24,.55);
+      backdrop-filter:blur(6px);
+      padding:.45rem 1.2rem;
+      border-radius:var(--radius-full);
+      border:1px solid rgba(255,255,255,.18);
+      animation:fadeUp .8s .3s forwards;
+    }
+    .hero-title {
+      font-family:var(--font-heading);
+      font-size:clamp(4rem,10vw,7.5rem);
+      font-weight:300; font-style:italic;
+      color:#fff; letter-spacing:.02em; line-height:.95;
+      margin-bottom:1rem; opacity:0;
+      animation:fadeUp .8s .5s forwards;
+    }
+    .hero-subtitle {
+      font-family:var(--font-heading);
+      font-size:clamp(1.1rem,2.5vw,1.6rem);
+      font-weight:300; font-style:italic;
+      color:rgba(255,255,255,.82);
+      margin-bottom:2.5rem; opacity:0;
+      animation:fadeUp .8s .7s forwards;
+    }
+    .hero-actions {
+      display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;
+      opacity:0; animation:fadeUp .8s .9s forwards;
+    }
+    .hero-actions .btn { padding:.85rem 2.2rem; font-size:.8rem; }
+    .btn-white { background:#fff; color:var(--color-primary); border-color:#fff; }
+    .btn-white:hover { background:transparent; color:#fff; }
+    .btn-outline-white { background:transparent; color:#fff; border-color:rgba(255,255,255,.6); }
+    .btn-outline-white:hover { background:rgba(255,255,255,.15); border-color:#fff; }
+    .hero-scroll {
+      position:absolute; bottom:2rem; left:50%; transform:translateX(-50%);
+      z-index:2; color:rgba(255,255,255,.5); font-size:.65rem;
+      letter-spacing:.2em; text-transform:uppercase;
+      display:flex; flex-direction:column; align-items:center; gap:.5rem;
+      animation:bounce 2s infinite;
+    }
+    .hero-scroll svg { width:18px; height:18px; }
+
+    /* ── Vague organique bas hero ────────────────────────── */
+    .hero-wave {
+      position:absolute; bottom:-1px; left:0; right:0; z-index:3; line-height:0;
+    }
+    .hero-wave svg { width:100%; height:70px; display:block; }
+
+    /* ── Stats ────────────────────────────────────────────── */
+    .stats-bar { background:var(--color-secondary); padding:3rem 2rem; }
+    .stats-grid {
+      display:flex; justify-content:center;
+      max-width:900px; margin:0 auto; flex-wrap:wrap;
+    }
+    .stat-item {
+      flex:1; min-width:150px; text-align:center;
+      padding:1.5rem 2rem; position:relative;
+    }
+    .stat-item:not(:last-child)::after {
+      content:''; position:absolute; right:0; top:20%; bottom:20%;
+      width:1px; background:rgba(139,82,24,.2);
+    }
+    .stat-number {
+      font-family:var(--font-heading); font-size:3.2rem; font-weight:600;
+      color:var(--color-primary); line-height:1; display:block;
+    }
+    .stat-number small { font-size:1.8rem; }
+    .stat-label {
+      font-size:.72rem; font-weight:500; letter-spacing:.15em;
+      text-transform:uppercase; color:var(--color-primary);
+      opacity:.7; margin-top:.5rem; display:block;
+    }
+
+    /* ── À propos ─────────────────────────────────────────── */
+    .about { padding:6rem 2rem; background:var(--color-white); position:relative; overflow:hidden; }
+    .about::after {
+      content:''; position:absolute; bottom:-100px; right:-100px;
+      width:320px; height:320px;
+      background:var(--color-bg-warm);
+      border-radius:30% 70% 55% 45% / 65% 35% 65% 35%;
+      opacity:.65; pointer-events:none; z-index:0;
+    }
+    .about-inner { position:relative; z-index:1; }
+    .about-inner {
+      max-width:1100px; margin:0 auto;
+      display:grid; grid-template-columns:1fr 1fr;
+      gap:4rem; align-items:center;
+    }
+    .about-img-wrap { position:relative; }
+    .about-img-placeholder {
+      width:100%; aspect-ratio:4/5; border-radius:var(--radius-lg);
+      background:linear-gradient(135deg,var(--color-secondary) 0%,var(--color-bg-warm) 100%);
+      display:flex; align-items:center; justify-content:center;
+      color:rgba(139,82,24,.25);
+    }
+    .about-img-placeholder svg { width:80px; height:80px; }
+    .about-badge {
+      position:absolute; bottom:-1.5rem; right:-1.5rem;
+      background:var(--color-primary); color:#fff;
+      border-radius:var(--radius-lg); padding:1.5rem;
+      text-align:center; box-shadow:var(--shadow-lg);
+    }
+    .about-badge-num {
+      font-family:var(--font-heading); font-size:2.5rem; font-weight:600;
+      line-height:1; display:block;
+    }
+    .about-badge-txt { font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; opacity:.85; }
+    .section-eyebrow {
+      font-size:.72rem; font-weight:600; letter-spacing:.25em;
+      text-transform:uppercase; color:var(--color-accent);
+      margin-bottom:.75rem; display:block;
+    }
+    .about-content h2 { font-size:clamp(2rem,3.5vw,2.8rem); margin-bottom:.5rem; }
+    .about-content p { color:var(--color-text-muted); margin-bottom:1rem; font-size:1rem; line-height:1.85; }
+    .about-values { display:flex; flex-direction:column; gap:1rem; margin:2rem 0; }
+    .value-item { display:flex; align-items:flex-start; gap:1rem; }
+    .value-icon {
+      width:40px; height:40px; border-radius:var(--radius-md);
+      background:var(--color-bg-light); display:flex; align-items:center;
+      justify-content:center; color:var(--color-primary); flex-shrink:0;
+    }
+    .value-icon svg { width:18px; height:18px; }
+    .value-text strong { display:block; font-family:var(--font-heading); font-size:1.1rem; color:var(--color-primary); margin-bottom:2px; }
+    .value-text span { font-size:.9rem; color:var(--color-text-muted); }
+
+    /* ── Activités ────────────────────────────────────────── */
+    .activities { padding:6rem 2rem; background:var(--color-bg-light); }
+    .activities-header { text-align:center; max-width:600px; margin:0 auto 4rem; }
+    .activities-header h2 { margin-bottom:1rem; }
+    .activities-header p { color:var(--color-text-muted); font-size:1.05rem; }
+    .activities-grid {
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:1.5rem; max-width:1100px; margin:0 auto;
+    }
+    .activity-card {
+      background:#fff; border-radius:var(--radius-lg); overflow:hidden;
+      box-shadow:var(--shadow-sm);
+      transition:transform var(--transition-base),box-shadow var(--transition-base);
+    }
+    .activity-card:hover { transform:translateY(-6px); box-shadow:var(--shadow-lg); }
+    .activity-img {
+      width:100%; aspect-ratio:16/10;
+      background:linear-gradient(135deg,var(--color-secondary) 0%,var(--color-bg-warm) 100%);
+      display:flex; align-items:center; justify-content:center;
+      color:rgba(139,82,24,.2);
+    }
+    .activity-img svg { width:48px; height:48px; }
+    .activity-body { padding:1.5rem; }
+    .activity-icon {
+      width:44px; height:44px; border-radius:var(--radius-md);
+      background:var(--color-primary); display:flex; align-items:center;
+      justify-content:center; color:#fff; margin-bottom:1rem;
+    }
+    .activity-icon svg { width:20px; height:20px; }
+    .activity-body h3 { font-size:1.3rem; margin-bottom:.5rem; }
+    .activity-body p { font-size:.9rem; color:var(--color-text-muted); line-height:1.75; margin-bottom:1rem; }
+    .activity-link {
+      font-size:.78rem; font-weight:600; letter-spacing:.08em;
+      text-transform:uppercase; color:var(--color-primary); text-decoration:none;
+      display:inline-flex; align-items:center; gap:.5rem;
+      transition:gap var(--transition-fast),color var(--transition-fast);
+    }
+    .activity-link svg { width:14px; height:14px; transition:transform var(--transition-fast); }
+    .activity-link:hover { color:var(--color-accent); gap:.75rem; }
+    .activity-link:hover svg { transform:translateX(3px); }
+
+    /* ── Équipements ──────────────────────────────────────── */
+    .equipements { padding:6rem 2rem; background:var(--color-primary); color:#fff; }
+    .equipements-inner {
+      max-width:1100px; margin:0 auto;
+      display:grid; grid-template-columns:1fr 1fr;
+      gap:4rem; align-items:center;
+    }
+    .equipements-content h2 { color:#fff; margin-bottom:1rem; }
+    .equipements-content p { color:rgba(255,255,255,.75); font-size:1rem; line-height:1.85; margin-bottom:2rem; }
+    .equip-grid { display:grid; grid-template-columns:1fr 1fr; gap:.75rem; }
+    .equip-item {
+      display:flex; align-items:center; gap:.75rem;
+      background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.12);
+      border-radius:var(--radius-md); padding:.75rem 1rem;
+      font-size:.88rem; color:rgba(255,255,255,.9);
+      transition:background var(--transition-fast);
+    }
+    .equip-item:hover { background:rgba(255,255,255,.15); }
+    .equip-item svg { width:16px; height:16px; color:var(--color-accent-light); flex-shrink:0; }
+    .equipements-img-main {
+      width:100%; aspect-ratio:1; border-radius:var(--radius-lg);
+      background:rgba(255,255,255,.08);
+      display:flex; align-items:center; justify-content:center;
+      color:rgba(255,255,255,.15);
+    }
+    .equipements-img-main svg { width:96px; height:96px; }
+
+    /* ── Galerie ──────────────────────────────────────────── */
+    .galerie { padding:6rem 2rem; background:#fff; position:relative; overflow:hidden; }
+    /* blob déco galerie */
+    .galerie::before {
+      content:''; position:absolute; top:-70px; left:-70px;
+      width:260px; height:260px;
+      background:var(--color-bg-warm);
+      border-radius:62% 38% 70% 30% / 45% 65% 35% 55%;
+      opacity:.8; pointer-events:none; z-index:0;
+    }
+    .galerie::after {
+      content:''; position:absolute; bottom:-90px; right:-90px;
+      width:280px; height:280px;
+      background:var(--color-accent);
+      border-radius:40% 60% 28% 72% / 58% 42% 58% 42%;
+      opacity:.12; pointer-events:none; z-index:0;
+    }
+    .galerie-header { position:relative; z-index:1; }
+    .galerie-grid   { position:relative; z-index:1; }
+    .galerie-header { text-align:center; max-width:550px; margin:0 auto 3rem; }
+    .galerie-grid {
+      display:grid; grid-template-columns:repeat(3,1fr);
+      gap:.75rem; max-width:1100px; margin:0 auto;
+    }
+    .galerie-item {
+      border-radius:var(--radius-md); overflow:hidden;
+      background:linear-gradient(135deg,var(--color-secondary) 0%,var(--color-bg-warm) 100%);
+      aspect-ratio:4/3; display:flex; align-items:center; justify-content:center;
+      color:rgba(139,82,24,.2); cursor:pointer;
+      transition:transform var(--transition-base),filter var(--transition-base);
+    }
+    .galerie-item:hover { transform:scale(1.02); filter:brightness(1.05); }
+    .galerie-item:first-child { grid-column:span 2; aspect-ratio:16/9; }
+    .galerie-item svg { width:40px; height:40px; }
+    .galerie-item img { width:100%; height:100%; object-fit:cover; display:block; pointer-events:none; }
+    .galerie-cta { text-align:center; margin-top:2rem; }
+    .btn-instagram {
+      display:inline-flex; align-items:center; gap:.6rem;
+      border:2px solid var(--color-primary); color:var(--color-primary);
+      background:transparent; border-radius:var(--radius-full);
+      padding:.75rem 2rem; font-size:.8rem; font-weight:500;
+      letter-spacing:.08em; text-transform:uppercase; text-decoration:none;
+      transition:all var(--transition-base);
+    }
+    .btn-instagram:hover { background:var(--color-primary); color:#fff; }
+    .btn-instagram svg { width:18px; height:18px; }
+
+    /* ── Témoignages ──────────────────────────────────────── */
+    .temoignages { padding:6rem 2rem; background:var(--color-bg-light); }
+    .temoignages-header { text-align:center; margin-bottom:3rem; }
+    .google-rating {
+      display:inline-flex; align-items:center; gap:.75rem;
+      background:#fff; border-radius:var(--radius-full);
+      padding:.75rem 1.5rem; box-shadow:var(--shadow-sm); margin-bottom:1.5rem;
+    }
+    .google-rating .stars { color:#F9AB00; letter-spacing:2px; font-size:.95rem; }
+    .google-rating .score {
+      font-family:var(--font-heading); font-size:1.4rem;
+      font-weight:600; color:var(--color-primary);
+    }
+    .google-rating .count { font-size:.8rem; color:var(--color-text-muted); }
+    .temoignages-grid {
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:1.5rem; max-width:1000px; margin:0 auto;
+    }
+    .temoignage-card {
+      background:#fff; border-radius:var(--radius-lg);
+      padding:2rem; box-shadow:var(--shadow-sm); position:relative;
+    }
+    .temoignage-card::before {
+      content:'\201C'; font-family:var(--font-heading); font-size:5rem;
+      color:var(--color-secondary); position:absolute;
+      top:.5rem; left:1.2rem; line-height:1;
+    }
+    .temoignage-stars { color:#F9AB00; font-size:.85rem; margin-bottom:1rem; }
+    .temoignage-text {
+      font-family:var(--font-heading); font-size:1.1rem; font-style:italic;
+      color:var(--color-text); line-height:1.75;
+      margin-bottom:1.5rem; padding-top:1.5rem;
+    }
+    .temoignage-author { display:flex; align-items:center; gap:.75rem; }
+    .temoignage-avatar {
+      width:40px; height:40px; border-radius:50%;
+      background:var(--color-secondary); display:flex; align-items:center;
+      justify-content:center; font-family:var(--font-heading);
+      font-size:1.2rem; font-weight:600; color:var(--color-primary); flex-shrink:0;
+    }
+    .temoignage-name { font-weight:600; font-size:.9rem; color:var(--color-primary); }
+    .temoignage-date { font-size:.75rem; color:var(--color-text-muted); }
+
+    /* ── CTA ──────────────────────────────────────────────── */
+    .cta-section {
+      padding:6rem 2rem; background:var(--color-secondary);
+      text-align:center; position:relative; overflow:hidden;
+    }
+    .cta-section::before {
+      content:'EGB'; font-family:var(--font-heading); font-size:18rem;
+      color:rgba(139,82,24,.06); position:absolute;
+      top:50%; left:50%; transform:translate(-50%,-50%);
+      pointer-events:none; white-space:nowrap;
+    }
+    .cta-inner { position:relative; z-index:1; max-width:650px; margin:0 auto; }
+    .cta-inner h2 { font-size:clamp(2rem,4vw,3rem); margin-bottom:1rem; }
+    .cta-inner p { color:var(--color-text-muted); font-size:1.05rem; margin-bottom:2rem; line-height:1.85; }
+    .cta-actions { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+
+    /* ── Contact ──────────────────────────────────────────── */
+    .contact { padding:6rem 2rem; background:#fff; }
+    .contact-inner {
+      max-width:1100px; margin:0 auto;
+      display:grid; grid-template-columns:1fr 1.4fr;
+      gap:4rem; align-items:start;
+    }
+    .contact-info h2 { margin-bottom:1rem; }
+    .contact-info > p { color:var(--color-text-muted); line-height:1.85; margin-bottom:2rem; }
+    .contact-details { display:flex; flex-direction:column; gap:1rem; }
+    .contact-detail { display:flex; align-items:flex-start; gap:1rem; }
+    .contact-detail-icon {
+      width:44px; height:44px; border-radius:var(--radius-md);
+      background:var(--color-bg-light); display:flex; align-items:center;
+      justify-content:center; color:var(--color-primary); flex-shrink:0;
+    }
+    .contact-detail-icon svg { width:20px; height:20px; }
+    .contact-detail-text strong { display:block; font-size:.85rem; font-weight:600; color:var(--color-primary); margin-bottom:2px; }
+    .contact-detail-text a, .contact-detail-text span { font-size:.95rem; color:var(--color-text-muted); text-decoration:none; }
+    .contact-detail-text a:hover { color:var(--color-primary); }
+    .contact-socials { display:flex; gap:.75rem; margin-top:2rem; }
+    .social-btn {
+      width:44px; height:44px; border-radius:var(--radius-md);
+      background:var(--color-bg-light); display:flex; align-items:center;
+      justify-content:center; color:var(--color-primary); text-decoration:none;
+      transition:all var(--transition-fast);
+    }
+    .social-btn svg { width:20px; height:20px; }
+    .social-btn:hover { background:var(--color-primary); color:#fff; transform:translateY(-2px); }
+    .map-wrap { border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-md); height:420px; }
+    .map-wrap iframe { width:100%; height:100%; border:none; display:block; }
+
+    /* ── Footer ───────────────────────────────────────────── */
+    footer { background:var(--color-primary-dark); color:rgba(255,255,255,.75); padding:3rem 2rem 2rem; }
+    .footer-inner {
+      max-width:1100px; margin:0 auto;
+      display:grid; grid-template-columns:2fr 1fr 1fr;
+      gap:3rem; padding-bottom:2rem;
+      border-bottom:1px solid rgba(255,255,255,.1);
+    }
+    .footer-logo-wrap {
+      width:160px; height:160px; border-radius:50%;
+      background:#fff; display:flex; align-items:center; justify-content:center;
+      box-shadow:0 4px 24px rgba(0,0,0,.25); margin-bottom:1.5rem;
+    }
+    .footer-logo-wrap img { height:148px; width:148px; }
+    .footer-brand p { font-size:.88rem; line-height:1.85; max-width:280px; }
+    .footer-col h4 {
+      font-size:.72rem; font-weight:600; letter-spacing:.18em;
+      text-transform:uppercase; color:var(--color-accent-light); margin-bottom:1rem;
+    }
+    .footer-links { list-style:none; display:flex; flex-direction:column; gap:.5rem; }
+    .footer-links a { color:rgba(255,255,255,.65); text-decoration:none; font-size:.9rem; transition:color var(--transition-fast); }
+    .footer-links a:hover { color:#fff; }
+    .footer-bottom {
+      max-width:1100px; margin:.5rem auto 0;
+      display:flex; justify-content:space-between; align-items:center;
+      font-size:.78rem; flex-wrap:wrap; gap:1rem;
+    }
+
+    /* ── Tarifs ───────────────────────────────────────────── */
+    .tarifs { padding:6rem 2rem; background:var(--color-white); }
+    .tarifs-header { text-align:center; max-width:620px; margin:0 auto 4rem; }
+    .tarifs-header h2 { margin-bottom:1rem; }
+    .tarifs-header p { color:var(--color-text-muted); font-size:1.05rem; }
+
+    .tarifs-cols {
+      display:grid; grid-template-columns:1fr 1fr;
+      gap:2rem; max-width:1000px; margin:0 auto 2rem;
+    }
+    .tarif-col {
+      border-radius:var(--radius-lg); overflow:hidden;
+      box-shadow:var(--shadow-md);
+      border:2px solid transparent;
+      transition:border-color var(--transition-base),box-shadow var(--transition-base);
+    }
+    .tarif-col:hover { border-color:var(--color-secondary); box-shadow:var(--shadow-lg); }
+
+    .tarif-col-header {
+      padding:1.75rem 2rem 1.5rem;
+      background:var(--color-primary);
+      text-align:center;
+    }
+    .tarif-col-age {
+      font-family:var(--font-heading); font-size:1.9rem; font-weight:600;
+      color:#fff; display:block; line-height:1.1; margin-bottom:.25rem;
+    }
+    .tarif-col-subtitle {
+      font-size:.72rem; font-weight:500; letter-spacing:.2em;
+      text-transform:uppercase; color:rgba(255,255,255,.65);
+    }
+    .tarif-col-badge {
+      display:inline-block; margin-top:.75rem;
+      font-size:.7rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
+      padding:.3rem .9rem; border-radius:var(--radius-full); border:1.5px solid rgba(255,255,255,.4);
+      color:rgba(255,255,255,.9);
+    }
+
+    .tarif-col-body { background:var(--color-bg-light); padding:1.75rem 2rem; }
+
+    .tarif-section-title {
+      font-size:.68rem; font-weight:700; letter-spacing:.2em;
+      text-transform:uppercase; color:var(--color-primary);
+      border-bottom:1.5px solid var(--color-secondary);
+      padding-bottom:.5rem; margin-bottom:.85rem; margin-top:1.5rem;
+    }
+    .tarif-section-title:first-child { margin-top:0; }
+
+    .tarif-line {
+      display:flex; justify-content:space-between; align-items:baseline;
+      font-size:.9rem; padding:.3rem 0;
+    }
+    .tarif-line-label { color:var(--color-text-muted); }
+    .tarif-line-label.sub { padding-left:1rem; font-size:.85rem; }
+    .tarif-line-price {
+      font-family:var(--font-heading); font-weight:600;
+      color:var(--color-primary); font-size:1rem; white-space:nowrap;
+    }
+    .tarif-line.highlight .tarif-line-label { font-weight:700; color:var(--color-text); }
+    .tarif-line.highlight .tarif-line-price { font-size:1.15rem; color:var(--color-accent); }
+
+    .tarif-detail {
+      background:rgba(139,82,24,.06); border-radius:var(--radius-md);
+      padding:.85rem 1rem; margin-top:1rem;
+      font-size:.82rem; color:var(--color-text-muted); line-height:1.7;
+    }
+
+    .tarif-col-cta { padding:1.25rem 2rem 1.75rem; background:var(--color-bg-light); }
+    .tarif-col-cta .btn { width:100%; justify-content:center; }
+
+    .tarifs-extras {
+      max-width:1000px; margin:0 auto;
+      background:var(--color-primary); border-radius:var(--radius-lg);
+      padding:1.5rem 2rem; display:flex; align-items:center;
+      justify-content:space-between; gap:1.5rem; flex-wrap:wrap;
+    }
+    .tarifs-extras p {
+      color:rgba(255,255,255,.9); font-size:.95rem;
+    }
+    .tarifs-extras strong { color:#fff; }
+    .tarif-note {
+      text-align:center; margin-top:1.5rem;
+      font-size:.82rem; color:var(--color-text-muted); font-style:italic;
+    }
+
+    @media (max-width:680px) {
+      .tarifs-cols { grid-template-columns:1fr; }
+    }
+
+    /* ── Formulaire de contact ────────────────────────────── */
+    .contact-form-wrap {
+      background:var(--color-bg-light); border-radius:var(--radius-lg);
+      padding:2.5rem; box-shadow:var(--shadow-sm);
+    }
+    .contact-form-wrap h3 {
+      font-size:1.6rem; margin-bottom:.5rem;
+    }
+    .contact-form-wrap > p { font-size:.9rem; color:var(--color-text-muted); margin-bottom:1.75rem; }
+    .form-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+    .form-group { display:flex; flex-direction:column; gap:.4rem; margin-bottom:1rem; }
+    .form-group label {
+      font-size:.78rem; font-weight:600; letter-spacing:.06em;
+      text-transform:uppercase; color:var(--color-primary);
+    }
+    .form-group label .required { color:var(--color-accent); margin-left:2px; }
+    .form-control {
+      padding:.75rem 1rem; border:1.5px solid #ddd5cf;
+      border-radius:var(--radius-md); font-family:var(--font-body);
+      font-size:.95rem; color:var(--color-text); background:#fff;
+      transition:border-color var(--transition-fast),box-shadow var(--transition-fast);
+      width:100%;
+    }
+    .form-control:focus {
+      outline:none; border-color:var(--color-primary);
+      box-shadow:0 0 0 3px rgba(139,82,24,.12);
+    }
+    .form-control::placeholder { color:#b0a8a4; }
+    select.form-control { cursor:pointer; appearance:none;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%233D5478' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat:no-repeat; background-position:right 1rem center; padding-right:2.5rem;
+    }
+    textarea.form-control { resize:vertical; min-height:130px; }
+    .form-honeypot { display:none; }
+    .form-submit { width:100%; justify-content:center; padding:1rem; font-size:.9rem; }
+    .form-feedback {
+      padding:1rem 1.25rem; border-radius:var(--radius-md);
+      font-size:.9rem; margin-top:1rem; display:none;
+    }
+    .form-feedback.success {
+      background:#e8f5e9; color:#2e7d32; border:1px solid #a5d6a7; display:block;
+    }
+    .form-feedback.error {
+      background:#fce4ec; color:#c62828; border:1px solid #ef9a9a; display:block;
+    }
+    .form-loading { opacity:.6; pointer-events:none; }
+
+    @media (max-width:640px) {
+      .form-row { grid-template-columns:1fr; }
+      .tarifs-grid { grid-template-columns:1fr; }
+    }
+
+    /* ── Scroll to top ────────────────────────────────────── */
+    .scroll-top {
+      position:fixed; bottom:1.75rem; left:1.75rem; z-index:200;
+      width:46px; height:46px; border-radius:50%; border:none;
+      background:var(--color-primary); color:#fff; cursor:pointer;
+      display:flex; align-items:center; justify-content:center;
+      box-shadow:var(--shadow-md);
+      opacity:0; transform:translateY(12px); pointer-events:none;
+      transition:opacity .3s ease, transform .3s ease, background var(--transition-fast);
+    }
+    .scroll-top.visible { opacity:1; transform:translateY(0); pointer-events:all; }
+    .scroll-top:hover { background:var(--color-primary-dark); }
+    .scroll-top svg { width:20px; height:20px; }
+
+    /* ── Lightbox ──────────────────────────────────────────── */
+    .lightbox {
+      position:fixed; inset:0; z-index:300;
+      display:flex; align-items:center; justify-content:center;
+      opacity:0; pointer-events:none;
+      transition:opacity .3s ease;
+    }
+    .lightbox.open { opacity:1; pointer-events:all; }
+    .lightbox-overlay {
+      position:absolute; inset:0;
+      background:rgba(15,20,30,.92);
+      backdrop-filter:blur(6px);
+    }
+    .lightbox-content {
+      position:relative; z-index:1;
+      max-width:90vw; max-height:88vh;
+      display:flex; align-items:center; justify-content:center;
+      border-radius:var(--radius-lg); overflow:hidden;
+    }
+    .lightbox-content img {
+      max-width:90vw; max-height:85vh;
+      object-fit:contain; border-radius:var(--radius-lg);
+      display:block;
+    }
+    .lightbox-placeholder {
+      width:min(560px,80vw); aspect-ratio:4/3;
+      background:rgba(255,255,255,.06); border-radius:var(--radius-lg);
+      display:flex; flex-direction:column; align-items:center; justify-content:center;
+      gap:1rem; color:rgba(255,255,255,.35);
+    }
+    .lightbox-placeholder svg { width:64px; height:64px; }
+    .lightbox-placeholder p { font-family:var(--font-heading); font-size:1.2rem; font-style:italic; }
+    .lightbox-close {
+      position:fixed; top:1.25rem; right:1.25rem; z-index:2;
+      width:44px; height:44px; border-radius:50%; border:none;
+      background:rgba(255,255,255,.12); color:#fff; cursor:pointer;
+      display:flex; align-items:center; justify-content:center;
+      backdrop-filter:blur(4px); transition:background var(--transition-fast);
+    }
+    .lightbox-close:hover { background:rgba(255,255,255,.25); }
+    .lightbox-close svg { width:20px; height:20px; }
+    .lightbox-prev, .lightbox-next {
+      position:fixed; top:50%; z-index:2;
+      width:48px; height:48px; border-radius:50%; border:none;
+      background:rgba(255,255,255,.12); color:#fff; cursor:pointer;
+      display:flex; align-items:center; justify-content:center;
+      backdrop-filter:blur(4px); transform:translateY(-50%);
+      transition:background var(--transition-fast), transform .2s ease;
+    }
+    .lightbox-prev { left:1.25rem; }
+    .lightbox-next { right:1.25rem; }
+    .lightbox-prev:hover { background:rgba(255,255,255,.25); transform:translateY(-50%) translateX(-2px); }
+    .lightbox-next:hover { background:rgba(255,255,255,.25); transform:translateY(-50%) translateX(2px); }
+    .lightbox-prev svg, .lightbox-next svg { width:22px; height:22px; }
+    .lightbox-counter {
+      position:fixed; bottom:1.5rem; left:50%; transform:translateX(-50%);
+      font-family:var(--font-body); font-size:.8rem; font-weight:500;
+      color:rgba(255,255,255,.6); letter-spacing:.12em;
+      background:rgba(0,0,0,.3); padding:.35rem .9rem;
+      border-radius:var(--radius-full); backdrop-filter:blur(4px);
+    }
+
+    /* ── Animations hero ──────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity:0; transform:translateY(24px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+    @keyframes bounce {
+      0%,100% { transform:translateX(-50%) translateY(0); }
+      50%      { transform:translateX(-50%) translateY(8px); }
+    }
+
+    /* ── Reveal au scroll ─────────────────────────────────── */
+    .reveal {
+      opacity:0;
+      transform:translateY(32px);
+      transition:opacity .65s cubic-bezier(.4,0,.2,1),
+                 transform .65s cubic-bezier(.4,0,.2,1);
+    }
+    .reveal.reveal-left  { transform:translateX(-40px); }
+    .reveal.reveal-right { transform:translateX(40px); }
+    .reveal.revealed {
+      opacity:1;
+      transform:none;
+    }
+
+    /* ── WhatsApp flottant ────────────────────────────────── */
+    .whatsapp-float {
+      position:fixed; bottom:1.75rem; right:1.75rem; z-index:200;
+      display:flex; align-items:center; gap:.75rem;
+      text-decoration:none;
+    }
+    .whatsapp-tooltip {
+      background:var(--color-text); color:#fff;
+      font-size:.78rem; font-weight:500; white-space:nowrap;
+      padding:.45rem .9rem; border-radius:var(--radius-full);
+      opacity:0; transform:translateX(8px);
+      transition:opacity var(--transition-base),transform var(--transition-base);
+      pointer-events:none;
+    }
+    .whatsapp-float:hover .whatsapp-tooltip,
+    .whatsapp-float:focus .whatsapp-tooltip {
+      opacity:1; transform:translateX(0);
+    }
+    .whatsapp-btn {
+      width:58px; height:58px; border-radius:50%;
+      background:#25D366;
+      display:flex; align-items:center; justify-content:center;
+      box-shadow:0 4px 20px rgba(37,211,102,.45);
+      transition:transform var(--transition-base),box-shadow var(--transition-base);
+      position:relative; flex-shrink:0;
+    }
+    .whatsapp-btn svg { width:30px; height:30px; fill:#fff; }
+    .whatsapp-float:hover .whatsapp-btn {
+      transform:scale(1.1);
+      box-shadow:0 6px 28px rgba(37,211,102,.55);
+    }
+    .whatsapp-pulse {
+      position:absolute; inset:0; border-radius:50%;
+      background:#25D366; opacity:.4;
+      animation:waPulse 2.2s ease-out infinite;
+    }
+    @keyframes waPulse {
+      0%   { transform:scale(1);   opacity:.4; }
+      70%  { transform:scale(1.55);opacity:0; }
+      100% { transform:scale(1.55);opacity:0; }
+    }
+
+    /* ── Responsive ───────────────────────────────────────── */
+    @media (max-width:900px) {
+      .about-inner, .equipements-inner, .contact-inner { grid-template-columns:1fr; }
+      .about-badge { right:0; }
+      .galerie-item:first-child { grid-column:span 1; aspect-ratio:4/3; }
+      .galerie-grid { grid-template-columns:repeat(2,1fr); }
+      .footer-inner { grid-template-columns:1fr 1fr; }
+    }
+    @media (max-width:640px) {
+      .navbar { padding:.75rem 1.25rem; }
+      .navbar-links { display:none; }
+      .burger { display:flex; }
+      .stats-grid { flex-direction:column; align-items:center; }
+      .stat-item::after { display:none; }
+      .galerie-grid { grid-template-columns:1fr; }
+      .footer-inner { grid-template-columns:1fr; }
+      .footer-bottom { flex-direction:column; text-align:center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SVG sprite — icônes inline, zéro requête réseau -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path class="icon-stroke" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path class="icon-stroke" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path class="icon-stroke" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path class="icon-stroke" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path class="icon-stroke" d="M18 18.72a9.09 9.09 0 003.74-.48 3 3 0 00-4.68-2.72m.94 3.2v.03c0 .22-.01.45-.04.66A11.94 11.94 0 0112 21c-2.17 0-4.21-.576-5.96-1.584A6.06 6.06 0 016 18.72m12 0a5.97 5.97 0 00-.94-3.2m0 0A6 6 0 0012 12.75a6 6 0 00-5.06 2.77m0 0a3 3 0 00-4.68 2.72 8.99 8.99 0 003.74.48m.94-3.2a5.97 5.97 0 00-.94 3.2M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"/></symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24"><path class="icon-stroke" d="M20.893 13.393l-1.135-1.135a2.252 2.252 0 01-.421-.585l-1.08-2.16a.414.414 0 00-.663-.107.827.827 0 01-.812.21l-1.273-.363a.89.89 0 00-.738 1.595l.587.39c.59.395.674 1.23.172 1.732l-.2.2c-.211.212-.33.498-.33.796v.41c0 .409-.11.809-.32 1.158l-1.315 2.191a2.11 2.11 0 01-1.81 1.025 1.055 1.055 0 01-1.055-1.055v-1.172c0-.92-.56-1.747-1.414-2.089l-.654-.261a2.25 2.25 0 01-1.384-2.46l.007-.042a2.25 2.25 0 01.29-.787l.09-.15a2.25 2.25 0 012.37-1.048l1.178.236a1.125 1.125 0 001.302-.795l.208-.73a1.125 1.125 0 00-.578-1.315l-.665-.332-.091.091a2.25 2.25 0 01-1.591.659h-.18c-.249 0-.487.1-.662.274a.931.931 0 01-1.458-1.137l1.411-2.353a2.25 2.25 0 00.286-.76m11.928 9.869A9 9 0 008.965 3.525m11.928 9.868A9 9 0 118.965 3.525"/></symbol>
+    <symbol id="i-graduation" viewBox="0 0 24 24"><path class="icon-stroke" d="M4.26 10.147a60.44 60.44 0 00-.491 6.347A48.63 48.63 0 0112 20.904a48.63 48.63 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.9 59.9 0 0112 3.493a59.9 59.9 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.7 50.7 0 0112 13.489a50.7 50.7 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.38 55.38 0 0112 8.443m-7.007 11.55A5.98 5.98 0 006.75 15.75v-1.5"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><path class="icon-stroke" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path class="icon-stroke" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path class="icon-stroke" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/></symbol>
+    <symbol id="i-photo" viewBox="0 0 24 24"><path class="icon-stroke" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"/></symbol>
+    <symbol id="i-horse" viewBox="0 0 24 24"><path class="icon-stroke" d="M15.5 5c.5-.8 1.5-1 2-1s1 .3 1 .8-.3.7-.8.9c.4.2.8.5.8 1-.1.6-.7.9-1.5.8.3.5.2 1.2-.5 1.4l-.8.2c-.5 1.2-1.8 2-3 2.3l.1 2.6c.7.6 1.1 1.4 1 2.4l-.8 4.3c-.2.9-1 1.3-1.7 1-.6-.3-.8-1.1-.6-1.8l.5-3.3c-.6-.9-.9-2-.6-3.1l-2.4 3.5c-.4 1-.6 2.1-.4 3.1.2.9-.3 1.7-1.1 1.7-.7 0-1.2-.7-1.1-1.5.2-1.4.7-2.7 1.5-3.8l2-3c-.9-.6-1.5-1.5-1.4-2.7l-.8-.9c-.6-.8-.5-1.8.1-2.3.5-.4 1.2-.3 1.6.1l.6.6c1 .1 2.1.5 3 1.3l1.6-.6c1-.4 1.8-1.2 2.2-2.1z"/></symbol>
+    <symbol id="i-location" viewBox="0 0 24 24"><path d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-2.003 3.5-4.697 3.5-8.327a8 8 0 10-16 0c0 3.63 1.556 6.324 3.5 8.327a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z" fill-rule="evenodd" clip-rule="evenodd"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path class="icon-stroke" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></symbol>
+    <symbol id="i-envelope" viewBox="0 0 24 24"><path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z"/><path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></symbol>
+    <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></symbol>
+  </svg>
+
+  <!-- Skip to content -->
+  <a class="skip-link" href="#main">Aller au contenu</a>
+
+  <!-- ════ NAVBAR ════════════════════════════════════════════ -->
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Navigation principale">
+    <a href="#" class="navbar-logo" aria-label="EGB Family — accueil">
+      <img src="logo_egbfamily.png" alt="" width="52" height="52" fetchpriority="high">
+      <div class="navbar-logo-text">
+        <span class="navbar-logo-egb">EGB <span class="navbar-logo-family">Family</span></span>
+        <span class="navbar-logo-sub">Centre Équestre Associatif</span>
+      </div>
+    </a>
+    <ul class="navbar-links" role="list">
+      <li><a href="#association">L'association</a></li>
+      <li><a href="#activites">Activités</a></li>
+      <li><a href="chevaux.html">Nos chevaux</a></li>
+      <li><a href="#tarifs">Tarifs</a></li>
+      <li><a href="#galerie">Galerie</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#contact" class="navbar-cta">Nous rejoindre</a></li>
+    </ul>
+    <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="drawer" onclick="openDrawer()">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <main id="main">
+
+    <!-- ════ HERO ══════════════════════════════════════════ -->
+    <section class="hero" aria-label="Bienvenue">
+      <div class="hero-bg" role="img" aria-label="Chevaux dans la prairie de l'Ecurie du Grand Beaulieu"></div>
+      <div class="hero-overlay" aria-hidden="true"></div>
+      <div class="hero-content">
+        <p class="hero-eyebrow">Centre Équestre Associatif · Clermont-Ferrand</p>
+        <h1 class="hero-title">EGB<br>Family</h1>
+        <p class="hero-subtitle">Une famille, une écurie, une passion</p>
+        <div class="hero-actions">
+          <a href="#activites" class="btn btn-white">Découvrir nos activités</a>
+          <a href="#contact" class="btn btn-outline-white">Nous rejoindre</a>
+        </div>
+      </div>
+      <div class="hero-scroll" aria-hidden="true">
+        <svg><use href="#i-chevron-down"/></svg>
+      </div>
+      <!-- vague organique de transition -->
+      <div class="hero-wave" aria-hidden="true">
+        <svg viewBox="0 0 1200 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,35 C150,70 350,0 600,35 C850,70 1050,10 1200,35 L1200,70 L0,70 Z" fill="#CFC0B8"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- ════ STATS ═════════════════════════════════════════ -->
+    <section class="stats-bar" aria-label="Chiffres clés">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <span class="stat-number">40</span>
+          <span class="stat-label">Chevaux &amp; poneys</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">2021</span>
+          <span class="stat-label">Année de création</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">4,6<small>★</small></span>
+          <span class="stat-label">Note Google</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">100%</span>
+          <span class="stat-label">Associatif &amp; bénévole</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════ À PROPOS ══════════════════════════════════════ -->
+    <section class="about" id="association">
+      <div class="about-inner">
+        <div class="about-img-wrap">
+          <div class="about-img-placeholder" role="img" aria-label="Photo de l'association à venir">
+            <svg width="80" height="80"><use href="#i-horse"/></svg>
+          </div>
+          <div class="about-badge" aria-label="Quarante chevaux">
+            <span class="about-badge-num">40</span>
+            <span class="about-badge-txt">chevaux</span>
+          </div>
+        </div>
+        <div class="about-content">
+          <span class="section-eyebrow">Notre association</span>
+          <h2>L'équitation accessible à tous, dans un esprit familial</h2>
+          <hr class="divider-accent" style="margin:1rem 0 1.5rem;">
+          <p>EGB Family est une association équestre fondée en 2021, nichée au cœur de Clermont-Ferrand, au 3 chemin du Grand Beaulieu. Notre mission : rendre l'équitation accessible à toutes et tous, dans une ambiance conviviale, bienveillante et authentiquement familiale.</p>
+          <p>Avec une quarantaine de chevaux et poneys, notre écurie associative offre bien plus qu'un simple centre équestre. Ici, les adhérents participent activement à la vie du lieu, s'occupent des animaux et créent des liens durables autour d'une passion commune.</p>
+          <div class="about-values">
+            <div class="value-item">
+              <div class="value-icon" aria-hidden="true"><svg><use href="#i-heart"/></svg></div>
+              <div class="value-text">
+                <strong>Bien-être animal</strong>
+                <span>Sensibilisation au respect et à la protection des chevaux</span>
+              </div>
+            </div>
+            <div class="value-item">
+              <div class="value-icon" aria-hidden="true"><svg><use href="#i-users"/></svg></div>
+              <div class="value-text">
+                <strong>Esprit communautaire</strong>
+                <span>Une philosophie de vie associative saine et bienveillante</span>
+              </div>
+            </div>
+            <div class="value-item">
+              <div class="value-icon" aria-hidden="true"><svg><use href="#i-leaf"/></svg></div>
+              <div class="value-text">
+                <strong>Engagement citoyen</strong>
+                <span>Éducation à l'environnement et à la citoyenneté</span>
+              </div>
+            </div>
+          </div>
+          <a href="#contact" class="btn btn-primary">Rejoindre l'association</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════ ACTIVITÉS ═════════════════════════════════════ -->
+    <section class="activities" id="activites">
+      <div class="activities-header">
+        <span class="section-eyebrow">Ce que nous proposons</span>
+        <h2>Nos activités</h2>
+        <hr class="divider-accent">
+        <p>Des cours pour tous les niveaux, des stages pour progresser et des moments de partage uniques autour des chevaux.</p>
+      </div>
+      <div class="activities-grid">
+        <article class="activity-card">
+          <div class="activity-img" aria-hidden="true"><svg><use href="#i-horse"/></svg></div>
+          <div class="activity-body">
+            <div class="activity-icon" aria-hidden="true"><svg><use href="#i-graduation"/></svg></div>
+            <h3>Cours d'équitation</h3>
+            <p>Des cours adaptés à tous les niveaux, du débutant au confirmé. Enseignement principalement axé sur la pratique à poney et à cheval, dans un cadre sécurisé et bienveillant.</p>
+            <a href="#contact" class="activity-link">En savoir plus <svg><use href="#i-arrow-right"/></svg></a>
+          </div>
+        </article>
+        <article class="activity-card">
+          <div class="activity-img" aria-hidden="true"><svg><use href="#i-calendar"/></svg></div>
+          <div class="activity-body">
+            <div class="activity-icon" aria-hidden="true"><svg><use href="#i-calendar"/></svg></div>
+            <h3>Stages &amp; séjours</h3>
+            <p>Des stages intensifs pendant les vacances scolaires pour progresser rapidement, vivre l'équitation au quotidien et créer des souvenirs inoubliables.</p>
+            <a href="#contact" class="activity-link">En savoir plus <svg><use href="#i-arrow-right"/></svg></a>
+          </div>
+        </article>
+        <article class="activity-card">
+          <div class="activity-img" aria-hidden="true"><svg><use href="#i-home"/></svg></div>
+          <div class="activity-body">
+            <div class="activity-icon" aria-hidden="true"><svg><use href="#i-home"/></svg></div>
+            <h3>Pension chevaux</h3>
+            <p>Confiez votre cheval à notre équipe dans un cadre idéal : prés et paddocks, gardiennage 24h/24, solarium, douches et soins quotidiens.</p>
+            <a href="#contact" class="activity-link">En savoir plus <svg><use href="#i-arrow-right"/></svg></a>
+          </div>
+        </article>
+        <article class="activity-card">
+          <div class="activity-img" aria-hidden="true"><svg><use href="#i-users"/></svg></div>
+          <div class="activity-body">
+            <div class="activity-icon" aria-hidden="true"><svg><use href="#i-star"/></svg></div>
+            <h3>Événements &amp; team building</h3>
+            <p>Anniversaires, séminaires, activités de cohésion d'équipe… Vivez une expérience équestre unique avec vos proches ou vos collègues.</p>
+            <a href="#contact" class="activity-link">En savoir plus <svg><use href="#i-arrow-right"/></svg></a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ════ ÉQUIPEMENTS ═══════════════════════════════════ -->
+    <section class="equipements">
+      <div class="equipements-inner">
+        <div class="equipements-content">
+          <span class="section-eyebrow" style="color:var(--color-accent-light)">Nos installations</span>
+          <h2>Un cadre idéal pour vous et vos chevaux</h2>
+          <hr class="divider-accent" style="margin:1rem 0 1.5rem;">
+          <p>L'Ecurie du Grand Beaulieu dispose de toutes les infrastructures nécessaires pour garantir le bien-être des animaux et le confort des cavaliers, dans un environnement verdoyant aux portes de Clermont-Ferrand.</p>
+          <ul class="equip-grid" role="list">
+            <li class="equip-item"><svg aria-hidden="true"><use href="#i-check"/></svg> Carrière</li>
+            <li class="equip-item"><svg aria-hidden="true"><use href="#i-check"/></svg> Manège</li>
+            <li class="equip-item"><svg aria-hidden="true"><use href="#i-check"/></svg> Prés &amp; paddocks</li>
+            <li class="equip-item"><svg aria-hidden="true"><use href="#i-check"/></svg> Solarium</li>
+            <li class="equip-item"><svg aria-hidden="true"><use href="#i-check"/></svg> Sellerie</li>
+            <li class="equip-item"><svg aria-hidden="true"><use href="#i-check"/></svg> Douches</li>
+            <li class="equip-item"><svg aria-hidden="true"><use href="#i-check"/></svg> Infirmerie</li>
+            <li class="equip-item"><svg aria-hidden="true"><use href="#i-check"/></svg> Club house</li>
+            <li class="equip-item"><svg aria-hidden="true"><use href="#i-check"/></svg> Gardiennage 24h/24</li>
+            <li class="equip-item"><svg aria-hidden="true"><use href="#i-check"/></svg> Logement</li>
+            <li class="equip-item"><svg aria-hidden="true"><use href="#i-check"/></svg> Wi-Fi</li>
+            <li class="equip-item"><svg aria-hidden="true"><use href="#i-check"/></svg> Parking</li>
+          </ul>
+        </div>
+        <div class="equipements-img-main" role="img" aria-label="Photo des installations à venir">
+          <svg aria-hidden="true"><use href="#i-horse"/></svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════ GALERIE ═══════════════════════════════════════ -->
+    <section class="galerie" id="galerie">
+      <!-- feuille botanique décorative coin haut droit, inspirée des affiches Instagram -->
+      <svg aria-hidden="true" viewBox="0 0 160 160" style="position:absolute;top:-10px;right:-10px;width:160px;height:160px;opacity:.18;color:var(--color-accent);pointer-events:none;z-index:0;" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M130,10 C100,40 60,30 40,80 C20,130 50,150 80,140"/>
+        <path d="M130,10 C115,50 90,60 80,140"/>
+        <path d="M100,30 C90,50 75,55 70,80"/>
+        <path d="M115,20 C100,35 85,40 75,65"/>
+        <path d="M85,50 C78,65 70,72 65,90"/>
+        <path d="M70,70 C65,82 60,90 58,105"/>
+      </svg>
+      <div class="galerie-header">
+        <span class="section-eyebrow">Notre quotidien</span>
+        <h2>La galerie</h2>
+        <hr class="divider-accent">
+      </div>
+      <div class="galerie-grid" aria-label="Galerie photos EGB Family">
+        <div class="galerie-item" role="button" tabindex="0" data-index="0" aria-label="Cours d'équitation à EGB Family">
+          <img src="photos/instagram/790318840_18104106467607345_4211116945509645047_n.jpg" alt="Deux cavalières en cours d'équitation dans le manège d'EGB Family" loading="lazy">
+        </div>
+        <div class="galerie-item" role="button" tabindex="0" data-index="1" aria-label="Petite cavalière et son poney">
+          <img src="photos/instagram/790268571_18104172836607345_4752610190309699694_n.jpg" alt="Petite fille menant un poney noir en main à EGB Family" loading="lazy">
+        </div>
+        <div class="galerie-item" role="button" tabindex="0" data-index="2" aria-label="Chevaux en liberté dans le manège">
+          <img src="photos/instagram/784787506_1379503387722031_4515172262466070111_n.jpg" alt="Cheval bai et poney jouant ensemble dans le manège d'EGB Family" loading="lazy">
+        </div>
+        <div class="galerie-item" role="button" tabindex="0" data-index="3" aria-label="Deux chevaux dans l'écurie">
+          <img src="photos/instagram/768442337_1369157308756639_2768888190531402883_n.jpg" alt="Deux chevaux de différentes robes dans le paddock d'EGB Family au coucher du soleil" loading="lazy">
+        </div>
+        <div class="galerie-item" role="button" tabindex="0" data-index="4" aria-label="Troupeau dans le manège">
+          <img src="photos/instagram/783948700_1379599247712445_3935361866591641847_n.jpg" alt="Groupe de chevaux aux robes variées dans le manège de l'Ecurie du Grand Beaulieu" loading="lazy">
+        </div>
+      </div>
+      <div class="galerie-cta">
+        <a href="https://www.instagram.com/egb_family/" target="_blank" rel="noopener noreferrer" class="btn-instagram">
+          <svg aria-hidden="true"><use href="#i-instagram"/></svg>
+          Voir plus sur Instagram
+        </a>
+      </div>
+    </section>
+
+    <!-- ════ TÉMOIGNAGES ═══════════════════════════════════ -->
+    <section class="temoignages">
+      <div class="temoignages-header">
+        <span class="section-eyebrow">Ils nous font confiance</span>
+        <h2>Ce qu'ils disent de nous</h2>
+        <hr class="divider-accent">
+        <div class="google-rating" aria-label="Note Google : 4,6 sur 5">
+          <span class="stars" aria-hidden="true">★★★★★</span>
+          <span class="score">4,6</span>
+          <span class="count">/ 5 sur Google</span>
+        </div>
+      </div>
+      <div class="temoignages-grid">
+        <article class="temoignage-card">
+          <div class="temoignage-stars" aria-label="5 étoiles">★★★★★</div>
+          <p class="temoignage-text">Une association vraiment familiale, on se sent tout de suite intégré. Les chevaux sont bien soignés et l'équipe est passionnée et bienveillante.</p>
+          <div class="temoignage-author">
+            <div class="temoignage-avatar" aria-hidden="true">M</div>
+            <div>
+              <p class="temoignage-name">Marie L.</p>
+              <p class="temoignage-date">Membre depuis 2022</p>
+            </div>
+          </div>
+        </article>
+        <article class="temoignage-card">
+          <div class="temoignage-stars" aria-label="5 étoiles">★★★★★</div>
+          <p class="temoignage-text">Mon fils adore ses cours de poney ! L'encadrement est parfait pour les enfants et l'ambiance est vraiment conviviale. Je recommande à 100%.</p>
+          <div class="temoignage-author">
+            <div class="temoignage-avatar" aria-hidden="true">S</div>
+            <div>
+              <p class="temoignage-name">Sophie R.</p>
+              <p class="temoignage-date">Parent d'élève</p>
+            </div>
+          </div>
+        </article>
+        <article class="temoignage-card">
+          <div class="temoignage-stars" aria-label="4 étoiles sur 5">★★★★☆</div>
+          <p class="temoignage-text">Cadre magnifique, chevaux en bonne santé et bien traités. Une vraie philosophie associative saine. Très bon rapport qualité-prix pour une pension.</p>
+          <div class="temoignage-author">
+            <div class="temoignage-avatar" aria-hidden="true">T</div>
+            <div>
+              <p class="temoignage-name">Thomas B.</p>
+              <p class="temoignage-date">Propriétaire en pension</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ════ CTA ═══════════════════════════════════════════ -->
+    <section class="cta-section">
+      <div class="cta-inner">
+        <span class="section-eyebrow">Rejoignez-nous</span>
+        <h2>Prêt à rejoindre la famille&nbsp;?</h2>
+        <p>Que vous soyez débutant ou cavalier confirmé, propriétaire d'un cheval ou simplement passionné, EGB Family vous accueille à bras ouverts dans un cadre convivial et bienveillant.</p>
+        <div class="cta-actions">
+          <a href="#contact" class="btn btn-primary">Nous contacter</a>
+          <a href="tel:+33684601537" class="btn btn-secondary">
+            <svg width="16" height="16" aria-hidden="true"><use href="#i-phone"/></svg>
+            06 84 60 15 37
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════ TARIFS ════════════════════════════════════════ -->
+    <section class="tarifs" id="tarifs">
+      <div class="tarifs-header">
+        <span class="section-eyebrow">Saison 2024 – 2025</span>
+        <h2>Tarifs &amp; adhésion</h2>
+        <hr class="divider-accent">
+        <p>Des formules adaptées à chaque âge, dans l'esprit associatif qui nous est cher. 1h de cours par semaine, vacances scolaires incluses, soit 42 séances par an.</p>
+      </div>
+
+      <div class="tarifs-cols">
+
+        <!-- Moins de 6 ans -->
+        <div class="tarif-col">
+          <div class="tarif-col-header">
+            <span class="tarif-col-age">Moins de 6 ans</span>
+            <span class="tarif-col-subtitle">Initiation poneys</span>
+            <span class="tarif-col-badge">Dès le plus jeune âge</span>
+          </div>
+          <div class="tarif-col-body">
+
+            <p class="tarif-section-title">L'adhésion</p>
+            <div class="tarif-line">
+              <span class="tarif-line-label">À l'association (par an)</span>
+              <span class="tarif-line-price">65 €</span>
+            </div>
+            <div class="tarif-line">
+              <span class="tarif-line-label">Licence FFE (par an)</span>
+              <span class="tarif-line-price">29 €</span>
+            </div>
+
+            <p class="tarif-section-title">Les cours</p>
+            <div class="tarif-line">
+              <span class="tarif-line-label">Règlement annuel</span>
+              <span class="tarif-line-price">660 €</span>
+            </div>
+            <div class="tarif-line">
+              <span class="tarif-line-label">Forfait trimestriel</span>
+              <span class="tarif-line-price">225 €</span>
+            </div>
+            <div class="tarif-line">
+              <span class="tarif-line-label">Par mois</span>
+              <span class="tarif-line-price">68 €</span>
+            </div>
+
+            <p class="tarif-section-title">Autres forfaits</p>
+            <div class="tarif-line">
+              <span class="tarif-line-label">Carte de 10 séances</span>
+              <span class="tarif-line-price">160 €</span>
+            </div>
+            <div class="tarif-line highlight">
+              <span class="tarif-line-label">Forfait découverte 3 séances</span>
+              <span class="tarif-line-price">55 €</span>
+            </div>
+
+            <p class="tarif-section-title">Les cours en détail</p>
+            <div class="tarif-detail">
+              1h de cours par semaine, vacances incluses, soit 42 séances par an. Prévoir 30 min avant et après le cours pour la participation aux soins du poney.
+            </div>
+          </div>
+          <div class="tarif-col-cta">
+            <a href="#contact" class="btn btn-primary">S'inscrire</a>
+          </div>
+        </div>
+
+        <!-- 6 ans et plus -->
+        <div class="tarif-col">
+          <div class="tarif-col-header">
+            <span class="tarif-col-age">6 ans et plus</span>
+            <span class="tarif-col-subtitle">Poneys &amp; chevaux</span>
+            <span class="tarif-col-badge">Tous niveaux acceptés</span>
+          </div>
+          <div class="tarif-col-body">
+
+            <p class="tarif-section-title">L'adhésion</p>
+            <div class="tarif-line">
+              <span class="tarif-line-label">À l'association (par an)</span>
+              <span class="tarif-line-price">78 €</span>
+            </div>
+            <div class="tarif-line">
+              <span class="tarif-line-label">Licence FFE — moins de 18 ans</span>
+              <span class="tarif-line-price">29 €</span>
+            </div>
+            <div class="tarif-line">
+              <span class="tarif-line-label">Licence FFE — plus de 18 ans</span>
+              <span class="tarif-line-price">40 €</span>
+            </div>
+
+            <p class="tarif-section-title">Les cours</p>
+            <div class="tarif-line">
+              <span class="tarif-line-label">Règlement annuel</span>
+              <span class="tarif-line-price">720 €</span>
+            </div>
+            <div class="tarif-line">
+              <span class="tarif-line-label">Forfait trimestriel</span>
+              <span class="tarif-line-price">245 €</span>
+            </div>
+            <div class="tarif-line">
+              <span class="tarif-line-label">Par mois</span>
+              <span class="tarif-line-price">74 €</span>
+            </div>
+
+            <p class="tarif-section-title">Autres forfaits</p>
+            <div class="tarif-line">
+              <span class="tarif-line-label">Carte de 10 séances</span>
+              <span class="tarif-line-price">200 €</span>
+            </div>
+            <div class="tarif-line highlight">
+              <span class="tarif-line-label">Forfait découverte 3 séances</span>
+              <span class="tarif-line-price">55 €</span>
+            </div>
+
+            <p class="tarif-section-title">Les cours en détail</p>
+            <div class="tarif-detail">
+              1h de cours par semaine, vacances incluses, soit 42 séances par an. Prévoir 30 min avant et après le cours pour la participation aux soins du poney.
+            </div>
+          </div>
+          <div class="tarif-col-cta">
+            <a href="#contact" class="btn btn-primary">S'inscrire</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Autres prestations -->
+      <div class="tarifs-extras">
+        <p><strong>Compétitions · Stages · Groupes · Scolaires · Anniversaires · Balades…</strong></p>
+        <a href="#contact" class="btn btn-white" style="flex-shrink:0;">Contactez-nous</a>
+      </div>
+
+      <p class="tarif-note">Adhésion annuelle à l'association obligatoire pour toute inscription aux cours.</p>
+    </section>
+
+    <!-- ════ CONTACT ═══════════════════════════════════════ -->
+    <section class="contact" id="contact">
+      <div class="contact-inner">
+
+        <!-- Infos + formulaire -->
+        <div class="contact-info">
+          <span class="section-eyebrow">Venir nous voir</span>
+          <h2>Contact &amp; accès</h2>
+          <hr class="divider-accent" style="margin:1rem 0 1.5rem;">
+
+          <div class="contact-details" style="margin-bottom:1.75rem;">
+            <div class="contact-detail">
+              <div class="contact-detail-icon" aria-hidden="true"><svg><use href="#i-location"/></svg></div>
+              <div class="contact-detail-text">
+                <strong>Adresse</strong>
+                <span>3 Chemin du Grand Beaulieu<br>63000 Clermont-Ferrand<br><em style="font-size:.8em;color:var(--color-text-muted)">Au portail vert au fond de l'impasse</em></span>
+              </div>
+            </div>
+            <div class="contact-detail">
+              <div class="contact-detail-icon" aria-hidden="true"><svg><use href="#i-phone"/></svg></div>
+              <div class="contact-detail-text">
+                <strong>Téléphone</strong>
+                <a href="tel:+33684601537">06 84 60 15 37</a>
+              </div>
+            </div>
+            <div class="contact-detail">
+              <div class="contact-detail-icon" aria-hidden="true"><svg><use href="#i-envelope"/></svg></div>
+              <div class="contact-detail-text">
+                <strong>Email</strong>
+                <a href="mailto:egbfamily63@gmail.com">egbfamily63@gmail.com</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-socials" style="margin-bottom:2rem;">
+            <a href="https://www.facebook.com/profile.php?id=100069871481182" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="EGB Family sur Facebook">
+              <svg><use href="#i-facebook"/></svg>
+            </a>
+            <a href="https://www.instagram.com/egb_family/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="EGB Family sur Instagram">
+              <svg><use href="#i-instagram"/></svg>
+            </a>
+          </div>
+
+          <!-- Formulaire -->
+          <div class="contact-form-wrap">
+            <h3>Envoyez-nous un message</h3>
+            <p>Réponse sous 24–48h, du lundi au samedi.</p>
+
+            <form id="contact-form" novalidate>
+              <!-- Honeypot anti-spam -->
+              <div class="form-honeypot" aria-hidden="true">
+                <input type="text" name="website" tabindex="-1" autocomplete="off">
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="nom">Nom <span class="required" aria-hidden="true">*</span></label>
+                  <input type="text" id="nom" name="nom" class="form-control"
+                    placeholder="Votre nom" required autocomplete="name">
+                </div>
+                <div class="form-group">
+                  <label for="email">Email <span class="required" aria-hidden="true">*</span></label>
+                  <input type="email" id="email" name="email" class="form-control"
+                    placeholder="votre@email.fr" required autocomplete="email">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="tel">Téléphone</label>
+                  <input type="tel" id="tel" name="tel" class="form-control"
+                    placeholder="06 xx xx xx xx" autocomplete="tel">
+                </div>
+                <div class="form-group">
+                  <label for="objet">Objet <span class="required" aria-hidden="true">*</span></label>
+                  <select id="objet" name="objet" class="form-control" required>
+                    <option value="" disabled selected>Choisir un objet</option>
+                    <option value="Cours d'équitation">Cours d'équitation</option>
+                    <option value="Stage équestre">Stage équestre</option>
+                    <option value="Pension chevaux">Pension chevaux</option>
+                    <option value="Adhésion à l'association">Adhésion à l'association</option>
+                    <option value="Événement / Team building">Événement / Team building</option>
+                    <option value="Autre demande">Autre demande</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="message">Message <span class="required" aria-hidden="true">*</span></label>
+                <textarea id="message" name="message" class="form-control"
+                  placeholder="Décrivez votre demande…" required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary form-submit" id="form-btn">
+                <svg width="16" height="16" aria-hidden="true"><use href="#i-envelope"/></svg>
+                Envoyer le message
+              </button>
+
+              <div class="form-feedback" id="form-feedback" role="alert" aria-live="polite"></div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Carte -->
+        <div style="display:flex; flex-direction:column; gap:1.5rem;">
+          <div class="map-wrap">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2788.12!2d3.1224!3d45.7597!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f71c1a3d3b0001%3A0x0!2s3+Chemin+du+Grand+Beaulieu%2C+63000+Clermont-Ferrand!5e0!3m2!1sfr!2sfr!4v1700000000000"
+              title="Localisation EGB Family — 3 Chemin du Grand Beaulieu, Clermont-Ferrand"
+              allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+          <!-- Horaires -->
+          <div style="background:var(--color-bg-light);border-radius:var(--radius-lg);padding:1.5rem;">
+            <h4 style="font-family:var(--font-heading);font-size:1.2rem;color:var(--color-primary);margin-bottom:1rem;">Horaires d'ouverture</h4>
+            <div style="display:flex;flex-direction:column;gap:.5rem;font-size:.9rem;color:var(--color-text-muted);">
+              <div style="display:flex;justify-content:space-between;"><span>Lundi — Vendredi</span><strong style="color:var(--color-primary)">9h – 19h</strong></div>
+              <div style="display:flex;justify-content:space-between;"><span>Samedi</span><strong style="color:var(--color-primary)">9h – 18h</strong></div>
+              <div style="display:flex;justify-content:space-between;"><span>Dimanche</span><strong style="color:var(--color-primary)">9h – 12h</strong></div>
+            </div>
+            <p style="font-size:.78rem;color:var(--color-text-muted);margin-top:.75rem;font-style:italic;">* Gardiennage assuré 24h/24 — 7j/7</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ════ FOOTER ════════════════════════════════════════════ -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo-wrap">
+          <img src="logo_egbfamily.png" alt="EGB Family" width="148" height="148" loading="lazy">
+        </div>
+        <p>Centre équestre associatif à Clermont-Ferrand. Une communauté passionnée, ouverte à tous, réunie autour du cheval depuis 2021.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul class="footer-links" role="list">
+          <li><a href="#association">L'association</a></li>
+          <li><a href="#activites">Activités</a></li>
+          <li><a href="#galerie">Galerie</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul class="footer-links" role="list">
+          <li><a href="tel:+33684601537">06 84 60 15 37</a></li>
+          <li><a href="mailto:egbfamily63@gmail.com">egbfamily63@gmail.com</a></li>
+          <li><a href="https://www.instagram.com/egb_family/" target="_blank" rel="noopener noreferrer">@egb_family</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 EGB Family — Association Loi 1901 · SIRET 899 874 606 00010</span>
+      <span>3 Chemin du Grand Beaulieu, 63000 Clermont-Ferrand</span>
+    </div>
+  </footer>
+
+  <!-- ════ SCROLL TO TOP ════════════════════════════════════ -->
+  <button class="scroll-top" id="scroll-top" aria-label="Retour en haut de page" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 19V5M5 12l7-7 7 7"/>
+    </svg>
+  </button>
+
+  <!-- ════ LIGHTBOX ══════════════════════════════════════════ -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visionneuse de photos" aria-hidden="true">
+    <div class="lightbox-overlay" onclick="closeLightbox()"></div>
+    <button class="lightbox-close" onclick="closeLightbox()" aria-label="Fermer la visionneuse">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <button class="lightbox-prev" id="lb-prev" onclick="lightboxNav(-1)" aria-label="Photo précédente">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 19l-7-7 7-7"/></svg>
+    </button>
+    <button class="lightbox-next" id="lb-next" onclick="lightboxNav(1)" aria-label="Photo suivante">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+    </button>
+    <div class="lightbox-content">
+      <img id="lb-img" src="" alt="" style="display:none;">
+      <div class="lightbox-placeholder" id="lb-placeholder">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-photo"/></svg>
+        <p>Photo à venir</p>
+      </div>
+    </div>
+    <div class="lightbox-counter" id="lb-counter" aria-live="polite">1 / 5</div>
+  </div>
+
+  <!-- ════ DRAWER MOBILE ═══════════════════════════════════ -->
+  <div class="drawer-overlay" id="drawer-overlay" aria-hidden="true" onclick="closeDrawer()"></div>
+
+  <nav class="drawer" id="drawer" aria-label="Menu mobile" aria-hidden="true">
+    <div class="drawer-header">
+      <a href="#" class="drawer-logo" onclick="closeDrawer()">
+        <img src="logo_egbfamily.png" alt="EGB Family" width="42" height="42" loading="lazy">
+        <div class="drawer-logo-text">
+          <span class="drawer-logo-egb">EGB <span class="drawer-logo-family">Family</span></span>
+        </div>
+      </a>
+      <button class="drawer-close" onclick="closeDrawer()" aria-label="Fermer le menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M18 6L6 18M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="drawer-nav" role="list">
+      <a href="#association" onclick="closeDrawer()" role="listitem">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><use href="#i-users"/></svg>
+        L'association
+      </a>
+      <a href="#activites" onclick="closeDrawer()" role="listitem">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><use href="#i-graduation"/></svg>
+        Activités
+      </a>
+      <a href="chevaux.html" role="listitem">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><use href="#i-horse"/></svg>
+        Nos chevaux
+      </a>
+      <a href="#tarifs" onclick="closeDrawer()" role="listitem">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><use href="#i-star"/></svg>
+        Tarifs
+      </a>
+      <a href="#galerie" onclick="closeDrawer()" role="listitem">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><use href="#i-photo"/></svg>
+        Galerie
+      </a>
+      <div class="drawer-divider"></div>
+      <a href="#contact" onclick="closeDrawer()" role="listitem">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><use href="#i-location"/></svg>
+        Contact &amp; accès
+      </a>
+    </div>
+
+    <div class="drawer-cta">
+      <a href="#contact" class="btn btn-primary" onclick="closeDrawer()">Nous rejoindre</a>
+      <div class="drawer-socials">
+        <a href="https://www.facebook.com/profile.php?id=100069871481182" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <svg viewBox="0 0 24 24"><use href="#i-facebook"/></svg>
+        </a>
+        <a href="https://www.instagram.com/egb_family/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><use href="#i-instagram"/></svg>
+        </a>
+        <a href="https://wa.me/33684601537" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ════ WHATSAPP FLOTTANT ════════════════════════════════ -->
+  <a class="whatsapp-float"
+     href="https://wa.me/33684601537?text=Bonjour%2C%20je%20souhaite%20avoir%20des%20informations%20sur%20EGB%20Family%20%F0%9F%90%8E"
+     target="_blank" rel="noopener noreferrer"
+     aria-label="Nous écrire sur WhatsApp">
+    <span class="whatsapp-tooltip">Nous écrire sur WhatsApp</span>
+    <div class="whatsapp-btn">
+      <div class="whatsapp-pulse" aria-hidden="true"></div>
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      </svg>
+    </div>
+  </a>
+
+  <script defer>
+    // Navbar compact au scroll
+    const nav = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      nav.style.padding = window.scrollY > 60 ? '.5rem 3rem' : '.75rem 3rem';
+    }, { passive: true });
+
+    // ── Drawer mobile ────────────────────────────────────────
+    const drawer        = document.getElementById('drawer');
+    const drawerOverlay = document.getElementById('drawer-overlay');
+    const burgerBtn     = document.getElementById('burger');
+    let lastFocus;
+
+    function openDrawer() {
+      lastFocus = document.activeElement;
+      drawer.classList.add('open');
+      drawerOverlay.classList.add('open');
+      burgerBtn.classList.add('open');
+      burgerBtn.setAttribute('aria-expanded', 'true');
+      drawer.setAttribute('aria-hidden', 'false');
+      drawerOverlay.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      // Focus premier lien
+      drawer.querySelector('a, button').focus();
+    }
+
+    function closeDrawer() {
+      drawer.classList.remove('open');
+      drawerOverlay.classList.remove('open');
+      burgerBtn.classList.remove('open');
+      burgerBtn.setAttribute('aria-expanded', 'false');
+      drawer.setAttribute('aria-hidden', 'true');
+      drawerOverlay.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      if (lastFocus) lastFocus.focus();
+    }
+
+    // Fermer avec Échap
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && drawer.classList.contains('open')) closeDrawer();
+    });
+
+    // ── Scroll to top ────────────────────────────────────────
+    const scrollTopBtn = document.getElementById('scroll-top');
+    window.addEventListener('scroll', () => {
+      scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
+    }, { passive: true });
+
+    // ── Lightbox ──────────────────────────────────────────────
+    const lightbox    = document.getElementById('lightbox');
+    const lbImg       = document.getElementById('lb-img');
+    const lbPlaceholder = document.getElementById('lb-placeholder');
+    const lbCounter   = document.getElementById('lb-counter');
+    const galerieItems = [...document.querySelectorAll('.galerie-item[data-index]')];
+    let lbIndex = 0;
+
+    function openLightbox(index) {
+      lbIndex = index;
+      renderLightbox();
+      lightbox.classList.add('open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      document.getElementById('lightbox-close')?.focus();
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    function lightboxNav(dir) {
+      lbIndex = (lbIndex + dir + galerieItems.length) % galerieItems.length;
+      renderLightbox();
+    }
+
+    function renderLightbox() {
+      const item = galerieItems[lbIndex];
+      const img  = item.querySelector('img');
+      lbCounter.textContent = `${lbIndex + 1} / ${galerieItems.length}`;
+      if (img) {
+        lbImg.src = img.src;
+        lbImg.alt = img.alt;
+        lbImg.style.display = 'block';
+        lbPlaceholder.style.display = 'none';
+      } else {
+        lbImg.style.display = 'none';
+        lbPlaceholder.style.display = 'flex';
+      }
+    }
+
+    // Clic sur item galerie
+    galerieItems.forEach(item => {
+      item.addEventListener('click', () => openLightbox(+item.dataset.index));
+      item.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(+item.dataset.index); } });
+    });
+
+    // Clavier lightbox
+    document.addEventListener('keydown', e => {
+      if (!lightbox.classList.contains('open')) return;
+      if (e.key === 'Escape')     closeLightbox();
+      if (e.key === 'ArrowLeft')  lightboxNav(-1);
+      if (e.key === 'ArrowRight') lightboxNav(1);
+    });
+
+    // Swipe tactile
+    let lbTouchX = 0;
+    lightbox.addEventListener('touchstart', e => { lbTouchX = e.changedTouches[0].clientX; }, { passive: true });
+    lightbox.addEventListener('touchend',   e => {
+      const diff = lbTouchX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) lightboxNav(diff > 0 ? 1 : -1);
+    });
+
+    // ── Reveal au scroll (Intersection Observer) ────────────
+    (function () {
+      // Éléments individuels
+      const singles = [
+        ['.tarifs-header',       ''],
+        ['.activities-header',   ''],
+        ['.galerie-header',      ''],
+        ['.temoignages-header',  ''],
+        ['.cta-inner',           ''],
+        ['.about-img-wrap',      'reveal-left'],
+        ['.about-content',       'reveal-right'],
+        ['.equipements-content', 'reveal-left'],
+        ['.equipements-img-main','reveal-right'],
+        ['.contact-info',        'reveal-left'],
+        ['.map-wrap',            'reveal-right'],
+        ['.tarifs-extras',       ''],
+        ['.tarif-note',          ''],
+      ];
+      singles.forEach(([sel, cls]) => {
+        document.querySelectorAll(sel).forEach(el => {
+          el.classList.add('reveal');
+          if (cls) el.classList.add(cls);
+        });
+      });
+
+      // Éléments en grille — délai échelonné
+      const grids = [
+        '.stats-grid .stat-item',
+        '.activities-grid .activity-card',
+        '.tarifs-cols .tarif-col',
+        '.temoignages-grid .temoignage-card',
+        '.galerie-grid .galerie-item',
+        '.about-values .value-item',
+        '.equip-grid .equip-item',
+      ];
+      grids.forEach(sel => {
+        document.querySelectorAll(sel).forEach((el, i) => {
+          el.classList.add('reveal');
+          el.style.transitionDelay = (i * 0.1) + 's';
+        });
+      });
+
+      // Observer
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('revealed');
+          // Réinitialiser le délai après l'animation pour ne pas bloquer les hovers
+          entry.target.addEventListener('transitionend', () => {
+            entry.target.style.transitionDelay = '0s';
+          }, { once: true });
+          io.unobserve(entry.target);
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+      document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    })();
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const t = document.querySelector(a.getAttribute('href'));
+        if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+      });
+    });
+
+    // Formulaire de contact — soumission AJAX
+    const form     = document.getElementById('contact-form');
+    const btn      = document.getElementById('form-btn');
+    const feedback = document.getElementById('form-feedback');
+
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+
+      // Validation basique côté client
+      const required = form.querySelectorAll('[required]');
+      let valid = true;
+      required.forEach(el => {
+        el.style.borderColor = '';
+        if (!el.value.trim()) {
+          el.style.borderColor = '#e53e3e';
+          valid = false;
+        }
+      });
+      if (!valid) {
+        showFeedback('error', 'Veuillez remplir tous les champs obligatoires.');
+        return;
+      }
+
+      // Envoi
+      form.classList.add('form-loading');
+      btn.textContent = 'Envoi en cours…';
+
+      try {
+        const res  = await fetch('contact.php', { method: 'POST', body: new FormData(form) });
+        const data = await res.json();
+        if (data.ok) {
+          showFeedback('success', data.message);
+          form.reset();
+        } else {
+          showFeedback('error', data.message);
+        }
+      } catch {
+        showFeedback('error', 'Erreur réseau. Veuillez nous appeler directement au 06 84 60 15 37.');
+      } finally {
+        form.classList.remove('form-loading');
+        btn.innerHTML = '<svg width="16" height="16" aria-hidden="true"><use href="#i-envelope"/></svg> Envoyer le message';
+      }
+    });
+
+    function showFeedback(type, msg) {
+      feedback.className = 'form-feedback ' + type;
+      feedback.textContent = msg;
+      feedback.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  </script>
+
+</body>
+</html>
