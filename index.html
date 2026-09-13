@@ -245,7 +245,11 @@
     }
     .hero-bg {
       position:absolute; inset:0;
-      background-image:url('photos/instagram/767784226_18100100525607345_665348747523335487_n.jpg');
+      background-image:
+        image-set(
+          url('photos/webp/767784226_18100100525607345_665348747523335487_n_1600w.webp') type('image/webp'),
+          url('photos/instagram/767784226_18100100525607345_665348747523335487_n.jpg')   type('image/jpeg')
+        );
       background-size:cover; background-position:center 40%;
       opacity:1;
     }
@@ -1161,19 +1165,49 @@
       </div>
       <div class="galerie-grid" aria-label="Galerie photos EGB Family">
         <div class="galerie-item" role="button" tabindex="0" data-index="0" aria-label="Cours d'équitation à EGB Family">
-          <img src="photos/instagram/790318840_18104106467607345_4211116945509645047_n.jpg" alt="Deux cavalières en cours d'équitation dans le manège d'EGB Family" loading="lazy">
+          <picture>
+            <source type="image/webp"
+              srcset="photos/webp/790318840_18104106467607345_4211116945509645047_n_640w.webp 640w,
+                      photos/webp/790318840_18104106467607345_4211116945509645047_n_1080w.webp 1080w"
+              sizes="(max-width:768px) 100vw, 66vw">
+            <img src="photos/instagram/790318840_18104106467607345_4211116945509645047_n.jpg" alt="Deux cavalières en cours d'équitation dans le manège d'EGB Family" loading="lazy">
+          </picture>
         </div>
         <div class="galerie-item" role="button" tabindex="0" data-index="1" aria-label="Petite cavalière et son poney">
-          <img src="photos/instagram/790268571_18104172836607345_4752610190309699694_n.jpg" alt="Petite fille menant un poney noir en main à EGB Family" loading="lazy">
+          <picture>
+            <source type="image/webp"
+              srcset="photos/webp/790268571_18104172836607345_4752610190309699694_n_640w.webp 640w,
+                      photos/webp/790268571_18104172836607345_4752610190309699694_n_1080w.webp 1080w"
+              sizes="(max-width:768px) 50vw, 33vw">
+            <img src="photos/instagram/790268571_18104172836607345_4752610190309699694_n.jpg" alt="Petite fille menant un poney noir en main à EGB Family" loading="lazy">
+          </picture>
         </div>
         <div class="galerie-item" role="button" tabindex="0" data-index="2" aria-label="Chevaux en liberté dans le manège">
-          <img src="photos/instagram/784787506_1379503387722031_4515172262466070111_n.jpg" alt="Cheval bai et poney jouant ensemble dans le manège d'EGB Family" loading="lazy">
+          <picture>
+            <source type="image/webp"
+              srcset="photos/webp/784787506_1379503387722031_4515172262466070111_n_640w.webp 640w,
+                      photos/webp/784787506_1379503387722031_4515172262466070111_n_1080w.webp 1080w"
+              sizes="(max-width:768px) 50vw, 33vw">
+            <img src="photos/instagram/784787506_1379503387722031_4515172262466070111_n.jpg" alt="Cheval bai et poney jouant ensemble dans le manège d'EGB Family" loading="lazy">
+          </picture>
         </div>
         <div class="galerie-item" role="button" tabindex="0" data-index="3" aria-label="Deux chevaux dans l'écurie">
-          <img src="photos/instagram/768442337_1369157308756639_2768888190531402883_n.jpg" alt="Deux chevaux de différentes robes dans le paddock d'EGB Family au coucher du soleil" loading="lazy">
+          <picture>
+            <source type="image/webp"
+              srcset="photos/webp/768442337_1369157308756639_2768888190531402883_n_640w.webp 640w,
+                      photos/webp/768442337_1369157308756639_2768888190531402883_n_1080w.webp 1080w"
+              sizes="(max-width:768px) 50vw, 33vw">
+            <img src="photos/instagram/768442337_1369157308756639_2768888190531402883_n.jpg" alt="Deux chevaux de différentes robes dans le paddock d'EGB Family au coucher du soleil" loading="lazy">
+          </picture>
         </div>
         <div class="galerie-item" role="button" tabindex="0" data-index="4" aria-label="Troupeau dans le manège">
-          <img src="photos/instagram/783948700_1379599247712445_3935361866591641847_n.jpg" alt="Groupe de chevaux aux robes variées dans le manège de l'Ecurie du Grand Beaulieu" loading="lazy">
+          <picture>
+            <source type="image/webp"
+              srcset="photos/webp/783948700_1379599247712445_3935361866591641847_n_640w.webp 640w,
+                      photos/webp/783948700_1379599247712445_3935361866591641847_n_1080w.webp 1080w"
+              sizes="(max-width:768px) 50vw, 33vw">
+            <img src="photos/instagram/783948700_1379599247712445_3935361866591641847_n.jpg" alt="Groupe de chevaux aux robes variées dans le manège de l'Ecurie du Grand Beaulieu" loading="lazy">
+          </picture>
         </div>
       </div>
       <div class="galerie-cta">
