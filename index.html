@@ -652,10 +652,6 @@
       transition:border-color var(--transition-base),box-shadow var(--transition-base),transform var(--transition-base);
     }
     .chc-card:hover { border-color:var(--color-secondary); box-shadow:var(--shadow-md); transform:translateY(-4px); }
-    .chc-card--highlight { background:var(--color-primary); border-color:var(--color-primary); }
-    .chc-card--highlight:hover { border-color:var(--color-primary-dark); box-shadow:var(--shadow-lg); }
-    .chc-card--highlight h3 { color:#fff; }
-    .chc-card--highlight p { color:rgba(255,255,255,.8); }
     .chc-icon {
       width:56px; height:56px; border-radius:50%;
       background:var(--color-bg-warm);
@@ -663,13 +659,17 @@
       margin:0 auto 1.25rem; color:var(--color-primary);
     }
     .chc-icon svg { width:26px; height:26px; }
-    .chc-card--highlight .chc-icon { background:rgba(255,255,255,.18); color:#fff; }
     .chc-card h3 {
       font-family:var(--font-heading); font-size:1.5rem; font-weight:600;
       color:var(--color-primary); margin-bottom:.75rem;
     }
     .chc-card p { color:var(--color-text-muted); font-size:.95rem; line-height:1.7; margin-bottom:1.75rem; }
     .chc-card .btn { min-width:190px; justify-content:center; }
+    .chc-card--highlight { background:var(--color-primary); border-color:var(--color-primary); }
+    .chc-card--highlight:hover { border-color:var(--color-primary-dark); box-shadow:var(--shadow-lg); }
+    .chc-card--highlight h3 { color:#fff; }
+    .chc-card--highlight p { color:rgba(255,255,255,.8); }
+    .chc-card--highlight .chc-icon { background:rgba(255,255,255,.18); color:#fff; }
 
     @media (max-width:680px) {
       .contact-humain-cards { grid-template-columns:1fr; }
