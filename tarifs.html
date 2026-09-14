@@ -299,8 +299,28 @@
     .footer-links { list-style:none; display:flex; flex-direction:column; gap:.5rem; }
     .footer-links a { color:rgba(255,255,255,.65); text-decoration:none; font-size:.85rem; transition:color var(--transition-fast); }
     .footer-links a:hover { color:#fff; }
+    .footer-partners {
+      max-width:1100px; margin:0 auto;
+      padding:2rem 0;
+      border-bottom:1px solid rgba(255,255,255,.1);
+      display:flex; align-items:center; justify-content:center;
+      flex-wrap:wrap; gap:2.5rem;
+    }
+    .footer-partners-label {
+      flex-basis:100%; text-align:center;
+      font-size:.68rem; font-weight:600; letter-spacing:.18em;
+      text-transform:uppercase; color:var(--color-accent-light);
+      margin-bottom:.25rem;
+    }
+    .footer-partners a { display:flex; align-items:center; }
+    .footer-partners img {
+      height:44px; width:auto; max-width:120px;
+      filter:brightness(0) invert(1); opacity:.55;
+      transition:opacity .2s ease;
+    }
+    .footer-partners a:hover img { opacity:1; }
     .footer-bottom {
-      border-top:1px solid rgba(255,255,255,.1); margin-top:2rem; padding-top:1.25rem;
+      border-top:none; margin-top:.5rem; padding-top:1.25rem;
       display:flex; justify-content:space-between; flex-wrap:wrap; gap:.5rem;
       font-size:.75rem; color:rgba(255,255,255,.4);
     }
@@ -557,6 +577,21 @@
           <li><a href="https://www.instagram.com/egb_family/" target="_blank" rel="noopener noreferrer">@egb_family</a></li>
         </ul>
       </div>
+    </div>
+    <div class="footer-partners">
+      <p class="footer-partners-label">Nos partenaires</p>
+      <a href="https://www.ancv.com" target="_blank" rel="noopener noreferrer" aria-label="ANCV – Chèques-Vacances">
+        <img src="img/logos/ANCV_logo_2010.svg" alt="ANCV" height="44" loading="lazy">
+      </a>
+      <a href="https://www.credit-agricole.fr" target="_blank" rel="noopener noreferrer" aria-label="Crédit Agricole">
+        <img src="img/logos/Crédit_Agricole_2020_logo.svg" alt="Crédit Agricole" height="44" loading="lazy">
+      </a>
+      <a href="https://www.ffe.com" target="_blank" rel="noopener noreferrer" aria-label="Fédération Française d'Équitation">
+        <img src="img/logos/Logo_FFE.svg" alt="FFE" height="44" loading="lazy">
+      </a>
+      <a href="https://www.puy-de-dome.fr" target="_blank" rel="noopener noreferrer" aria-label="Département du Puy-de-Dôme">
+        <img src="img/logos/Puy-de-Dôme_(63)_logo_2022.svg" alt="Puy-de-Dôme" height="44" loading="lazy">
+      </a>
     </div>
     <div class="footer-bottom">
       <span>© <span class="auto-year">2026</span> EGB Family — Association Loi 1901 · SIRET 899 874 606 00028</span>
