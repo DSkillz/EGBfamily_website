@@ -1681,6 +1681,28 @@
 
       buildDots();
       goTo(0);
+
+      // Auto-défilement
+      const DELAY = 4500;
+      let timer = setInterval(autoNext, DELAY);
+
+      function autoNext() {
+        goTo(current >= maxIndex() ? 0 : current + 1);
+      }
+      function resetTimer() {
+        clearInterval(timer);
+        timer = setInterval(autoNext, DELAY);
+      }
+
+      prev.addEventListener('click', resetTimer);
+      next.addEventListener('click', resetTimer);
+      dotsEl.addEventListener('click', resetTimer);
+
+      const wrap = document.getElementById('temoignages-carousel');
+      wrap.addEventListener('mouseenter', () => clearInterval(timer));
+      wrap.addEventListener('focusin',    () => clearInterval(timer));
+      wrap.addEventListener('mouseleave', () => { timer = setInterval(autoNext, DELAY); });
+      wrap.addEventListener('focusout',   () => { timer = setInterval(autoNext, DELAY); });
     })();
 
     // Navbar compact au scroll
