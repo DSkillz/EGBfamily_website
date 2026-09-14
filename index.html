@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>EGB Family — Centre Équestre Associatif | Clermont-Ferrand</title>
-  <meta name="description" content="EGB Family, centre équestre associatif à Clermont-Ferrand. Cours d'équitation, stages, pension pour chevaux dans un cadre convivial et familial. Association Loi 1901.">
+  <meta name="description" content="EGB Family, centre équestre associatif à Clermont-Ferrand. Cours d'équitation, stages et activités équestres dans une ambiance chaleureuse et conviviale. Association Loi 1901.">
 
   <!-- Open Graph -->
   <meta property="og:type"        content="website">
   <meta property="og:title"       content="EGB Family — Centre Équestre Associatif">
-  <meta property="og:description" content="Cours d'équitation, stages et pension chevaux à Clermont-Ferrand dans une ambiance familiale et bienveillante.">
+  <meta property="og:description" content="Cours d'équitation, stages et activités équestres à Clermont-Ferrand dans une ambiance chaleureuse et bienveillante.">
   <meta property="og:image"       content="logo_egbfamily.png">
   <meta property="og:locale"      content="fr_FR">
 
@@ -30,7 +30,11 @@
   <link rel="stylesheet" href="charte.css">
 
   <!-- Préchargement logo (LCP) -->
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="logo_egbfamily.png" type="image/png">
   <link rel="preload" as="image" href="logo_egbfamily.png">
+  <!-- Préchargement hero (LCP) -->
+  <link rel="preload" as="image" href="photos/webp/cheval_au_galop_bright_1080w.webp" type="image/webp">
 
   <!-- Schema.org — SportsActivityLocation -->
   <script type="application/ld+json">
@@ -247,15 +251,16 @@
       position:absolute; inset:0;
       background-image:
         image-set(
-          url('photos/webp/767784226_18100100525607345_665348747523335487_n_1600w.webp') type('image/webp'),
-          url('photos/instagram/767784226_18100100525607345_665348747523335487_n.jpg')   type('image/jpeg')
+          url('photos/webp/cheval_au_galop_bright_1080w.webp') type('image/webp'),
+          url('photos/instagram/cheval_au_galop_bright+1_NanoBanana.jpg') type('image/jpeg')
         );
-      background-size:cover; background-position:center 40%;
+      background-size:cover; background-position:center 45%;
       opacity:1;
     }
+
     .hero-overlay {
       position:absolute; inset:0;
-      background:linear-gradient(to bottom,rgba(30,45,66,.3) 0%,rgba(139,82,24,.55) 60%,rgba(30,45,66,.85) 100%);
+      background:linear-gradient(to bottom,rgba(30,45,66,.28) 0%,rgba(139,82,24,.48) 62%,rgba(30,45,66,.82) 100%);
     }
     .hero-content {
       position:relative; z-index:2;
@@ -280,14 +285,16 @@
       color:#fff; letter-spacing:.02em; line-height:.95;
       margin-bottom:1rem; opacity:0;
       animation:fadeUp .8s .5s forwards;
+      text-shadow:0 2px 20px rgba(15,8,2,.85), 0 6px 48px rgba(15,8,2,.55);
     }
     .hero-subtitle {
       font-family:var(--font-heading);
       font-size:clamp(1.1rem,2.5vw,1.6rem);
       font-weight:300; font-style:italic;
-      color:rgba(255,255,255,.82);
+      color:rgba(255,255,255,.9);
       margin-bottom:2.5rem; opacity:0;
       animation:fadeUp .8s .7s forwards;
+      text-shadow:0 2px 12px rgba(15,8,2,.8);
     }
     .hero-actions {
       display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;
@@ -346,6 +353,10 @@
       background:var(--color-bg-warm);
       border-radius:30% 70% 55% 45% / 65% 35% 65% 35%;
       opacity:.65; pointer-events:none; z-index:0;
+    }
+    .filigrane-horse {
+      position:absolute; pointer-events:none; user-select:none;
+      z-index:0; opacity:.07;
     }
     .about-inner { position:relative; z-index:1; }
     .about-inner {
@@ -624,93 +635,39 @@
       font-size:.78rem; flex-wrap:wrap; gap:1rem;
     }
 
-    /* ── Tarifs ───────────────────────────────────────────── */
-    .tarifs { padding:6rem 2rem; background:var(--color-white); }
-    .tarifs-header { text-align:center; max-width:620px; margin:0 auto 4rem; }
-    .tarifs-header h2 { margin-bottom:1rem; }
-    .tarifs-header p { color:var(--color-text-muted); font-size:1.05rem; }
-
-    .tarifs-cols {
-      display:grid; grid-template-columns:1fr 1fr;
-      gap:2rem; max-width:1000px; margin:0 auto 2rem;
+    /* ── Contact humain / Renseignements ─────────────────────── */
+    .contact-humain { padding:6rem 2rem; background:var(--color-bg-light); position:relative; overflow:hidden; }
+    .contact-humain-inner { max-width:1000px; margin:0 auto; text-align:center; }
+    .contact-humain-lead { max-width:600px; margin:0 auto 3.5rem; color:var(--color-text-muted); font-size:1.05rem; line-height:1.85; }
+    .contact-humain-cards { display:grid; grid-template-columns:1fr 1fr 1fr; gap:1.5rem; }
+    .chc-card {
+      background:#fff; border-radius:var(--radius-lg);
+      padding:2.5rem 2rem; text-align:center;
+      box-shadow:var(--shadow-sm); border:2px solid transparent;
+      transition:border-color var(--transition-base),box-shadow var(--transition-base),transform var(--transition-base);
     }
-    .tarif-col {
-      border-radius:var(--radius-lg); overflow:hidden;
-      box-shadow:var(--shadow-md);
-      border:2px solid transparent;
-      transition:border-color var(--transition-base),box-shadow var(--transition-base);
+    .chc-card:hover { border-color:var(--color-secondary); box-shadow:var(--shadow-md); transform:translateY(-4px); }
+    .chc-card--highlight { background:var(--color-primary); border-color:var(--color-primary); }
+    .chc-card--highlight:hover { border-color:var(--color-primary-dark); box-shadow:var(--shadow-lg); }
+    .chc-card--highlight h3 { color:#fff; }
+    .chc-card--highlight p { color:rgba(255,255,255,.8); }
+    .chc-icon {
+      width:56px; height:56px; border-radius:50%;
+      background:var(--color-bg-warm);
+      display:flex; align-items:center; justify-content:center;
+      margin:0 auto 1.25rem; color:var(--color-primary);
     }
-    .tarif-col:hover { border-color:var(--color-secondary); box-shadow:var(--shadow-lg); }
-
-    .tarif-col-header {
-      padding:1.75rem 2rem 1.5rem;
-      background:var(--color-primary);
-      text-align:center;
+    .chc-icon svg { width:26px; height:26px; }
+    .chc-card--highlight .chc-icon { background:rgba(255,255,255,.18); color:#fff; }
+    .chc-card h3 {
+      font-family:var(--font-heading); font-size:1.5rem; font-weight:600;
+      color:var(--color-primary); margin-bottom:.75rem;
     }
-    .tarif-col-age {
-      font-family:var(--font-heading); font-size:1.9rem; font-weight:600;
-      color:#fff; display:block; line-height:1.1; margin-bottom:.25rem;
-    }
-    .tarif-col-subtitle {
-      font-size:.72rem; font-weight:500; letter-spacing:.2em;
-      text-transform:uppercase; color:rgba(255,255,255,.65);
-    }
-    .tarif-col-badge {
-      display:inline-block; margin-top:.75rem;
-      font-size:.7rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
-      padding:.3rem .9rem; border-radius:var(--radius-full); border:1.5px solid rgba(255,255,255,.4);
-      color:rgba(255,255,255,.9);
-    }
-
-    .tarif-col-body { background:var(--color-bg-light); padding:1.75rem 2rem; }
-
-    .tarif-section-title {
-      font-size:.68rem; font-weight:700; letter-spacing:.2em;
-      text-transform:uppercase; color:var(--color-primary);
-      border-bottom:1.5px solid var(--color-secondary);
-      padding-bottom:.5rem; margin-bottom:.85rem; margin-top:1.5rem;
-    }
-    .tarif-section-title:first-child { margin-top:0; }
-
-    .tarif-line {
-      display:flex; justify-content:space-between; align-items:baseline;
-      font-size:.9rem; padding:.3rem 0;
-    }
-    .tarif-line-label { color:var(--color-text-muted); }
-    .tarif-line-label.sub { padding-left:1rem; font-size:.85rem; }
-    .tarif-line-price {
-      font-family:var(--font-heading); font-weight:600;
-      color:var(--color-primary); font-size:1rem; white-space:nowrap;
-    }
-    .tarif-line.highlight .tarif-line-label { font-weight:700; color:var(--color-text); }
-    .tarif-line.highlight .tarif-line-price { font-size:1.15rem; color:var(--color-accent); }
-
-    .tarif-detail {
-      background:rgba(139,82,24,.06); border-radius:var(--radius-md);
-      padding:.85rem 1rem; margin-top:1rem;
-      font-size:.82rem; color:var(--color-text-muted); line-height:1.7;
-    }
-
-    .tarif-col-cta { padding:1.25rem 2rem 1.75rem; background:var(--color-bg-light); }
-    .tarif-col-cta .btn { width:100%; justify-content:center; }
-
-    .tarifs-extras {
-      max-width:1000px; margin:0 auto;
-      background:var(--color-primary); border-radius:var(--radius-lg);
-      padding:1.5rem 2rem; display:flex; align-items:center;
-      justify-content:space-between; gap:1.5rem; flex-wrap:wrap;
-    }
-    .tarifs-extras p {
-      color:rgba(255,255,255,.9); font-size:.95rem;
-    }
-    .tarifs-extras strong { color:#fff; }
-    .tarif-note {
-      text-align:center; margin-top:1.5rem;
-      font-size:.82rem; color:var(--color-text-muted); font-style:italic;
-    }
+    .chc-card p { color:var(--color-text-muted); font-size:.95rem; line-height:1.7; margin-bottom:1.75rem; }
+    .chc-card .btn { min-width:190px; justify-content:center; }
 
     @media (max-width:680px) {
-      .tarifs-cols { grid-template-columns:1fr; }
+      .contact-humain-cards { grid-template-columns:1fr; }
     }
 
     /* ── Formulaire de contact ────────────────────────────── */
@@ -865,48 +822,6 @@
       transform:none;
     }
 
-    /* ── WhatsApp flottant ────────────────────────────────── */
-    .whatsapp-float {
-      position:fixed; bottom:1.75rem; right:1.75rem; z-index:200;
-      display:flex; align-items:center; gap:.75rem;
-      text-decoration:none;
-    }
-    .whatsapp-tooltip {
-      background:var(--color-text); color:#fff;
-      font-size:.78rem; font-weight:500; white-space:nowrap;
-      padding:.45rem .9rem; border-radius:var(--radius-full);
-      opacity:0; transform:translateX(8px);
-      transition:opacity var(--transition-base),transform var(--transition-base);
-      pointer-events:none;
-    }
-    .whatsapp-float:hover .whatsapp-tooltip,
-    .whatsapp-float:focus .whatsapp-tooltip {
-      opacity:1; transform:translateX(0);
-    }
-    .whatsapp-btn {
-      width:58px; height:58px; border-radius:50%;
-      background:#25D366;
-      display:flex; align-items:center; justify-content:center;
-      box-shadow:0 4px 20px rgba(37,211,102,.45);
-      transition:transform var(--transition-base),box-shadow var(--transition-base);
-      position:relative; flex-shrink:0;
-    }
-    .whatsapp-btn svg { width:30px; height:30px; fill:#fff; }
-    .whatsapp-float:hover .whatsapp-btn {
-      transform:scale(1.1);
-      box-shadow:0 6px 28px rgba(37,211,102,.55);
-    }
-    .whatsapp-pulse {
-      position:absolute; inset:0; border-radius:50%;
-      background:#25D366; opacity:.4;
-      animation:waPulse 2.2s ease-out infinite;
-    }
-    @keyframes waPulse {
-      0%   { transform:scale(1);   opacity:.4; }
-      70%  { transform:scale(1.55);opacity:0; }
-      100% { transform:scale(1.55);opacity:0; }
-    }
-
     /* ── Responsive ───────────────────────────────────────── */
     @media (max-width:900px) {
       .about-inner, .equipements-inner, .contact-inner { grid-template-columns:1fr; }
@@ -966,9 +881,9 @@
       <li><a href="#association">L'association</a></li>
       <li><a href="#activites">Activités</a></li>
       <li><a href="chevaux.html">Nos chevaux</a></li>
-      <li><a href="#tarifs">Tarifs</a></li>
+      <li><a href="tarifs.html">Tarifs</a></li>
       <li><a href="#galerie">Galerie</a></li>
-      <li><a href="#contact" class="navbar-cta">Nous rejoindre</a></li>
+      <li><a href="#contact" class="navbar-cta">Venir pratiquer</a></li>
     </ul>
     <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="drawer" onclick="openDrawer()">
       <span></span><span></span><span></span>
@@ -979,7 +894,7 @@
 
     <!-- ════ HERO ══════════════════════════════════════════ -->
     <section class="hero" aria-label="Bienvenue">
-      <div class="hero-bg" role="img" aria-label="Chevaux dans la prairie de l'Ecurie du Grand Beaulieu"></div>
+      <div class="hero-bg" role="img" aria-label="Cheval gris au galop dans le manège de l'Ecurie du Grand Beaulieu"></div>
       <div class="hero-overlay" aria-hidden="true"></div>
       <div class="hero-content">
         <p class="hero-eyebrow">Centre Équestre Associatif · Clermont-Ferrand</p>
@@ -987,7 +902,7 @@
         <p class="hero-subtitle">Une famille, une écurie, une passion</p>
         <div class="hero-actions">
           <a href="#activites" class="btn btn-white">Découvrir nos activités</a>
-          <a href="#contact" class="btn btn-outline-white">Nous rejoindre</a>
+          <a href="#contact" class="btn btn-outline-white">Venir pratiquer</a>
         </div>
       </div>
       <div class="hero-scroll" aria-hidden="true">
@@ -1025,6 +940,8 @@
 
     <!-- ════ À PROPOS ══════════════════════════════════════ -->
     <section class="about" id="association">
+      <img src="cheval_filigrane_v2.png" alt="" aria-hidden="true" class="filigrane-horse"
+           style="bottom:-8%;right:-4%;width:52%;transform:scaleX(-1)">
       <div class="about-inner">
         <div class="about-img-wrap">
           <div class="about-img-placeholder" role="img" aria-label="Photo de l'association à venir">
@@ -1037,18 +954,11 @@
         </div>
         <div class="about-content">
           <span class="section-eyebrow">Notre association</span>
-          <h2>L'équitation accessible à tous, dans un esprit familial</h2>
+          <h2>L'équitation accessible à tous, dans une ambiance chaleureuse et conviviale</h2>
           <hr class="divider-accent" style="margin:1rem 0 1.5rem;">
-          <p>EGB Family est une association équestre fondée en 2021, nichée au cœur de Clermont-Ferrand, au 3 chemin du Grand Beaulieu. Notre mission : rendre l'équitation accessible à toutes et tous, dans une ambiance conviviale, bienveillante et authentiquement familiale.</p>
+          <p>EGB Family est une association équestre fondée en 2021, nichée au cœur de Clermont-Ferrand, au 3 chemin du Grand Beaulieu. Notre mission : rendre l'équitation accessible à toutes et tous, dans une atmosphère chaleureuse, bienveillante et ouverte à chacun.</p>
           <p>Avec une quarantaine de chevaux et poneys, notre écurie associative offre bien plus qu'un simple centre équestre. Ici, les adhérents participent activement à la vie du lieu, s'occupent des animaux et créent des liens durables autour d'une passion commune.</p>
           <div class="about-values">
-            <div class="value-item">
-              <div class="value-icon" aria-hidden="true"><svg><use href="#i-heart"/></svg></div>
-              <div class="value-text">
-                <strong>Bien-être animal</strong>
-                <span>Sensibilisation au respect et à la protection des chevaux</span>
-              </div>
-            </div>
             <div class="value-item">
               <div class="value-icon" aria-hidden="true"><svg><use href="#i-users"/></svg></div>
               <div class="value-text">
@@ -1064,7 +974,7 @@
               </div>
             </div>
           </div>
-          <a href="#contact" class="btn btn-primary">Rejoindre l'association</a>
+          <a href="#contact" class="btn btn-primary">Venir pratiquer avec nous</a>
         </div>
       </div>
     </section>
@@ -1101,7 +1011,7 @@
           <div class="activity-body">
             <div class="activity-icon" aria-hidden="true"><svg><use href="#i-home"/></svg></div>
             <h3>Pension chevaux</h3>
-            <p>Confiez votre cheval à notre équipe dans un cadre idéal : prés et paddocks, gardiennage 24h/24, solarium, douches et soins quotidiens.</p>
+            <p>Confiez votre cheval à notre équipe dans un cadre idéal : prés et paddocks, solarium, douches et soins quotidiens.</p>
             <a href="#contact" class="activity-link">En savoir plus <svg><use href="#i-arrow-right"/></svg></a>
           </div>
         </article>
@@ -1232,7 +1142,7 @@
       <div class="temoignages-grid">
         <article class="temoignage-card">
           <div class="temoignage-stars" aria-label="5 étoiles">★★★★★</div>
-          <p class="temoignage-text">Une association vraiment familiale, on se sent tout de suite intégré. Les chevaux sont bien soignés et l'équipe est passionnée et bienveillante.</p>
+          <p class="temoignage-text">Une association vraiment conviviale, on se sent tout de suite à l'aise. Les chevaux sont bien soignés et l'équipe est passionnée et bienveillante.</p>
           <div class="temoignage-author">
             <div class="temoignage-avatar" aria-hidden="true">M</div>
             <div>
@@ -1268,10 +1178,12 @@
 
     <!-- ════ CTA ═══════════════════════════════════════════ -->
     <section class="cta-section">
+      <img src="cheval_filigrane_v2.png" alt="" aria-hidden="true" class="filigrane-horse"
+           style="right:-4%;top:50%;transform:translateY(-50%);width:38%;opacity:.12">
       <div class="cta-inner">
-        <span class="section-eyebrow">Rejoignez-nous</span>
-        <h2>Prêt à rejoindre la famille&nbsp;?</h2>
-        <p>Que vous soyez débutant ou cavalier confirmé, propriétaire d'un cheval ou simplement passionné, EGB Family vous accueille à bras ouverts dans un cadre convivial et bienveillant.</p>
+        <span class="section-eyebrow">Venez nous voir</span>
+        <h2>Envie de pratiquer avec nous&nbsp;?</h2>
+        <p>Que vous soyez débutant ou cavalier confirmé, passionné ou simplement curieux, vous êtes le bienvenu à l'écurie. Chez EGB Family, la porte est ouverte à tous dans une ambiance chaleureuse et conviviale.</p>
         <div class="cta-actions">
           <a href="#contact" class="btn btn-primary">Nous contacter</a>
           <a href="tel:+33684601537" class="btn btn-secondary">
@@ -1282,136 +1194,43 @@
       </div>
     </section>
 
-    <!-- ════ TARIFS ════════════════════════════════════════ -->
-    <section class="tarifs" id="tarifs">
-      <div class="tarifs-header">
-        <span class="section-eyebrow">Saison 2024 – 2025</span>
-        <h2>Tarifs &amp; adhésion</h2>
+    <!-- ════ RENSEIGNEMENTS ══════════════════════════════════════ -->
+    <section class="contact-humain" id="renseignements">
+      <div class="contact-humain-inner">
+        <span class="section-eyebrow">Tarifs &amp; renseignements</span>
+        <h2>On aime les vraies conversations</h2>
         <hr class="divider-accent">
-        <p>Des formules adaptées à chaque âge, dans l'esprit associatif qui nous est cher. 1h de cours par semaine, vacances scolaires incluses, soit 42 séances par an.</p>
-      </div>
-
-      <div class="tarifs-cols">
-
-        <!-- Moins de 6 ans -->
-        <div class="tarif-col">
-          <div class="tarif-col-header">
-            <span class="tarif-col-age">Moins de 6 ans</span>
-            <span class="tarif-col-subtitle">Initiation poneys</span>
-            <span class="tarif-col-badge">Dès le plus jeune âge</span>
+        <p class="contact-humain-lead">Chez EGB Family, chaque situation est unique. Plutôt qu'un tableau de tarifs figé, nous préférons vous parler directement pour trouver la formule qui vous correspond vraiment. Un appel suffit.</p>
+        <div class="contact-humain-cards">
+          <div class="chc-card">
+            <div class="chc-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><use href="#i-phone"/></svg>
+            </div>
+            <h3>Appelez-nous</h3>
+            <p>Le plus direct. On répond à vos questions et on fixe un premier rendez-vous en quelques minutes.</p>
+            <a href="tel:+33684601537" class="btn btn-primary">
+              <svg width="16" height="16" aria-hidden="true"><use href="#i-phone"/></svg>
+              06 84 60 15 37
+            </a>
           </div>
-          <div class="tarif-col-body">
-
-            <p class="tarif-section-title">L'adhésion</p>
-            <div class="tarif-line">
-              <span class="tarif-line-label">À l'association (par an)</span>
-              <span class="tarif-line-price">65 €</span>
+          <div class="chc-card chc-card--highlight">
+            <div class="chc-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><use href="#i-location"/></svg>
             </div>
-            <div class="tarif-line">
-              <span class="tarif-line-label">Licence FFE (par an)</span>
-              <span class="tarif-line-price">29 €</span>
-            </div>
-
-            <p class="tarif-section-title">Les cours</p>
-            <div class="tarif-line">
-              <span class="tarif-line-label">Règlement annuel</span>
-              <span class="tarif-line-price">660 €</span>
-            </div>
-            <div class="tarif-line">
-              <span class="tarif-line-label">Forfait trimestriel</span>
-              <span class="tarif-line-price">225 €</span>
-            </div>
-            <div class="tarif-line">
-              <span class="tarif-line-label">Par mois</span>
-              <span class="tarif-line-price">68 €</span>
-            </div>
-
-            <p class="tarif-section-title">Autres forfaits</p>
-            <div class="tarif-line">
-              <span class="tarif-line-label">Carte de 10 séances</span>
-              <span class="tarif-line-price">160 €</span>
-            </div>
-            <div class="tarif-line highlight">
-              <span class="tarif-line-label">Forfait découverte 3 séances</span>
-              <span class="tarif-line-price">55 €</span>
-            </div>
-
-            <p class="tarif-section-title">Les cours en détail</p>
-            <div class="tarif-detail">
-              1h de cours par semaine, vacances incluses, soit 42 séances par an. Prévoir 30 min avant et après le cours pour la participation aux soins du poney.
-            </div>
+            <h3>Venez à l'écurie</h3>
+            <p>La meilleure façon de découvrir EGB Family. Passez nous voir le week-end — les chevaux sont là pour vous accueillir, sans rendez-vous.</p>
+            <a href="#contact" class="btn btn-white">Voir comment venir</a>
           </div>
-          <div class="tarif-col-cta">
-            <a href="#contact" class="btn btn-primary">S'inscrire</a>
+          <div class="chc-card">
+            <div class="chc-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><use href="#i-envelope"/></svg>
+            </div>
+            <h3>Écrivez-nous</h3>
+            <p>Envoyez votre demande via le formulaire ci-dessous ou par email. On vous répond dans la journée.</p>
+            <a href="#contact" class="btn btn-secondary">Écrire un message</a>
           </div>
         </div>
-
-        <!-- 6 ans et plus -->
-        <div class="tarif-col">
-          <div class="tarif-col-header">
-            <span class="tarif-col-age">6 ans et plus</span>
-            <span class="tarif-col-subtitle">Poneys &amp; chevaux</span>
-            <span class="tarif-col-badge">Tous niveaux acceptés</span>
-          </div>
-          <div class="tarif-col-body">
-
-            <p class="tarif-section-title">L'adhésion</p>
-            <div class="tarif-line">
-              <span class="tarif-line-label">À l'association (par an)</span>
-              <span class="tarif-line-price">78 €</span>
-            </div>
-            <div class="tarif-line">
-              <span class="tarif-line-label">Licence FFE — moins de 18 ans</span>
-              <span class="tarif-line-price">29 €</span>
-            </div>
-            <div class="tarif-line">
-              <span class="tarif-line-label">Licence FFE — plus de 18 ans</span>
-              <span class="tarif-line-price">40 €</span>
-            </div>
-
-            <p class="tarif-section-title">Les cours</p>
-            <div class="tarif-line">
-              <span class="tarif-line-label">Règlement annuel</span>
-              <span class="tarif-line-price">720 €</span>
-            </div>
-            <div class="tarif-line">
-              <span class="tarif-line-label">Forfait trimestriel</span>
-              <span class="tarif-line-price">245 €</span>
-            </div>
-            <div class="tarif-line">
-              <span class="tarif-line-label">Par mois</span>
-              <span class="tarif-line-price">74 €</span>
-            </div>
-
-            <p class="tarif-section-title">Autres forfaits</p>
-            <div class="tarif-line">
-              <span class="tarif-line-label">Carte de 10 séances</span>
-              <span class="tarif-line-price">200 €</span>
-            </div>
-            <div class="tarif-line highlight">
-              <span class="tarif-line-label">Forfait découverte 3 séances</span>
-              <span class="tarif-line-price">55 €</span>
-            </div>
-
-            <p class="tarif-section-title">Les cours en détail</p>
-            <div class="tarif-detail">
-              1h de cours par semaine, vacances incluses, soit 42 séances par an. Prévoir 30 min avant et après le cours pour la participation aux soins du poney.
-            </div>
-          </div>
-          <div class="tarif-col-cta">
-            <a href="#contact" class="btn btn-primary">S'inscrire</a>
-          </div>
-        </div>
-
       </div>
-
-      <!-- Autres prestations -->
-      <div class="tarifs-extras">
-        <p><strong>Compétitions · Stages · Groupes · Scolaires · Anniversaires · Balades…</strong></p>
-        <a href="#contact" class="btn btn-white" style="flex-shrink:0;">Contactez-nous</a>
-      </div>
-
-      <p class="tarif-note">Adhésion annuelle à l'association obligatoire pour toute inscription aux cours.</p>
     </section>
 
     <!-- ════ CONTACT ═══════════════════════════════════════ -->
@@ -1571,8 +1390,9 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2024 EGB Family — Association Loi 1901 · SIRET 899 874 606 00010</span>
+      <span>© <span class="auto-year">2026</span> EGB Family — Association Loi 1901 · SIRET 899 874 606 00010</span>
       <span>3 Chemin du Grand Beaulieu, 63000 Clermont-Ferrand</span>
+      <a href="mentions-legales.html" style="color:rgba(255,255,255,.4);text-decoration:none;transition:color .15s ease;" onmouseover="this.style.color='rgba(255,255,255,.8)'" onmouseout="this.style.color='rgba(255,255,255,.4)'">Mentions légales</a>
     </div>
   </footer>
 
@@ -1636,7 +1456,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><use href="#i-horse"/></svg>
         Nos chevaux
       </a>
-      <a href="#tarifs" onclick="closeDrawer()" role="listitem">
+      <a href="tarifs.html" onclick="closeDrawer()" role="listitem">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><use href="#i-star"/></svg>
         Tarifs
       </a>
@@ -1647,7 +1467,7 @@
     </div>
 
     <div class="drawer-cta">
-      <a href="#contact" class="btn btn-primary" onclick="closeDrawer()">Nous rejoindre</a>
+      <a href="#contact" class="btn btn-primary" onclick="closeDrawer()">Venir pratiquer</a>
       <div class="drawer-socials">
         <a href="https://www.facebook.com/profile.php?id=100069871481182" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
           <svg viewBox="0 0 24 24"><use href="#i-facebook"/></svg>
@@ -1655,28 +1475,14 @@
         <a href="https://www.instagram.com/egb_family/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
           <svg viewBox="0 0 24 24"><use href="#i-instagram"/></svg>
         </a>
-        <a href="https://wa.me/33684601537" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        </a>
       </div>
     </div>
   </nav>
 
-  <!-- ════ WHATSAPP FLOTTANT ════════════════════════════════ -->
-  <a class="whatsapp-float"
-     href="https://wa.me/33684601537?text=Bonjour%2C%20je%20souhaite%20avoir%20des%20informations%20sur%20EGB%20Family%20%F0%9F%90%8E"
-     target="_blank" rel="noopener noreferrer"
-     aria-label="Nous écrire sur WhatsApp">
-    <span class="whatsapp-tooltip">Nous écrire sur WhatsApp</span>
-    <div class="whatsapp-btn">
-      <div class="whatsapp-pulse" aria-hidden="true"></div>
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-      </svg>
-    </div>
-  </a>
-
   <script defer>
+    // Année copyright auto
+    document.querySelectorAll('.auto-year').forEach(el => el.textContent = new Date().getFullYear());
+
     // Navbar compact au scroll
     const nav = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
@@ -1793,7 +1599,7 @@
     (function () {
       // Éléments individuels
       const singles = [
-        ['.tarifs-header',       ''],
+        ['.contact-humain-inner',''],
         ['.activities-header',   ''],
         ['.galerie-header',      ''],
         ['.temoignages-header',  ''],
@@ -1804,8 +1610,6 @@
         ['.equipements-img-main','reveal-right'],
         ['.contact-info',        'reveal-left'],
         ['.map-wrap',            'reveal-right'],
-        ['.tarifs-extras',       ''],
-        ['.tarif-note',          ''],
       ];
       singles.forEach(([sel, cls]) => {
         document.querySelectorAll(sel).forEach(el => {
@@ -1818,7 +1622,7 @@
       const grids = [
         '.stats-grid .stat-item',
         '.activities-grid .activity-card',
-        '.tarifs-cols .tarif-col',
+        '.contact-humain-cards .chc-card',
         '.temoignages-grid .temoignage-card',
         '.galerie-grid .galerie-item',
         '.about-values .value-item',

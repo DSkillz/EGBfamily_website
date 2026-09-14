@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Nos Chevaux — EGB Family | Centre Équestre Clermont-Ferrand</title>
-  <meta name="description" content="Découvrez les ~40 chevaux et poneys d'EGB Family : leurs caractères, leurs races et leurs petites histoires. Un troupeau varié, tous adoptés pour leur bien-être.">
+  <title>Tarifs &amp; Adhésion — EGB Family | Centre Équestre Clermont-Ferrand</title>
+  <meta name="description" content="Tarifs de l'association EGB Family à Clermont-Ferrand : cours d'équitation, stages, pension chevaux. Saison 2024-2025.">
 
   <!-- Open Graph -->
   <meta property="og:type"        content="website">
-  <meta property="og:title"       content="Nos Chevaux — EGB Family">
-  <meta property="og:description" content="Découvrez les pensionnaires d'EGB Family : chevaux et poneys de toutes races, chacun avec sa personnalité unique.">
+  <meta property="og:title"       content="Tarifs &amp; Adhésion — EGB Family">
+  <meta property="og:description" content="Découvrez les formules et tarifs de l'association équestre EGB Family à Clermont-Ferrand.">
   <meta property="og:image"       content="logo_egbfamily.png">
   <meta property="og:locale"      content="fr_FR">
 
@@ -148,8 +148,7 @@
     .drawer-footer a {
       display:flex; align-items:center; gap:.4rem;
       font-size:.78rem; font-weight:500; text-decoration:none;
-      color:var(--color-text-muted);
-      transition:color var(--transition-fast);
+      color:var(--color-text-muted); transition:color var(--transition-fast);
     }
     .drawer-footer a svg { width:16px; height:16px; }
     .drawer-footer a:hover { color:var(--color-primary); }
@@ -184,13 +183,6 @@
       font-size:1.1rem; color:rgba(255,255,255,.75); max-width:560px;
       margin:0 auto 1.5rem; position:relative;
     }
-    .page-hero-badge {
-      display:inline-flex; align-items:center; gap:.5rem;
-      background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.2);
-      padding:.45rem 1rem; border-radius:var(--radius-full);
-      font-size:.8rem; color:rgba(255,255,255,.9); position:relative;
-    }
-    .page-hero-badge svg { width:14px; height:14px; color:var(--color-accent-light); }
 
     /* ── Breadcrumb ─────────────────────────────────────── */
     .breadcrumb {
@@ -202,136 +194,93 @@
     .breadcrumb a:hover { text-decoration:underline; }
     .breadcrumb span { margin:0 .4rem; }
 
-    /* ── Intro strip ─────────────────────────────────────── */
-    .intro-strip {
-      background:var(--color-bg-light); padding:3rem 2rem;
-      text-align:center;
-    }
-    .intro-strip p {
-      max-width:680px; margin:0 auto; font-size:1.05rem;
-      color:var(--color-text-muted); line-height:1.8;
-    }
-    .intro-strip strong { color:var(--color-primary); }
+    /* ── Tarifs ─────────────────────────────────────────── */
+    .tarifs { padding:5rem 2rem 6rem; background:var(--color-white); }
+    .tarifs-header { text-align:center; max-width:620px; margin:0 auto 4rem; }
+    .tarifs-header h2 { margin-bottom:1rem; }
+    .tarifs-header p { color:var(--color-text-muted); font-size:1.05rem; }
 
-    /* ── Grille chevaux ──────────────────────────────────── */
-    .chevaux-section {
-      padding:4rem 2rem 5rem;
-      background:var(--color-white);
-      max-width:1200px; margin:0 auto;
+    .tarifs-cols {
+      display:grid; grid-template-columns:1fr 1fr;
+      gap:2rem; max-width:1000px; margin:0 auto 2rem;
     }
-    .chevaux-grid {
-      display:grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap:2rem;
-      margin-top:2.5rem;
-    }
-
-    /* ── Carte cheval ────────────────────────────────────── */
-    .horse-card {
-      background:var(--color-white);
-      border-radius:var(--radius-lg);
+    .tarif-col {
+      border-radius:var(--radius-lg); overflow:hidden;
       box-shadow:var(--shadow-md);
-      overflow:hidden;
-      transition:transform var(--transition-base), box-shadow var(--transition-base);
+      border:2px solid transparent;
+      transition:border-color var(--transition-base),box-shadow var(--transition-base);
     }
-    .horse-card:hover {
-      transform:translateY(-6px);
-      box-shadow:var(--shadow-lg);
-    }
-    .horse-photo {
-      width:100%; aspect-ratio:4/3; overflow:hidden;
-      background:linear-gradient(135deg, var(--color-secondary-light), var(--color-bg-warm));
-      position:relative; display:flex; align-items:center; justify-content:center;
-    }
-    .horse-photo img {
-      width:100%; height:100%; object-fit:cover;
-      transition:transform .6s ease;
-    }
-    .horse-card:hover .horse-photo img { transform:scale(1.06); }
-    .horse-photo-placeholder {
-      display:flex; flex-direction:column; align-items:center; gap:.75rem;
-      color:var(--color-secondary-dark);
-    }
-    .horse-photo-placeholder svg { width:64px; height:64px; opacity:.45; }
-    .horse-photo-placeholder span { font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; opacity:.6; }
-    .horse-badge {
-      position:absolute; top:.75rem; right:.75rem;
-      background:rgba(255,255,255,.92); backdrop-filter:blur(4px);
-      padding:.3rem .65rem; border-radius:var(--radius-full);
-      font-size:.68rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase;
-      color:var(--color-primary); border:1px solid rgba(139,82,24,.15);
-    }
-    .horse-body { padding:1.25rem 1.4rem 1.5rem; }
-    .horse-name {
-      font-family:var(--font-heading); font-size:1.6rem; font-weight:600;
-      color:var(--color-primary); margin-bottom:.1rem; line-height:1.1;
-    }
-    .horse-breed {
-      font-size:.78rem; font-weight:500; letter-spacing:.08em; text-transform:uppercase;
-      color:var(--color-accent); margin-bottom:.85rem;
-    }
-    .horse-tags {
-      display:flex; flex-wrap:wrap; gap:.4rem; margin-bottom:.9rem;
-    }
-    .horse-tag {
-      padding:.25rem .65rem; border-radius:var(--radius-full);
-      font-size:.7rem; font-weight:500; border:1px solid;
-    }
-    .horse-tag-robe {
-      background:var(--color-bg-warm); border-color:var(--color-secondary);
-      color:var(--color-text-muted);
-    }
-    .horse-tag-age {
-      background:#F5EDE6; border-color:#D9A870; color:var(--color-primary);
-    }
-    .horse-tag-spec {
-      background:#fdf5e0; border-color:var(--color-accent-light); color:#7a6020;
-    }
-    .horse-desc {
-      font-size:.88rem; color:var(--color-text-muted); line-height:1.7;
-      border-top:1px solid var(--color-bg-warm); padding-top:.85rem; margin-top:.1rem;
-    }
-    .horse-emoji {
-      font-size:1.1rem; margin-right:.25rem;
-    }
+    .tarif-col:hover { border-color:var(--color-secondary); box-shadow:var(--shadow-lg); }
 
-    /* ── Section titre ──────────────────────────────────── */
-    .chevaux-section-title {
-      font-family:var(--font-heading); font-size:clamp(1.8rem,4vw,2.8rem);
-      color:var(--color-primary); font-weight:300; font-style:italic;
+    .tarif-col-header {
+      padding:1.75rem 2rem 1.5rem;
+      background:var(--color-primary);
       text-align:center;
     }
-    .chevaux-section-sub {
-      text-align:center; color:var(--color-text-muted); font-size:.95rem;
-      margin-top:.5rem; margin-bottom:2rem;
+    .tarif-col-age {
+      font-family:var(--font-heading); font-size:1.9rem; font-weight:600;
+      color:#fff; display:block; line-height:1.1; margin-bottom:.25rem;
     }
-    hr.divider-accent {
-      width:60px; height:2px; margin:.75rem auto 0;
-      background:linear-gradient(90deg,var(--color-accent),var(--color-accent-light));
-      border:none; border-radius:var(--radius-full);
+    .tarif-col-subtitle {
+      font-size:.72rem; font-weight:500; letter-spacing:.2em;
+      text-transform:uppercase; color:rgba(255,255,255,.65);
+    }
+    .tarif-col-badge {
+      display:inline-block; margin-top:.75rem;
+      font-size:.7rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
+      padding:.3rem .9rem; border-radius:var(--radius-full); border:1.5px solid rgba(255,255,255,.4);
+      color:rgba(255,255,255,.9);
     }
 
-    /* ── CTA bas de page ─────────────────────────────────── */
-    .cta-chevaux {
-      background:linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-      padding:4rem 2rem; text-align:center;
-      position:relative; overflow:hidden;
+    .tarif-col-body { background:var(--color-bg-light); padding:1.75rem 2rem; }
+
+    .tarif-section-title {
+      font-size:.68rem; font-weight:700; letter-spacing:.2em;
+      text-transform:uppercase; color:var(--color-primary);
+      border-bottom:1.5px solid var(--color-secondary);
+      padding-bottom:.5rem; margin-bottom:.85rem; margin-top:1.5rem;
     }
-    .cta-chevaux h2 {
-      font-family:var(--font-heading); font-size:2.2rem; color:#fff;
-      font-weight:300; font-style:italic; margin-bottom:.75rem;
-      position:relative; z-index:1;
+    .tarif-section-title:first-child { margin-top:0; }
+
+    .tarif-line {
+      display:flex; justify-content:space-between; align-items:baseline;
+      font-size:.9rem; padding:.3rem 0;
     }
-    .cta-chevaux p { color:rgba(255,255,255,.75); margin-bottom:2rem; font-size:1rem; position:relative; z-index:1; }
-    .cta-chevaux .btn-white { position:relative; z-index:1; }
-    .btn-white {
-      background:#fff; color:var(--color-primary);
-      padding:.8rem 2rem; border-radius:var(--radius-full);
-      text-decoration:none; font-weight:600; font-size:.88rem;
-      letter-spacing:.08em; text-transform:uppercase; display:inline-block;
-      transition:background var(--transition-fast), transform var(--transition-fast);
+    .tarif-line-label { color:var(--color-text-muted); }
+    .tarif-line-price {
+      font-family:var(--font-heading); font-weight:600;
+      color:var(--color-primary); font-size:1rem; white-space:nowrap;
     }
-    .btn-white:hover { background:var(--color-bg-light); transform:translateY(-2px); }
+    .tarif-line.highlight .tarif-line-label { font-weight:700; color:var(--color-text); }
+    .tarif-line.highlight .tarif-line-price { font-size:1.15rem; color:var(--color-accent); }
+
+    .tarif-detail {
+      background:rgba(139,82,24,.06); border-radius:var(--radius-md);
+      padding:.85rem 1rem; margin-top:1rem;
+      font-size:.82rem; color:var(--color-text-muted); line-height:1.7;
+    }
+
+    .tarif-col-cta { padding:1.25rem 2rem 1.75rem; background:var(--color-bg-light); }
+    .tarif-col-cta .btn { width:100%; justify-content:center; }
+
+    .tarifs-extras {
+      max-width:1000px; margin:0 auto;
+      background:var(--color-primary); border-radius:var(--radius-lg);
+      padding:1.5rem 2rem; display:flex; align-items:center;
+      justify-content:space-between; gap:1.5rem; flex-wrap:wrap;
+    }
+    .tarifs-extras p { color:rgba(255,255,255,.9); font-size:.95rem; }
+    .tarifs-extras strong { color:#fff; }
+    .tarif-note {
+      text-align:center; margin-top:1.5rem;
+      font-size:.82rem; color:var(--color-text-muted); font-style:italic;
+    }
+    .btn-white { background:#fff; color:var(--color-primary); border-color:#fff; }
+    .btn-white:hover { background:var(--color-bg-light); }
+
+    @media (max-width:680px) {
+      .tarifs-cols { grid-template-columns:1fr; }
+    }
 
     /* ── Footer ─────────────────────────────────────────── */
     footer { background:var(--color-primary-dark); color:rgba(255,255,255,.75); padding:3rem 2rem 2rem; }
@@ -373,38 +322,17 @@
     /* ── Animations reveal ───────────────────────────────── */
     .reveal { opacity:0; transform:translateY(28px); transition:opacity .6s ease, transform .6s ease; }
     .reveal.visible { opacity:1; transform:translateY(0); }
-    .reveal-left { opacity:0; transform:translateX(-32px); transition:opacity .6s ease, transform .6s ease; }
-    .reveal-left.visible { opacity:1; transform:translateX(0); }
-    .reveal-right { opacity:0; transform:translateX(32px); transition:opacity .6s ease, transform .6s ease; }
-    .reveal-right.visible { opacity:1; transform:translateX(0); }
     .stagger > * { opacity:0; transform:translateY(24px); transition:opacity .5s ease, transform .5s ease; }
-    .stagger.visible > *:nth-child(1)  { opacity:1; transform:none; transition-delay:.05s; }
-    .stagger.visible > *:nth-child(2)  { opacity:1; transform:none; transition-delay:.12s; }
-    .stagger.visible > *:nth-child(3)  { opacity:1; transform:none; transition-delay:.19s; }
-    .stagger.visible > *:nth-child(4)  { opacity:1; transform:none; transition-delay:.26s; }
-    .stagger.visible > *:nth-child(5)  { opacity:1; transform:none; transition-delay:.33s; }
-    .stagger.visible > *:nth-child(6)  { opacity:1; transform:none; transition-delay:.40s; }
-    .stagger.visible > *:nth-child(7)  { opacity:1; transform:none; transition-delay:.47s; }
-    .stagger.visible > *:nth-child(8)  { opacity:1; transform:none; transition-delay:.54s; }
-    .stagger.visible > *:nth-child(9)  { opacity:1; transform:none; transition-delay:.61s; }
-    .stagger.visible > *:nth-child(10) { opacity:1; transform:none; transition-delay:.68s; }
-    .stagger.visible > *:nth-child(11) { opacity:1; transform:none; transition-delay:.75s; }
-    .stagger.visible > *:nth-child(12) { opacity:1; transform:none; transition-delay:.82s; }
+    .stagger.visible > *:nth-child(1) { opacity:1; transform:none; transition-delay:.05s; }
+    .stagger.visible > *:nth-child(2) { opacity:1; transform:none; transition-delay:.12s; }
 
     /* ── Responsive ──────────────────────────────────────── */
-    @media (max-width: 768px) {
+    @media (max-width:768px) {
       .navbar { padding:.75rem 1.25rem; }
       .navbar-links { display:none; }
       .burger { display:flex; }
-      .chevaux-section { padding:3rem 1.25rem 4rem; }
-      .chevaux-grid { grid-template-columns:1fr; }
-      .footer-inner { grid-template-columns:1fr; gap:2rem; }
-      .footer-bottom { flex-direction:column; text-align:center; }
-      .intro-strip { padding:2.5rem 1.25rem; }
       .page-hero { padding:8rem 1.25rem 3rem; }
-    }
-    @media (min-width:480px) and (max-width:768px) {
-      .chevaux-grid { grid-template-columns:1fr 1fr; }
+      .footer-inner { grid-template-columns:1fr; gap:2rem; }
     }
   </style>
 </head>
@@ -419,6 +347,7 @@
     <symbol id="i-star" viewBox="0 0 24 24"><path class="icon-stroke" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/></symbol>
     <symbol id="i-photo" viewBox="0 0 24 24"><path class="icon-stroke" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"/></symbol>
     <symbol id="i-location" viewBox="0 0 24 24"><path d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-2.003 3.5-4.697 3.5-8.327a8 8 0 10-16 0c0 3.63 1.556 6.324 3.5 8.327a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z" fill-rule="evenodd" clip-rule="evenodd"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path class="icon-stroke" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></symbol>
     <symbol id="i-instagram" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></symbol>
     <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></symbol>
   </svg>
@@ -437,8 +366,8 @@
     <ul class="navbar-links" role="list">
       <li><a href="index.html#association">L'association</a></li>
       <li><a href="index.html#activites">Activités</a></li>
-      <li><a href="chevaux.html" class="active">Nos chevaux</a></li>
-      <li><a href="tarifs.html">Tarifs</a></li>
+      <li><a href="chevaux.html">Nos chevaux</a></li>
+      <li><a href="tarifs.html" class="active">Tarifs</a></li>
       <li><a href="index.html#galerie">Galerie</a></li>
       <li><a href="index.html#contact" class="navbar-cta">Venir pratiquer</a></li>
     </ul>
@@ -449,309 +378,158 @@
 
   <main id="main">
 
-    <!-- ════ PAGE HERO ══════════════════════════════════════ -->
+    <!-- ════ HERO ════════════════════════════════════════════ -->
     <section class="page-hero">
       <img src="cheval_filigrane_v2.png" alt="" aria-hidden="true" class="filigrane-horse"
-           style="right:-4%;bottom:-5%;width:44%;opacity:.20">
-      <p class="page-hero-eyebrow">EGB Family · ~40 chevaux &amp; poneys</p>
-      <h1>Nos chevaux</h1>
-      <p>Chaque cheval a son histoire, sa personnalité, son caractère. Voici quelques-uns des pensionnaires qui font battre le cœur de l'écurie.</p>
-      <span class="page-hero-badge">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><use href="#i-horse"/></svg>
-        Photos à venir — en attendant les vraies, voici leurs portraits
-      </span>
+           style="right:-4%;bottom:0;width:42%;opacity:.18">
+      <p class="page-hero-eyebrow">EGB Family · Saison 2024 – 2025</p>
+      <h1>Tarifs &amp; adhésion</h1>
+      <p>Des formules adaptées à chaque âge, dans l'esprit associatif qui nous est cher. Pour toute question, appelez-nous directement.</p>
     </section>
 
     <!-- Breadcrumb -->
     <nav class="breadcrumb" aria-label="Fil d'Ariane">
       <a href="index.html">Accueil</a>
       <span aria-hidden="true">/</span>
-      <span aria-current="page">Nos chevaux</span>
+      <span aria-current="page">Tarifs</span>
     </nav>
 
-    <!-- ════ INTRO ══════════════════════════════════════════ -->
-    <div class="intro-strip reveal">
-      <p>
-        À l'EGB Family, les chevaux ne sont pas de simples outils pédagogiques : ce sont des <strong>membres de la famille</strong>.
-        Chacun arrive avec son histoire, son passé, ses forces et ses failles. Notre rôle est de les comprendre, de les respecter
-        et de créer avec eux une relation de <strong>confiance durable</strong>.<br><br>
-        Ci-dessous, quelques portraits parmi notre troupeau de <strong>~40 chevaux et poneys</strong>.
-      </p>
-    </div>
+    <!-- ════ TARIFS ════════════════════════════════════════ -->
+    <section class="tarifs">
+      <div class="tarifs-header reveal">
+        <span class="section-eyebrow">Formules</span>
+        <h2>Tarifs &amp; adhésion</h2>
+        <hr class="divider-accent">
+        <p>1h de cours par semaine, vacances scolaires incluses, soit 42 séances par an. Des formules adaptées à chaque âge, dans l'esprit associatif qui nous est cher.</p>
+      </div>
 
-    <!-- ════ GRILLE CHEVAUX ═════════════════════════════════ -->
-    <div class="chevaux-section">
-      <h2 class="chevaux-section-title reveal">Quelques membres du troupeau</h2>
-      <p class="chevaux-section-sub reveal">Cliquez sur leur fiche pour les rencontrer à l'écurie !</p>
-      <hr class="divider-accent reveal">
+      <div class="tarifs-cols">
 
-      <div class="chevaux-grid stagger">
+        <!-- Moins de 6 ans -->
+        <div class="tarif-col">
+          <div class="tarif-col-header">
+            <span class="tarif-col-age">Moins de 6 ans</span>
+            <span class="tarif-col-subtitle">Initiation poneys</span>
+            <span class="tarif-col-badge">Dès le plus jeune âge</span>
+          </div>
+          <div class="tarif-col-body">
 
-        <!-- 1. Eclipse -->
-        <article class="horse-card">
-          <div class="horse-photo">
-            <div class="horse-photo-placeholder">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-horse"/></svg>
-              <span>Photo à venir</span>
+            <p class="tarif-section-title">L'adhésion</p>
+            <div class="tarif-line">
+              <span class="tarif-line-label">À l'association (par an)</span>
+              <span class="tarif-line-price">65 €</span>
             </div>
-            <span class="horse-badge">Cheval</span>
-          </div>
-          <div class="horse-body">
-            <h3 class="horse-name">Éclipse</h3>
-            <p class="horse-breed">Selle Français</p>
-            <div class="horse-tags">
-              <span class="horse-tag horse-tag-robe">Noir pangaré</span>
-              <span class="horse-tag horse-tag-age">14 ans</span>
-              <span class="horse-tag horse-tag-spec">Tout niveaux</span>
+            <div class="tarif-line">
+              <span class="tarif-line-label">Licence FFE (par an)</span>
+              <span class="tarif-line-price">29 €</span>
             </div>
-            <p class="horse-desc"><span class="horse-emoji">🌟</span>Le vétéran élégant de l'écurie. Éclipse a tout vu, tout connu — il guide les débutants avec une patience infinie et reste de marbre face à n'importe quelle situation.</p>
-          </div>
-        </article>
 
-        <!-- 2. Gitane -->
-        <article class="horse-card">
-          <div class="horse-photo">
-            <div class="horse-photo-placeholder">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-horse"/></svg>
-              <span>Photo à venir</span>
+            <p class="tarif-section-title">Les cours</p>
+            <div class="tarif-line">
+              <span class="tarif-line-label">Règlement annuel</span>
+              <span class="tarif-line-price">660 €</span>
             </div>
-            <span class="horse-badge">Jument</span>
-          </div>
-          <div class="horse-body">
-            <h3 class="horse-name">Gitane</h3>
-            <p class="horse-breed">Lusitanienne</p>
-            <div class="horse-tags">
-              <span class="horse-tag horse-tag-robe">Grise</span>
-              <span class="horse-tag horse-tag-age">11 ans</span>
-              <span class="horse-tag horse-tag-spec">Niveau confirmé</span>
+            <div class="tarif-line">
+              <span class="tarif-line-label">Forfait trimestriel</span>
+              <span class="tarif-line-price">225 €</span>
             </div>
-            <p class="horse-desc"><span class="horse-emoji">💃</span>La danseuse de l'écurie. Gitane est aussi expressive qu'élégante : sensible, réactive, elle récompense les aides subtiles et révèle le vrai niveau de ses cavaliers.</p>
-          </div>
-        </article>
+            <div class="tarif-line">
+              <span class="tarif-line-label">Par mois</span>
+              <span class="tarif-line-price">68 €</span>
+            </div>
 
-        <!-- 3. Tornado -->
-        <article class="horse-card">
-          <div class="horse-photo">
-            <div class="horse-photo-placeholder">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-horse"/></svg>
-              <span>Photo à venir</span>
+            <p class="tarif-section-title">Autres forfaits</p>
+            <div class="tarif-line">
+              <span class="tarif-line-label">Carte de 10 séances</span>
+              <span class="tarif-line-price">160 €</span>
             </div>
-            <span class="horse-badge">Hongre</span>
-          </div>
-          <div class="horse-body">
-            <h3 class="horse-name">Tornado</h3>
-            <p class="horse-breed">Anglo-Arabe</p>
-            <div class="horse-tags">
-              <span class="horse-tag horse-tag-robe">Alezan cuivré</span>
-              <span class="horse-tag horse-tag-age">9 ans</span>
-              <span class="horse-tag horse-tag-spec">CSO · Cross</span>
+            <div class="tarif-line highlight">
+              <span class="tarif-line-label">Forfait découverte 3 séances</span>
+              <span class="tarif-line-price">55 €</span>
             </div>
-            <p class="horse-desc"><span class="horse-emoji">⚡</span>Puissant, généreux, imprévisible sur un bon terrain. Tornado adore les barres et donnera tout ce qu'il a à qui sait l'écouter. Un partenaire de compétition exceptionnel.</p>
-          </div>
-        </article>
 
-        <!-- 4. Caramel -->
-        <article class="horse-card">
-          <div class="horse-photo">
-            <div class="horse-photo-placeholder">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-horse"/></svg>
-              <span>Photo à venir</span>
+            <p class="tarif-section-title">Les cours en détail</p>
+            <div class="tarif-detail">
+              1h de cours par semaine, vacances incluses, soit 42 séances par an. Prévoir 30 min avant et après le cours pour la participation aux soins du poney.
             </div>
-            <span class="horse-badge">Jument</span>
           </div>
-          <div class="horse-body">
-            <h3 class="horse-name">Caramel</h3>
-            <p class="horse-breed">Haflinger</p>
-            <div class="horse-tags">
-              <span class="horse-tag horse-tag-robe">Isabelle crins lavés</span>
-              <span class="horse-tag horse-tag-age">12 ans</span>
-              <span class="horse-tag horse-tag-spec">Enfants · Débutants</span>
-            </div>
-            <p class="horse-desc"><span class="horse-emoji">🍯</span>La douceur incarnée. Caramel est la préférée des enfants : robuste, câline, jamais fatiguée de transporter de petits cavaliers avec le plus grand sérieux du monde.</p>
+          <div class="tarif-col-cta">
+            <a href="index.html#contact" class="btn btn-primary">Nous contacter</a>
           </div>
-        </article>
+        </div>
 
-        <!-- 5. Spirit -->
-        <article class="horse-card">
-          <div class="horse-photo">
-            <div class="horse-photo-placeholder">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-horse"/></svg>
-              <span>Photo à venir</span>
-            </div>
-            <span class="horse-badge">Hongre</span>
+        <!-- 6 ans et plus -->
+        <div class="tarif-col">
+          <div class="tarif-col-header">
+            <span class="tarif-col-age">6 ans et plus</span>
+            <span class="tarif-col-subtitle">Poneys &amp; chevaux</span>
+            <span class="tarif-col-badge">Tous niveaux acceptés</span>
           </div>
-          <div class="horse-body">
-            <h3 class="horse-name">Spirit</h3>
-            <p class="horse-breed">Quarter Horse</p>
-            <div class="horse-tags">
-              <span class="horse-tag horse-tag-robe">Bai cerise</span>
-              <span class="horse-tag horse-tag-age">8 ans</span>
-              <span class="horse-tag horse-tag-spec">Polyvalent</span>
-            </div>
-            <p class="horse-desc"><span class="horse-emoji">🌿</span>Le calme absolu. Spirit aborde chaque séance avec sérénité. Son équilibre naturel en fait un excellent cheval d'initiation pour les adultes qui reprennent l'équitation.</p>
-          </div>
-        </article>
+          <div class="tarif-col-body">
 
-        <!-- 6. Opale -->
-        <article class="horse-card">
-          <div class="horse-photo">
-            <div class="horse-photo-placeholder">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-horse"/></svg>
-              <span>Photo à venir</span>
+            <p class="tarif-section-title">L'adhésion</p>
+            <div class="tarif-line">
+              <span class="tarif-line-label">À l'association (par an)</span>
+              <span class="tarif-line-price">78 €</span>
             </div>
-            <span class="horse-badge">Jument</span>
-          </div>
-          <div class="horse-body">
-            <h3 class="horse-name">Opale</h3>
-            <p class="horse-breed">Appaloosa</p>
-            <div class="horse-tags">
-              <span class="horse-tag horse-tag-robe">Léopard tacheté</span>
-              <span class="horse-tag horse-tag-age">7 ans</span>
-              <span class="horse-tag horse-tag-spec">Balade · Photo</span>
+            <div class="tarif-line">
+              <span class="tarif-line-label">Licence FFE — moins de 18 ans</span>
+              <span class="tarif-line-price">29 €</span>
             </div>
-            <p class="horse-desc"><span class="horse-emoji">✨</span>La star de la galerie photo. Opale attire tous les regards avec sa robe léopard spectaculaire. Curieuse, joueuse, elle adore les sorties en extérieur.</p>
-          </div>
-        </article>
+            <div class="tarif-line">
+              <span class="tarif-line-label">Licence FFE — plus de 18 ans</span>
+              <span class="tarif-line-price">40 €</span>
+            </div>
 
-        <!-- 7. Licorice -->
-        <article class="horse-card">
-          <div class="horse-photo">
-            <div class="horse-photo-placeholder">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-horse"/></svg>
-              <span>Photo à venir</span>
+            <p class="tarif-section-title">Les cours</p>
+            <div class="tarif-line">
+              <span class="tarif-line-label">Règlement annuel</span>
+              <span class="tarif-line-price">720 €</span>
             </div>
-            <span class="horse-badge">Étalon</span>
-          </div>
-          <div class="horse-body">
-            <h3 class="horse-name">Licorice</h3>
-            <p class="horse-breed">Frison</p>
-            <div class="horse-tags">
-              <span class="horse-tag horse-tag-robe">Noir jais</span>
-              <span class="horse-tag horse-tag-age">10 ans</span>
-              <span class="horse-tag horse-tag-spec">Dressage</span>
+            <div class="tarif-line">
+              <span class="tarif-line-label">Forfait trimestriel</span>
+              <span class="tarif-line-price">245 €</span>
             </div>
-            <p class="horse-desc"><span class="horse-emoji">🖤</span>Le gentleman de l'écurie. Majestueux dans ses mouvements, Licorice fascine autant qu'il impressionne. Son trot levé est inoubliable pour ceux qui ont la chance de le monter.</p>
-          </div>
-        </article>
+            <div class="tarif-line">
+              <span class="tarif-line-label">Par mois</span>
+              <span class="tarif-line-price">74 €</span>
+            </div>
 
-        <!-- 8. Myrtille -->
-        <article class="horse-card">
-          <div class="horse-photo">
-            <div class="horse-photo-placeholder">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-horse"/></svg>
-              <span>Photo à venir</span>
+            <p class="tarif-section-title">Autres forfaits</p>
+            <div class="tarif-line">
+              <span class="tarif-line-label">Carte de 10 séances</span>
+              <span class="tarif-line-price">200 €</span>
             </div>
-            <span class="horse-badge">Ponette</span>
-          </div>
-          <div class="horse-body">
-            <h3 class="horse-name">Myrtille</h3>
-            <p class="horse-breed">Poney Welsh B</p>
-            <div class="horse-tags">
-              <span class="horse-tag horse-tag-robe">Gris souris</span>
-              <span class="horse-tag horse-tag-age">15 ans</span>
-              <span class="horse-tag horse-tag-spec">Mini cavaliers</span>
+            <div class="tarif-line highlight">
+              <span class="tarif-line-label">Forfait découverte 3 séances</span>
+              <span class="tarif-line-price">55 €</span>
             </div>
-            <p class="horse-desc"><span class="horse-emoji">🫐</span>La mascotte de l'écurie. Myrtille est petite, têtue et absolument irrésistible. Elle a mis des dizaines d'enfants en selle pour la première fois avec une patience légendaire.</p>
-          </div>
-        </article>
 
-        <!-- 9. Sirocco -->
-        <article class="horse-card">
-          <div class="horse-photo">
-            <div class="horse-photo-placeholder">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-horse"/></svg>
-              <span>Photo à venir</span>
+            <p class="tarif-section-title">Les cours en détail</p>
+            <div class="tarif-detail">
+              1h de cours par semaine, vacances incluses, soit 42 séances par an. Prévoir 30 min avant et après le cours pour la participation aux soins du poney.
             </div>
-            <span class="horse-badge">Hongre</span>
           </div>
-          <div class="horse-body">
-            <h3 class="horse-name">Sirocco</h3>
-            <p class="horse-breed">Pur-sang Arabe</p>
-            <div class="horse-tags">
-              <span class="horse-tag horse-tag-robe">Gris pommelé</span>
-              <span class="horse-tag horse-tag-age">13 ans</span>
-              <span class="horse-tag horse-tag-spec">Endurance · Balade</span>
-            </div>
-            <p class="horse-desc"><span class="horse-emoji">🌬️</span>Le poète du troupeau. Sirocco est sensible, fin, pétri de noblesse. Sa légèreté naturelle enchante les cavaliers confirmés qui cherchent une connexion profonde.</p>
+          <div class="tarif-col-cta">
+            <a href="index.html#contact" class="btn btn-primary">Nous contacter</a>
           </div>
-        </article>
+        </div>
 
-        <!-- 10. Brindille -->
-        <article class="horse-card">
-          <div class="horse-photo">
-            <div class="horse-photo-placeholder">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-horse"/></svg>
-              <span>Photo à venir</span>
-            </div>
-            <span class="horse-badge">Ponette</span>
-          </div>
-          <div class="horse-body">
-            <h3 class="horse-name">Brindille</h3>
-            <p class="horse-breed">Connemara</p>
-            <div class="horse-tags">
-              <span class="horse-tag horse-tag-robe">Dun fauve</span>
-              <span class="horse-tag horse-tag-age">6 ans</span>
-              <span class="horse-tag horse-tag-spec">Polyvalente</span>
-            </div>
-            <p class="horse-desc"><span class="horse-emoji">🌿</span>La ponette universelle. Brindille fait aussi bien de l'obstacle que de la balade, elle fait du dressage et passe en cross sans se poser de questions. Courageuse et fiable.</p>
-          </div>
-        </article>
+      </div>
 
-        <!-- 11. Tempête -->
-        <article class="horse-card">
-          <div class="horse-photo">
-            <div class="horse-photo-placeholder">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-horse"/></svg>
-              <span>Photo à venir</span>
-            </div>
-            <span class="horse-badge">Hongre</span>
-          </div>
-          <div class="horse-body">
-            <h3 class="horse-name">Tempête</h3>
-            <p class="horse-breed">Selle Français</p>
-            <div class="horse-tags">
-              <span class="horse-tag horse-tag-robe">Bai foncé</span>
-              <span class="horse-tag horse-tag-age">6 ans</span>
-              <span class="horse-tag horse-tag-spec">CSO · Jeune</span>
-            </div>
-            <p class="horse-desc"><span class="horse-emoji">⛈️</span>Le futur champion. Tempête est jeune, bouillonnant, plein de feu. Il est en cours de formation et promet un avenir brillant en compétition pour l'association.</p>
-          </div>
-        </article>
+      <!-- Autres prestations -->
+      <div class="tarifs-extras reveal">
+        <p><strong>Compétitions · Stages · Groupes · Scolaires · Anniversaires · Balades…</strong><br>
+        Pour toute demande spécifique, contactez-nous directement — on préfère vous parler&nbsp;!</p>
+        <a href="tel:+33684601537" class="btn btn-white" style="flex-shrink:0;">
+          06 84 60 15 37
+        </a>
+      </div>
 
-        <!-- 12. Cannelle -->
-        <article class="horse-card">
-          <div class="horse-photo">
-            <div class="horse-photo-placeholder">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-horse"/></svg>
-              <span>Photo à venir</span>
-            </div>
-            <span class="horse-badge">Jument</span>
-          </div>
-          <div class="horse-body">
-            <h3 class="horse-name">Cannelle</h3>
-            <p class="horse-breed">Cob irlandais</p>
-            <div class="horse-tags">
-              <span class="horse-tag horse-tag-robe">Rouan pie</span>
-              <span class="horse-tag horse-tag-age">16 ans</span>
-              <span class="horse-tag horse-tag-spec">Reprise · Seniors</span>
-            </div>
-            <p class="horse-desc"><span class="horse-emoji">🤎</span>La nounou de l'écurie. Cannelle est robuste, stable, rassurante. Elle accueille les cavaliers en reprise d'activité avec une bienveillance déconcertante et ne fait jamais de mauvaises surprises.</p>
-          </div>
-        </article>
-
-      </div><!-- /chevaux-grid -->
-    </div><!-- /chevaux-section -->
+      <p class="tarif-note reveal">Adhésion annuelle à l'association obligatoire pour toute inscription aux cours.</p>
+    </section>
 
   </main>
-
-  <!-- ════ CTA ════════════════════════════════════════════════ -->
-  <section class="cta-chevaux">
-    <img src="cheval_filigrane_v2.png" alt="" aria-hidden="true" class="filigrane-horse"
-         style="left:-4%;top:50%;transform:translateY(-50%) scaleX(-1);width:38%;opacity:.15">
-    <h2>Venez les rencontrer !</h2>
-    <p>La meilleure façon de tomber amoureux d'eux, c'est de venir à l'écurie. On vous attend pour une visite ou un premier cours.</p>
-    <a href="index.html#contact" class="btn-white">Prendre contact</a>
-  </section>
 
   <!-- ════ FOOTER ═════════════════════════════════════════════ -->
   <footer>
@@ -821,11 +599,11 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><use href="#i-graduation"/></svg>
         Activités
       </a>
-      <a href="chevaux.html" role="listitem" class="active">
+      <a href="chevaux.html" role="listitem">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><use href="#i-horse"/></svg>
         Nos chevaux
       </a>
-      <a href="tarifs.html" role="listitem">
+      <a href="tarifs.html" role="listitem" class="active">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><use href="#i-star"/></svg>
         Tarifs
       </a>
@@ -853,16 +631,13 @@
   </nav>
 
   <script defer>
-    // Année copyright auto
     document.querySelectorAll('.auto-year').forEach(el => el.textContent = new Date().getFullYear());
 
-    // ── Scroll to top ────────────────────────────────────────
     const scrollTopBtn = document.getElementById('scroll-top');
     window.addEventListener('scroll', () => {
       scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
     }, { passive: true });
 
-    // ── Drawer ───────────────────────────────────────────────
     const drawer  = document.getElementById('drawer');
     const overlay = document.getElementById('drawer-overlay');
     const burger  = document.getElementById('burger');
@@ -870,48 +645,38 @@
 
     function openDrawer() {
       lastFocus = document.activeElement;
-      drawer.classList.add('open');
-      overlay.classList.add('open');
-      burger.classList.add('open');
-      drawer.setAttribute('aria-hidden', 'false');
-      overlay.setAttribute('aria-hidden', 'false');
+      drawer.classList.add('open'); overlay.classList.add('open'); burger.classList.add('open');
+      drawer.setAttribute('aria-hidden', 'false'); overlay.setAttribute('aria-hidden', 'false');
       burger.setAttribute('aria-expanded', 'true');
       document.body.style.overflow = 'hidden';
       drawer.querySelector('a, button')?.focus();
     }
-
     function closeDrawer() {
-      drawer.classList.remove('open');
-      overlay.classList.remove('open');
-      burger.classList.remove('open');
-      drawer.setAttribute('aria-hidden', 'true');
-      overlay.setAttribute('aria-hidden', 'true');
+      drawer.classList.remove('open'); overlay.classList.remove('open'); burger.classList.remove('open');
+      drawer.setAttribute('aria-hidden', 'true'); overlay.setAttribute('aria-hidden', 'true');
       burger.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
       lastFocus?.focus();
     }
-
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape' && drawer.classList.contains('open')) closeDrawer();
     });
 
-    // ── Navbar shrink on scroll ──────────────────────────────
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
       navbar.style.padding = window.scrollY > 60 ? '.45rem 3rem' : '.75rem 3rem';
     }, { passive: true });
 
-    // ── Reveal animations ────────────────────────────────────
-    const revealObserver = new IntersectionObserver((entries) => {
+    const revealObserver = new IntersectionObserver(entries => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          revealObserver.unobserve(entry.target);
-        }
+        if (entry.isIntersecting) { entry.target.classList.add('visible'); revealObserver.unobserve(entry.target); }
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
-    document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .stagger').forEach(el => {
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+    document.querySelectorAll('.tarifs-cols .tarif-col').forEach((el, i) => {
+      el.classList.add('reveal');
+      el.style.transitionDelay = (i * 0.12) + 's';
       revealObserver.observe(el);
     });
   </script>

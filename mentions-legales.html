@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Mentions légales — EGB Family | Centre Équestre Clermont-Ferrand</title>
+  <meta name="description" content="Mentions légales du site EGB Family — association équestre Loi 1901, SIRET 899 874 606 00010, 3 Chemin du Grand Beaulieu, 63000 Clermont-Ferrand.">
+  <meta name="robots" content="noindex, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:type"    content="website">
+  <meta property="og:title"   content="Mentions légales — EGB Family">
+  <meta property="og:locale"  content="fr_FR">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&family=DM+Sans:wght@400;500&family=Dancing+Script:wght@600&display=swap">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&family=DM+Sans:wght@400;500&family=Dancing+Script:wght@600&display=swap"
+    media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&family=DM+Sans:wght@400;500&family=Dancing+Script:wght@600&display=swap">
+  </noscript>
+
+  <link rel="stylesheet" href="charte.css">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="logo_egbfamily.png" type="image/png">
+  <link rel="preload" as="image" href="logo_egbfamily.png">
+
+  <style>
+    .icon-stroke { fill:none; stroke:currentColor; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; }
+
+    .skip-link {
+      position:absolute; top:-40px; left:0;
+      background:var(--color-primary); color:#fff;
+      padding:8px 16px; z-index:999; border-radius:0 0 4px 0;
+      transition:top .2s;
+    }
+    .skip-link:focus { top:0; }
+
+    /* ── Navbar ────────────────────────────────────────────── */
+    .navbar {
+      position:fixed; top:0; left:0; right:0; z-index:100;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:.75rem 3rem;
+      background:rgba(255,255,255,.97);
+      backdrop-filter:blur(10px);
+      box-shadow:0 1px 0 rgba(139,82,24,.10);
+      transition:padding var(--transition-base);
+    }
+    .navbar-logo { display:flex; align-items:center; gap:.75rem; text-decoration:none; }
+    .navbar-logo img { height:52px; width:52px; }
+    .navbar-logo-text { display:flex; flex-direction:column; line-height:1; }
+    .navbar-logo-egb { font-family:var(--font-heading); font-size:1.35rem; font-weight:600; letter-spacing:.06em; color:var(--color-primary); }
+    .navbar-logo-family { font-family:var(--font-accent); font-size:1.15rem; font-weight:600; }
+    .navbar-logo-sub { font-size:.6rem; font-weight:500; letter-spacing:.18em; text-transform:uppercase; color:var(--color-text-muted); }
+    .navbar-links { display:flex; align-items:center; gap:2rem; list-style:none; }
+    .navbar-links a {
+      font-size:.78rem; font-weight:500; letter-spacing:.1em;
+      text-transform:uppercase; color:var(--color-text); text-decoration:none;
+      position:relative; transition:color var(--transition-fast);
+    }
+    .navbar-links a::after {
+      content:''; position:absolute; bottom:-3px; left:0;
+      width:0; height:1.5px; background:var(--color-accent);
+      transition:width var(--transition-base);
+    }
+    .navbar-links a:hover { color:var(--color-primary); }
+    .navbar-links a:hover::after { width:100%; }
+    .navbar-cta {
+      background:var(--color-primary) !important; color:#fff !important;
+      padding:.5rem 1.25rem; border-radius:var(--radius-full);
+    }
+    .navbar-cta::after { display:none !important; }
+    .navbar-cta:hover { background:var(--color-primary-dark) !important; }
+    .burger {
+      display:none; flex-direction:column; justify-content:center; gap:5px;
+      cursor:pointer; padding:6px; background:none; border:none;
+      width:40px; height:40px;
+    }
+    .burger span {
+      display:block; width:24px; height:2px;
+      background:var(--color-primary); border-radius:2px;
+      transition:transform .35s ease, opacity .25s ease; transform-origin:center;
+    }
+    .burger.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+    .burger.open span:nth-child(2) { opacity:0; transform:scaleX(0); }
+    .burger.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+
+    /* ── Overlay + Drawer ───────────────────────────────────── */
+    .drawer-overlay {
+      position:fixed; inset:0; z-index:150;
+      background:rgba(46,26,14,.55); backdrop-filter:blur(3px);
+      opacity:0; pointer-events:none; transition:opacity .35s ease;
+    }
+    .drawer-overlay.open { opacity:1; pointer-events:all; }
+    .drawer {
+      position:fixed; top:0; right:0; bottom:0; z-index:160;
+      width:min(300px, 85vw); background:#fff;
+      display:flex; flex-direction:column;
+      box-shadow:-8px 0 40px rgba(0,0,0,.18);
+      transform:translateX(100%); transition:transform .38s cubic-bezier(.4,0,.2,1);
+      overflow-y:auto;
+    }
+    .drawer.open { transform:translateX(0); }
+    .drawer-header {
+      display:flex; align-items:center; justify-content:space-between;
+      padding:1.1rem 1.25rem; border-bottom:1px solid var(--color-bg-warm); flex-shrink:0;
+    }
+    .drawer-logo { display:flex; align-items:center; gap:.6rem; text-decoration:none; }
+    .drawer-logo img { height:42px; width:42px; }
+    .drawer-logo-text { line-height:1; }
+    .drawer-logo-egb { font-family:var(--font-heading); font-size:1.1rem; font-weight:600; color:var(--color-primary); }
+    .drawer-logo-family { font-family:var(--font-accent); }
+    .drawer-close {
+      background:none; border:none; cursor:pointer; padding:8px;
+      color:var(--color-text-muted); border-radius:var(--radius-sm);
+      transition:background var(--transition-fast),color var(--transition-fast);
+    }
+    .drawer-close:hover { background:var(--color-bg-warm); color:var(--color-primary); }
+    .drawer-close svg { width:18px; height:18px; }
+    .drawer-nav { flex:1; padding:1rem 0; }
+    .drawer-nav a {
+      display:flex; align-items:center; gap:.85rem;
+      padding:.9rem 1.5rem; font-size:.9rem; font-weight:500;
+      color:var(--color-text); text-decoration:none;
+      border-left:3px solid transparent;
+      transition:background var(--transition-fast),color var(--transition-fast),border-color var(--transition-fast);
+    }
+    .drawer-nav a svg { width:18px; height:18px; color:var(--color-secondary-dark); flex-shrink:0; }
+    .drawer-nav a:hover { background:var(--color-bg-light); color:var(--color-primary); border-left-color:var(--color-accent); }
+    .drawer-divider { height:1px; background:var(--color-bg-warm); margin:.5rem 1.5rem; }
+    .drawer-footer {
+      padding:1.25rem 1.5rem; border-top:1px solid var(--color-bg-warm);
+      display:flex; gap:.75rem; flex-shrink:0;
+    }
+    .drawer-footer a {
+      display:flex; align-items:center; gap:.4rem;
+      font-size:.78rem; font-weight:500; text-decoration:none;
+      color:var(--color-text-muted); transition:color var(--transition-fast);
+    }
+    .drawer-footer a svg { width:16px; height:16px; }
+    .drawer-footer a:hover { color:var(--color-primary); }
+
+    /* ── Page hero ──────────────────────────────────────────── */
+    .page-hero {
+      padding:9rem 2rem 4rem;
+      background:linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 60%, #A66E30 100%);
+      text-align:center; position:relative; overflow:hidden;
+    }
+    .page-hero::before {
+      content:''; position:absolute; inset:0;
+      background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .page-hero-eyebrow {
+      font-size:.78rem; font-weight:500; letter-spacing:.25em; text-transform:uppercase;
+      color:var(--color-accent-light); margin-bottom:1rem; position:relative;
+    }
+    .page-hero h1 {
+      font-family:var(--font-heading); font-size:clamp(2rem,5vw,3.5rem);
+      color:#fff; font-weight:300; font-style:italic; line-height:1.1;
+      margin-bottom:.75rem; position:relative;
+    }
+    .page-hero p {
+      font-size:1rem; color:rgba(255,255,255,.7); max-width:520px;
+      margin:0 auto; position:relative;
+    }
+
+    /* ── Breadcrumb ─────────────────────────────────────────── */
+    .breadcrumb {
+      background:var(--color-bg-light); padding:.65rem 2rem;
+      font-size:.78rem; color:var(--color-text-muted);
+      border-bottom:1px solid var(--color-bg-warm);
+    }
+    .breadcrumb a { color:var(--color-primary); text-decoration:none; }
+    .breadcrumb a:hover { text-decoration:underline; }
+    .breadcrumb span { margin:0 .4rem; }
+
+    /* ── Contenu mentions légales ───────────────────────────── */
+    .mentions-content {
+      max-width:820px; margin:0 auto;
+      padding:4rem 2rem 5rem;
+    }
+    .mentions-section {
+      margin-bottom:2.5rem;
+      padding-bottom:2.5rem;
+      border-bottom:1px solid var(--color-bg-warm);
+    }
+    .mentions-section:last-child {
+      border-bottom:none; margin-bottom:0;
+    }
+    .mentions-section h2 {
+      font-size:1.4rem; font-weight:600; color:var(--color-primary);
+      margin-bottom:1rem;
+    }
+    .mentions-section p {
+      font-size:.95rem; color:var(--color-text-muted); line-height:1.8;
+      margin-bottom:.75rem;
+    }
+    .mentions-section p:last-child { margin-bottom:0; }
+    .mentions-section a {
+      color:var(--color-primary); text-decoration:none;
+      border-bottom:1px solid var(--color-secondary);
+      transition:border-color var(--transition-fast), color var(--transition-fast);
+    }
+    .mentions-section a:hover {
+      color:var(--color-accent);
+      border-color:var(--color-accent);
+    }
+    .mentions-dl {
+      display:grid; grid-template-columns:max-content 1fr;
+      gap:.4rem 1.5rem; font-size:.95rem; margin-top:.75rem;
+    }
+    .mentions-dl dt {
+      font-weight:600; color:var(--color-primary); white-space:nowrap;
+    }
+    .mentions-dl dd {
+      color:var(--color-text-muted); line-height:1.6;
+    }
+    .mentions-notice {
+      background:var(--color-bg-light); border-left:3px solid var(--color-accent);
+      border-radius:0 var(--radius-md) var(--radius-md) 0;
+      padding:1rem 1.25rem; font-size:.88rem; color:var(--color-text-muted);
+      line-height:1.7; margin-top:1rem;
+    }
+    .update-date {
+      display:inline-block; font-size:.78rem; color:var(--color-text-muted);
+      font-style:italic; margin-bottom:2.5rem;
+    }
+
+    /* ── Footer ─────────────────────────────────────────────── */
+    footer { background:var(--color-primary-dark); color:rgba(255,255,255,.75); padding:3rem 2rem 2rem; }
+    .footer-inner {
+      max-width:1100px; margin:0 auto;
+      display:grid; grid-template-columns:1fr 1fr 1fr; gap:3rem; align-items:start;
+    }
+    .footer-logo-wrap {
+      width:160px; height:160px; border-radius:50%;
+      background:#fff; display:flex; align-items:center; justify-content:center;
+      margin:0 auto 1rem;
+    }
+    .footer-logo-wrap img { height:148px; width:148px; }
+    .footer-brand p { font-size:.85rem; line-height:1.7; text-align:center; }
+    .footer-col h4 { font-family:var(--font-heading); font-size:1.1rem; color:#fff; margin-bottom:1rem; }
+    .footer-links { list-style:none; display:flex; flex-direction:column; gap:.5rem; }
+    .footer-links a { color:rgba(255,255,255,.65); text-decoration:none; font-size:.85rem; transition:color var(--transition-fast); }
+    .footer-links a:hover { color:#fff; }
+    .footer-bottom {
+      border-top:1px solid rgba(255,255,255,.1); margin-top:2rem; padding-top:1.25rem;
+      display:flex; justify-content:space-between; flex-wrap:wrap; gap:.5rem;
+      font-size:.75rem; color:rgba(255,255,255,.4);
+    }
+    .footer-bottom a { color:rgba(255,255,255,.4); text-decoration:none; transition:color var(--transition-fast); }
+    .footer-bottom a:hover { color:rgba(255,255,255,.8); }
+    .footer-bottom a[aria-current="page"] { color:rgba(255,255,255,.75); }
+
+    /* ── Scroll to top ───────────────────────────────────────── */
+    .scroll-top {
+      position:fixed; bottom:1.75rem; left:1.75rem; z-index:200;
+      width:46px; height:46px; border-radius:50%; border:none;
+      background:var(--color-primary); color:#fff;
+      display:flex; align-items:center; justify-content:center;
+      cursor:pointer; opacity:0; transform:translateY(12px);
+      pointer-events:none;
+      transition:opacity .3s ease, transform .3s ease, background var(--transition-fast);
+    }
+    .scroll-top.visible { opacity:1; transform:translateY(0); pointer-events:all; }
+    .scroll-top:hover { background:var(--color-primary-dark); }
+    .scroll-top svg { width:20px; height:20px; }
+
+    /* ── Responsive ─────────────────────────────────────────── */
+    @media (max-width:768px) {
+      .navbar { padding:.75rem 1.25rem; }
+      .navbar-links { display:none; }
+      .burger { display:flex; }
+      .mentions-content { padding:3rem 1.25rem 4rem; }
+      .footer-inner { grid-template-columns:1fr; gap:2rem; }
+      .footer-bottom { flex-direction:column; text-align:center; }
+      .mentions-dl { grid-template-columns:1fr; gap:.25rem; }
+      .mentions-dl dt { margin-top:.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SVG sprite ────────────────────────────────────────────── -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-users" viewBox="0 0 24 24"><path class="icon-stroke" d="M18 18.72a9.09 9.09 0 003.74-.48 3 3 0 00-4.68-2.72m.94 3.2v.03c0 .22-.01.45-.04.66A11.94 11.94 0 0112 21c-2.17 0-4.21-.576-5.96-1.584A6.06 6.06 0 016 18.72m12 0a5.97 5.97 0 00-.94-3.2m0 0A6 6 0 0012 12.75a6 6 0 00-5.06 2.77m0 0a3 3 0 00-4.68 2.72 8.99 8.99 0 003.74.48m.94-3.2a5.97 5.97 0 00-.94 3.2M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"/></symbol>
+    <symbol id="i-graduation" viewBox="0 0 24 24"><path class="icon-stroke" d="M4.26 10.147a60.44 60.44 0 00-.491 6.347A48.63 48.63 0 0112 20.904a48.63 48.63 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.9 59.9 0 0112 3.493a59.9 59.9 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.7 50.7 0 0112 13.489a50.7 50.7 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.38 55.38 0 0112 8.443m-7.007 11.55A5.98 5.98 0 006.75 15.75v-1.5"/></symbol>
+    <symbol id="i-horse" viewBox="0 0 24 24"><path class="icon-stroke" d="M15.5 5c.5-.8 1.5-1 2-1s1 .3 1 .8-.3.7-.8.9c.4.2.8.5.8 1-.1.6-.7.9-1.5.8.3.5.2 1.2-.5 1.4l-.8.2c-.5 1.2-1.8 2-3 2.3l.1 2.6c.7.6 1.1 1.4 1 2.4l-.8 4.3c-.2.9-1 1.3-1.7 1-.6-.3-.8-1.1-.6-1.8l.5-3.3c-.6-.9-.9-2-.6-3.1l-2.4 3.5c-.4 1-.6 2.1-.4 3.1.2.9-.3 1.7-1.1 1.7-.7 0-1.2-.7-1.1-1.5.2-1.4.7-2.7 1.5-3.8l2-3c-.9-.6-1.5-1.5-1.4-2.7l-.8-.9c-.6-.8-.5-1.8.1-2.3.5-.4 1.2-.3 1.6.1l.6.6c1 .1 2.1.5 3 1.3l1.6-.6c1-.4 1.8-1.2 2.2-2.1z"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path class="icon-stroke" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/></symbol>
+    <symbol id="i-photo" viewBox="0 0 24 24"><path class="icon-stroke" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"/></symbol>
+    <symbol id="i-location" viewBox="0 0 24 24"><path d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-2.003 3.5-4.697 3.5-8.327a8 8 0 10-16 0c0 3.63 1.556 6.324 3.5 8.327a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z" fill-rule="evenodd" clip-rule="evenodd"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></symbol>
+    <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></symbol>
+  </svg>
+
+  <a class="skip-link" href="#main">Aller au contenu</a>
+
+  <!-- ════ NAVBAR ════════════════════════════════════════════ -->
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Navigation principale">
+    <a href="index.html" class="navbar-logo" aria-label="EGB Family — accueil">
+      <img src="logo_egbfamily.png" alt="" width="52" height="52" fetchpriority="high">
+      <div class="navbar-logo-text">
+        <span class="navbar-logo-egb">EGB <span class="navbar-logo-family">Family</span></span>
+        <span class="navbar-logo-sub">Centre Équestre Associatif</span>
+      </div>
+    </a>
+    <ul class="navbar-links" role="list">
+      <li><a href="index.html#association">L'association</a></li>
+      <li><a href="index.html#activites">Activités</a></li>
+      <li><a href="chevaux.html">Nos chevaux</a></li>
+      <li><a href="tarifs.html">Tarifs</a></li>
+      <li><a href="index.html#galerie">Galerie</a></li>
+      <li><a href="index.html#contact" class="navbar-cta">Venir pratiquer</a></li>
+    </ul>
+    <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="drawer" onclick="openDrawer()">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <main id="main">
+
+    <!-- ════ PAGE HERO ══════════════════════════════════════ -->
+    <section class="page-hero">
+      <p class="page-hero-eyebrow">EGB Family · Association Loi 1901</p>
+      <h1>Mentions légales</h1>
+      <p>Informations légales relatives au site internet de l'association EGB Family.</p>
+    </section>
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="Fil d'Ariane">
+      <a href="index.html">Accueil</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">Mentions légales</span>
+    </nav>
+
+    <!-- ════ CONTENU ════════════════════════════════════════ -->
+    <div class="mentions-content">
+
+      <span class="update-date">Dernière mise à jour : septembre 2026</span>
+
+      <!-- 1. Éditeur -->
+      <section class="mentions-section" aria-labelledby="editeur">
+        <h2 id="editeur">1. Éditeur du site</h2>
+        <p>Ce site est édité par :</p>
+        <dl class="mentions-dl">
+          <dt>Dénomination</dt>
+          <dd>EGB Family</dd>
+          <dt>Forme juridique</dt>
+          <dd>Association déclarée, régie par la loi du 1<sup>er</sup> juillet 1901</dd>
+          <dt>SIRET</dt>
+          <dd>899 874 606 00010</dd>
+          <dt>Siège social</dt>
+          <dd>3 Chemin du Grand Beaulieu, 63000 Clermont-Ferrand</dd>
+          <dt>Téléphone</dt>
+          <dd><a href="tel:+33684601537">06 84 60 15 37</a></dd>
+          <dt>Email</dt>
+          <dd><a href="mailto:egbfamily63@gmail.com">egbfamily63@gmail.com</a></dd>
+          <dt>Directeur de la publication</dt>
+          <dd>La présidente de l'association EGB Family</dd>
+        </dl>
+      </section>
+
+      <!-- 2. Hébergement -->
+      <section class="mentions-section" aria-labelledby="hebergement">
+        <h2 id="hebergement">2. Hébergement</h2>
+        <p>Ce site est hébergé par :</p>
+        <dl class="mentions-dl">
+          <dt>Société</dt>
+          <dd>Netlify, Inc.</dd>
+          <dt>Adresse</dt>
+          <dd>512 2nd Street, Suite 200, San Francisco, CA 94107, États-Unis</dd>
+          <dt>Site web</dt>
+          <dd><a href="https://www.netlify.com" target="_blank" rel="noopener noreferrer">www.netlify.com</a></dd>
+        </dl>
+      </section>
+
+      <!-- 3. Propriété intellectuelle -->
+      <section class="mentions-section" aria-labelledby="propriete">
+        <h2 id="propriete">3. Propriété intellectuelle</h2>
+        <p>L'ensemble du contenu de ce site (textes, photographies, logo, illustrations) est la propriété exclusive de l'association EGB Family ou de ses membres contributeurs, sauf mention contraire.</p>
+        <p>Toute reproduction, représentation, modification, publication ou adaptation de tout ou partie des éléments du site, quel que soit le moyen ou le procédé utilisé, est interdite sans autorisation écrite préalable de l'association.</p>
+        <p>Les photographies publiées sur ce site sont issues du compte Instagram de l'association (<a href="https://www.instagram.com/egb_family/" target="_blank" rel="noopener noreferrer">@egb_family</a>). Elles ne peuvent être reproduites sans accord explicite.</p>
+      </section>
+
+      <!-- 4. Données personnelles -->
+      <section class="mentions-section" aria-labelledby="donnees">
+        <h2 id="donnees">4. Données personnelles (RGPD)</h2>
+        <p>Conformément au Règlement général sur la protection des données (RGPD — Règlement UE 2016/679) et à la loi Informatique et Libertés, vous disposez de droits sur vos données personnelles.</p>
+
+        <p><strong>Données collectées :</strong> ce site collecte uniquement les données transmises volontairement via le formulaire de contact : nom, adresse email, numéro de téléphone (optionnel) et message. Ces données sont utilisées exclusivement pour répondre à votre demande.</p>
+
+        <p><strong>Destinataire :</strong> les données sont transmises directement à l'association EGB Family à l'adresse <a href="mailto:egbfamily63@gmail.com">egbfamily63@gmail.com</a>. Elles ne sont ni vendues, ni cédées, ni transmises à des tiers.</p>
+
+        <p><strong>Durée de conservation :</strong> les données sont conservées le temps nécessaire au traitement de votre demande, et au maximum 3 ans à compter du dernier contact.</p>
+
+        <p><strong>Vos droits :</strong> vous disposez d'un droit d'accès, de rectification, d'effacement, de limitation du traitement et d'opposition. Pour exercer ces droits, contactez-nous à <a href="mailto:egbfamily63@gmail.com">egbfamily63@gmail.com</a>.</p>
+
+        <p>En cas de réclamation, vous pouvez saisir la <a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer">Commission Nationale de l'Informatique et des Libertés (CNIL)</a>.</p>
+      </section>
+
+      <!-- 5. Cookies -->
+      <section class="mentions-section" aria-labelledby="cookies">
+        <h2 id="cookies">5. Cookies</h2>
+        <p>Ce site n'utilise pas de cookies de traçage ou d'analyse d'audience.</p>
+        <p>La carte Google Maps intégrée à la page Contact peut déposer des cookies tiers liés aux services Google. Ces cookies sont soumis à la <a href="https://policies.google.com/privacy?hl=fr" target="_blank" rel="noopener noreferrer">politique de confidentialité de Google</a>.</p>
+        <div class="mentions-notice">
+          Votre navigateur vous permet de gérer ou désactiver les cookies dans ses paramètres. La désactivation des cookies n'affecte pas la navigation sur ce site.
+        </div>
+      </section>
+
+      <!-- 6. Liens externes -->
+      <section class="mentions-section" aria-labelledby="liens">
+        <h2 id="liens">6. Liens hypertextes</h2>
+        <p>Ce site contient des liens vers des sites tiers (Instagram, Facebook, Google Maps). EGB Family n'est pas responsable du contenu de ces sites externes ni de leurs pratiques en matière de données personnelles.</p>
+      </section>
+
+      <!-- 7. Limitation de responsabilité -->
+      <section class="mentions-section" aria-labelledby="responsabilite">
+        <h2 id="responsabilite">7. Limitation de responsabilité</h2>
+        <p>L'association EGB Family s'efforce de maintenir les informations publiées sur ce site aussi exactes que possible. Toutefois, elle ne saurait être tenue responsable des erreurs ou omissions, ni des dommages résultant de l'utilisation des informations diffusées.</p>
+        <p>Les tarifs, horaires et programmes présentés sur ce site sont donnés à titre indicatif et peuvent être modifiés sans préavis. Pour toute information contractuelle, contactez directement l'association.</p>
+      </section>
+
+      <!-- 8. Droit applicable -->
+      <section class="mentions-section" aria-labelledby="droit">
+        <h2 id="droit">8. Droit applicable</h2>
+        <p>Les présentes mentions légales sont soumises au droit français. Tout litige relatif au site sera de la compétence exclusive des tribunaux compétents de Clermont-Ferrand.</p>
+      </section>
+
+    </div>
+
+  </main>
+
+  <!-- ════ FOOTER ═════════════════════════════════════════════ -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo-wrap">
+          <img src="logo_egbfamily.png" alt="EGB Family" width="148" height="148" loading="lazy">
+        </div>
+        <p>Centre équestre associatif à Clermont-Ferrand. Une communauté passionnée, ouverte à tous, réunie autour du cheval depuis 2021.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul class="footer-links" role="list">
+          <li><a href="index.html#association">L'association</a></li>
+          <li><a href="index.html#activites">Activités</a></li>
+          <li><a href="chevaux.html">Nos chevaux</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul class="footer-links" role="list">
+          <li><a href="tel:+33684601537">06 84 60 15 37</a></li>
+          <li><a href="mailto:egbfamily63@gmail.com">egbfamily63@gmail.com</a></li>
+          <li><a href="https://www.instagram.com/egb_family/" target="_blank" rel="noopener noreferrer">@egb_family</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span class="auto-year">2026</span> EGB Family — Association Loi 1901 · SIRET 899 874 606 00010</span>
+      <span>3 Chemin du Grand Beaulieu, 63000 Clermont-Ferrand</span>
+      <a href="mentions-legales.html" aria-current="page">Mentions légales</a>
+    </div>
+  </footer>
+
+  <!-- ════ SCROLL TO TOP ═══════════════════════════════════ -->
+  <button class="scroll-top" id="scroll-top" aria-label="Retour en haut de page" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 19V5M5 12l7-7 7 7"/>
+    </svg>
+  </button>
+
+  <!-- ════ DRAWER MOBILE ══════════════════════════════════ -->
+  <div class="drawer-overlay" id="drawer-overlay" aria-hidden="true" onclick="closeDrawer()"></div>
+
+  <nav class="drawer" id="drawer" aria-label="Menu mobile" aria-hidden="true">
+    <div class="drawer-header">
+      <a href="index.html" class="drawer-logo" onclick="closeDrawer()">
+        <img src="logo_egbfamily.png" alt="EGB Family" width="42" height="42" loading="lazy">
+        <div class="drawer-logo-text">
+          <span class="drawer-logo-egb">EGB <span class="drawer-logo-family">Family</span></span>
+        </div>
+      </a>
+      <button class="drawer-close" onclick="closeDrawer()" aria-label="Fermer le menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M18 6L6 18M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="drawer-nav">
+      <a href="index.html#association">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-users"/></svg>
+        L'association
+      </a>
+      <a href="index.html#activites">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-graduation"/></svg>
+        Activités
+      </a>
+      <a href="chevaux.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-horse"/></svg>
+        Nos chevaux
+      </a>
+      <a href="tarifs.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-star"/></svg>
+        Tarifs
+      </a>
+      <a href="index.html#galerie">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-photo"/></svg>
+        Galerie
+      </a>
+      <div class="drawer-divider"></div>
+      <a href="index.html#contact">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-location"/></svg>
+        Contact &amp; accès
+      </a>
+    </div>
+
+    <div class="drawer-footer">
+      <a href="https://www.instagram.com/egb_family/" target="_blank" rel="noopener noreferrer" aria-label="Instagram EGB Family">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-instagram"/></svg>
+        Instagram
+      </a>
+      <a href="https://www.facebook.com/profile.php?id=100069871481182" target="_blank" rel="noopener noreferrer" aria-label="Facebook EGB Family">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-facebook"/></svg>
+        Facebook
+      </a>
+    </div>
+  </nav>
+
+  <script defer>
+    document.querySelectorAll('.auto-year').forEach(el => el.textContent = new Date().getFullYear());
+
+    const scrollTopBtn = document.getElementById('scroll-top');
+    window.addEventListener('scroll', () => {
+      scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
+    }, { passive: true });
+
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.style.padding = window.scrollY > 60 ? '.45rem 3rem' : '.75rem 3rem';
+    }, { passive: true });
+
+    const drawer  = document.getElementById('drawer');
+    const overlay = document.getElementById('drawer-overlay');
+    const burger  = document.getElementById('burger');
+    let lastFocus;
+
+    function openDrawer() {
+      lastFocus = document.activeElement;
+      drawer.classList.add('open');
+      overlay.classList.add('open');
+      burger.classList.add('open');
+      drawer.setAttribute('aria-hidden', 'false');
+      overlay.setAttribute('aria-hidden', 'false');
+      burger.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+      drawer.querySelector('a, button')?.focus();
+    }
+
+    function closeDrawer() {
+      drawer.classList.remove('open');
+      overlay.classList.remove('open');
+      burger.classList.remove('open');
+      drawer.setAttribute('aria-hidden', 'true');
+      overlay.setAttribute('aria-hidden', 'true');
+      burger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+      lastFocus?.focus();
+    }
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && drawer.classList.contains('open')) closeDrawer();
+    });
+  </script>
+
+</body>
+</html>
