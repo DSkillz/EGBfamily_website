@@ -401,6 +401,36 @@
     .value-text strong { display:block; font-family:var(--font-heading); font-size:1.1rem; color:var(--color-primary); margin-bottom:2px; }
     .value-text span { font-size:.9rem; color:var(--color-text-muted); }
 
+    /* ── Pour tous ───────────────────────────────────────── */
+    .pour-tous { padding:5rem 2rem; background:var(--color-primary-dark); position:relative; overflow:hidden; }
+    .pour-tous-inner { max-width:1000px; margin:0 auto; text-align:center; position:relative; z-index:1; }
+    .pour-tous-inner .section-eyebrow { color:var(--color-accent-light); }
+    .pour-tous-inner h2 { color:#fff; margin-bottom:.75rem; }
+    .pour-tous-inner .divider-accent { margin:1rem auto 1.75rem; }
+    .pour-tous-lead {
+      max-width:640px; margin:0 auto 3rem;
+      color:rgba(255,255,255,.75); font-size:1.05rem; line-height:1.9;
+    }
+    .pour-tous-pillars {
+      display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-bottom:2.5rem;
+    }
+    .ptp-card {
+      background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.12);
+      border-radius:var(--radius-lg); padding:2rem 1.5rem; text-align:left;
+      transition:background var(--transition-base),border-color var(--transition-base);
+    }
+    .ptp-card:hover { background:rgba(255,255,255,.12); border-color:rgba(255,255,255,.25); }
+    .ptp-icon {
+      width:44px; height:44px; border-radius:var(--radius-md);
+      background:rgba(255,255,255,.13); display:flex; align-items:center;
+      justify-content:center; color:#fff; margin-bottom:1.1rem;
+    }
+    .ptp-icon svg { width:20px; height:20px; }
+    .ptp-card h3 { font-family:var(--font-heading); font-size:1.2rem; color:#fff; margin-bottom:.6rem; }
+    .ptp-card p { font-size:.88rem; color:rgba(255,255,255,.68); line-height:1.75; }
+    .pour-tous-cta { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+    @media (max-width:680px) { .pour-tous-pillars { grid-template-columns:1fr; } }
+
     /* ── Activités ────────────────────────────────────────── */
     .activities { padding:6rem 2rem; background:var(--color-bg-light); }
     .activities-header { text-align:center; max-width:600px; margin:0 auto 4rem; }
@@ -973,8 +1003,54 @@
                 <span>Éducation à l'environnement et à la citoyenneté</span>
               </div>
             </div>
+            <div class="value-item">
+              <div class="value-icon" aria-hidden="true"><svg><use href="#i-heart"/></svg></div>
+              <div class="value-text">
+                <strong>Accessible à tous les budgets</strong>
+                <span>Parce que l'équitation ne doit pas rester un privilège — on s'adapte toujours.</span>
+              </div>
+            </div>
           </div>
           <a href="#contact" class="btn btn-primary">Venir pratiquer avec nous</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════ POUR TOUS ═════════════════════════════════════ -->
+    <section class="pour-tous">
+      <img src="cheval_filigrane_v2.png" alt="" aria-hidden="true" class="filigrane-horse"
+           style="left:-3%;bottom:-10%;width:40%;opacity:.10;transform:scaleX(-1)">
+      <div class="pour-tous-inner">
+        <span class="section-eyebrow">Notre engagement</span>
+        <h2>Le cheval pour tout le monde, vraiment.</h2>
+        <hr class="divider-accent">
+        <p class="pour-tous-lead">Petits ou grands, parents aisés ou budgets modestes, débutants complets ou cavaliers aguerris — chez EGB Family, personne n'est laissé de côté. C'est le sens même de notre association : ouvrir la pratique équestre au plus grand nombre, sans condition.</p>
+        <div class="pour-tous-pillars">
+          <div class="ptp-card reveal">
+            <div class="ptp-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><use href="#i-star"/></svg>
+            </div>
+            <h3>Des tarifs pensés pour tous</h3>
+            <p>Nos formules sont conçues pour rester accessibles. Paiement mensuel, trimestriel ou annuel, carte de séances, formule découverte… on s'adapte à votre situation.</p>
+          </div>
+          <div class="ptp-card reveal">
+            <div class="ptp-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><use href="#i-users"/></svg>
+            </div>
+            <h3>L'écurie, ça s'entretient ensemble</h3>
+            <p>Vous ne pouvez pas tout financer ? Donner un coup de main — soins des chevaux, entretien du site — peut s'échanger contre des séances de pratique. C'est l'esprit de l'asso.</p>
+          </div>
+          <div class="ptp-card reveal">
+            <div class="ptp-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><use href="#i-phone"/></svg>
+            </div>
+            <h3>Parlons-en, sans tabou</h3>
+            <p>Chaque situation est unique. Un coup de fil, une discussion franche, et on trouve toujours quelque chose. Pas de formulaire, pas de jugement — juste une conversation.</p>
+          </div>
+        </div>
+        <div class="pour-tous-cta">
+          <a href="tel:+33684601537" class="btn btn-white">Appelez-nous : 06 84 60 15 37</a>
+          <a href="#contact" class="btn" style="background:rgba(255,255,255,.12);color:#fff;border:1.5px solid rgba(255,255,255,.3);">Envoyer un message</a>
         </div>
       </div>
     </section>
