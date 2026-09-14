@@ -535,26 +535,31 @@
       font-weight:600; color:var(--color-primary);
     }
     .google-rating .count { font-size:.8rem; color:var(--color-text-muted); }
-    .temoignages-grid {
-      display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      gap:1.5rem; max-width:1000px; margin:0 auto;
+    /* Carousel */
+    .carousel-wrap { position:relative; max-width:1100px; margin:0 auto; }
+    .carousel-outer { overflow:hidden; border-radius:var(--radius-lg); }
+    .carousel-track {
+      display:flex; gap:1.5rem;
+      transition:transform .42s cubic-bezier(.4,0,.2,1);
+      will-change:transform;
     }
     .temoignage-card {
+      flex:0 0 calc(33.333% - 1rem);
       background:#fff; border-radius:var(--radius-lg);
       padding:2rem; box-shadow:var(--shadow-sm); position:relative;
     }
     .temoignage-card::before {
       content:'\201C'; font-family:var(--font-heading); font-size:5rem;
       color:var(--color-secondary); position:absolute;
-      top:.5rem; left:1.2rem; line-height:1;
+      top:.5rem; left:1.2rem; line-height:1; pointer-events:none;
     }
     .temoignage-stars { color:#F9AB00; font-size:.85rem; margin-bottom:1rem; }
     .temoignage-text {
-      font-family:var(--font-heading); font-size:1.1rem; font-style:italic;
+      font-family:var(--font-heading); font-size:1rem; font-style:italic;
       color:var(--color-text); line-height:1.75;
       margin-bottom:1.5rem; padding-top:1.5rem;
     }
-    .temoignage-author { display:flex; align-items:center; gap:.75rem; }
+    .temoignage-author { display:flex; align-items:center; gap:.75rem; margin-top:auto; }
     .temoignage-avatar {
       width:40px; height:40px; border-radius:50%;
       background:var(--color-secondary); display:flex; align-items:center;
@@ -563,6 +568,34 @@
     }
     .temoignage-name { font-weight:600; font-size:.9rem; color:var(--color-primary); }
     .temoignage-date { font-size:.75rem; color:var(--color-text-muted); }
+    /* Nav carousel */
+    .carousel-nav {
+      display:flex; align-items:center; justify-content:center;
+      gap:1rem; margin-top:2rem;
+    }
+    .carousel-btn {
+      width:42px; height:42px; border-radius:50%; border:2px solid var(--color-secondary);
+      background:#fff; color:var(--color-primary); cursor:pointer;
+      display:flex; align-items:center; justify-content:center;
+      transition:background var(--transition-fast),border-color var(--transition-fast);
+      flex-shrink:0;
+    }
+    .carousel-btn:hover { background:var(--color-primary); border-color:var(--color-primary); color:#fff; }
+    .carousel-btn:disabled { opacity:.35; pointer-events:none; }
+    .carousel-btn svg { width:18px; height:18px; }
+    .carousel-dots { display:flex; gap:.5rem; align-items:center; }
+    .carousel-dot {
+      width:8px; height:8px; border-radius:50%;
+      background:var(--color-secondary); border:none; cursor:pointer;
+      padding:0; transition:background var(--transition-fast),width var(--transition-fast),border-radius var(--transition-fast);
+    }
+    .carousel-dot.active { background:var(--color-primary); width:22px; border-radius:4px; }
+    @media (max-width:900px) {
+      .temoignage-card { flex:0 0 calc(50% - .75rem); }
+    }
+    @media (max-width:580px) {
+      .temoignage-card { flex:0 0 100%; }
+    }
 
     /* ── CTA ──────────────────────────────────────────────── */
     .cta-section {
@@ -1158,32 +1191,132 @@
         <div class="google-rating" aria-label="Note Google : 4,6 sur 5">
           <span class="stars" aria-hidden="true">★★★★★</span>
           <span class="score">4,6</span>
-          <span class="count">/ 5 sur Google</span>
+          <span class="count">/ 5 sur Google Maps</span>
         </div>
       </div>
-      <div class="temoignages-grid">
-        <article class="temoignage-card">
-          <div class="temoignage-stars" aria-label="5 étoiles">★★★★★</div>
-          <p class="temoignage-text">Une association vraiment conviviale, on se sent tout de suite à l'aise. Les chevaux sont bien soignés et l'équipe est passionnée et bienveillante.</p>
-          <div class="temoignage-author">
-            <div class="temoignage-avatar" aria-hidden="true">M</div>
-            <div>
-              <p class="temoignage-name">Marie L.</p>
-              <p class="temoignage-date">Membre depuis 2022</p>
-            </div>
+      <div class="carousel-wrap" id="temoignages-carousel">
+        <div class="carousel-outer">
+          <div class="carousel-track" id="carousel-track" role="list">
+
+            <article class="temoignage-card" role="listitem">
+              <div class="temoignage-stars" aria-label="5 étoiles sur 5">★★★★★</div>
+              <p class="temoignage-text">Conviviale, abordable, un poney club qui a de vrais podiums, des coachs qui en sont et une philosophie de vie associative saine, loin des machines à fric. Ici on parle cheval, bien-être animal et du cavalier, on fait du cheval pour de vrai.</p>
+              <div class="temoignage-author">
+                <div class="temoignage-avatar" aria-hidden="true">N</div>
+                <div>
+                  <p class="temoignage-name">Nicolas Hamelin</p>
+                  <p class="temoignage-date">Local Guide · mai 2025</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="temoignage-card" role="listitem">
+              <div class="temoignage-stars" aria-label="5 étoiles sur 5">★★★★★</div>
+              <p class="temoignage-text">Ma fille monte dans ce club depuis ses 3 ans… elle est maintenant majeure. Bonne ambiance entre coach, parents et encadrants. Là-bas les enfants s'occupent de A à Z de leurs poneys. Je recommande.</p>
+              <div class="temoignage-author">
+                <div class="temoignage-avatar" aria-hidden="true">V</div>
+                <div>
+                  <p class="temoignage-name">Virginie Morel</p>
+                  <p class="temoignage-date">Local Guide · juillet 2025</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="temoignage-card" role="listitem">
+              <div class="temoignage-stars" aria-label="5 étoiles sur 5">★★★★★</div>
+              <p class="temoignage-text">Super centre équestre associatif où les enfants s'épanouissent en s'occupant de leurs chevaux comme si c'était les leurs, dans une ambiance sereine et conviviale. Je recommande.</p>
+              <div class="temoignage-author">
+                <div class="temoignage-avatar" aria-hidden="true">C</div>
+                <div>
+                  <p class="temoignage-name">cloco did</p>
+                  <p class="temoignage-date">août 2024</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="temoignage-card" role="listitem">
+              <div class="temoignage-stars" aria-label="5 étoiles sur 5">★★★★★</div>
+              <p class="temoignage-text">Un superbe centre équestre où règne bonne humeur et convivialité ! C'est un plus de pouvoir s'occuper des chevaux et de leur box sur son temps libre — ça crée vraiment un lien avec les animaux.</p>
+              <div class="temoignage-author">
+                <div class="temoignage-avatar" aria-hidden="true">M</div>
+                <div>
+                  <p class="temoignage-name">Marie Delcros</p>
+                  <p class="temoignage-date">août 2024</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="temoignage-card" role="listitem">
+              <div class="temoignage-stars" aria-label="5 étoiles sur 5">★★★★★</div>
+              <p class="temoignage-text">Ma fille s'y rend avec enthousiasme et envie. Les personnes sont super — pédagogues et sympathiques — et il y a une vraie entraide entre petits et grands.</p>
+              <div class="temoignage-author">
+                <div class="temoignage-avatar" aria-hidden="true">T</div>
+                <div>
+                  <p class="temoignage-name">T Moradi</p>
+                  <p class="temoignage-date">octobre 2022</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="temoignage-card" role="listitem">
+              <div class="temoignage-stars" aria-label="5 étoiles sur 5">★★★★★</div>
+              <p class="temoignage-text">Une grande famille où chacun s'entraide et partage ce qu'il peut, des supers chevaux et de très bons moments à chaque visite.</p>
+              <div class="temoignage-author">
+                <div class="temoignage-avatar" aria-hidden="true">A</div>
+                <div>
+                  <p class="temoignage-name">Alexia Colin</p>
+                  <p class="temoignage-date">Local Guide · septembre 2024</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="temoignage-card" role="listitem">
+              <div class="temoignage-stars" aria-label="5 étoiles sur 5">★★★★★</div>
+              <p class="temoignage-text">Merci Léa d'avoir fait de cette journée un moment si agréable.</p>
+              <div class="temoignage-author">
+                <div class="temoignage-avatar" aria-hidden="true">L</div>
+                <div>
+                  <p class="temoignage-name">Levent Çokan</p>
+                  <p class="temoignage-date">Local Guide · décembre 2025</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="temoignage-card" role="listitem">
+              <div class="temoignage-stars" aria-label="5 étoiles sur 5">★★★★★</div>
+              <p class="temoignage-text">Un super centre équestre et une véritable grande famille ♥️</p>
+              <div class="temoignage-author">
+                <div class="temoignage-avatar" aria-hidden="true">S</div>
+                <div>
+                  <p class="temoignage-name">schez LM</p>
+                  <p class="temoignage-date">novembre 2022</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="temoignage-card" role="listitem">
+              <div class="temoignage-stars" aria-label="5 étoiles sur 5">★★★★★</div>
+              <p class="temoignage-text">Très bonne ambiance, je recommande.</p>
+              <div class="temoignage-author">
+                <div class="temoignage-avatar" aria-hidden="true">N</div>
+                <div>
+                  <p class="temoignage-name">Noémie H</p>
+                  <p class="temoignage-date">Local Guide · septembre 2024</p>
+                </div>
+              </div>
+            </article>
+
           </div>
-        </article>
-        <article class="temoignage-card">
-          <div class="temoignage-stars" aria-label="5 étoiles">★★★★★</div>
-          <p class="temoignage-text">Mon fils adore ses cours de poney ! L'encadrement est parfait pour les enfants et l'ambiance est vraiment conviviale. Je recommande à 100%.</p>
-          <div class="temoignage-author">
-            <div class="temoignage-avatar" aria-hidden="true">S</div>
-            <div>
-              <p class="temoignage-name">Sophie R.</p>
-              <p class="temoignage-date">Parent d'élève</p>
-            </div>
-          </div>
-        </article>
+        </div>
+        <div class="carousel-nav" aria-label="Navigation du carousel">
+          <button class="carousel-btn" id="carousel-prev" aria-label="Avis précédents">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <div class="carousel-dots" id="carousel-dots" role="tablist" aria-label="Groupes d'avis"></div>
+          <button class="carousel-btn" id="carousel-next" aria-label="Avis suivants">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+        </div>
       </div>
     </section>
 
@@ -1494,6 +1627,62 @@
     // Année copyright auto
     document.querySelectorAll('.auto-year').forEach(el => el.textContent = new Date().getFullYear());
 
+    // ── Carousel témoignages ──────────────────────────────
+    (function() {
+      const track  = document.getElementById('carousel-track');
+      const dotsEl = document.getElementById('carousel-dots');
+      const prev   = document.getElementById('carousel-prev');
+      const next   = document.getElementById('carousel-next');
+      if (!track) return;
+      const cards  = track.querySelectorAll('.temoignage-card');
+      const total  = cards.length;
+      let current  = 0;
+
+      function perView() {
+        if (window.innerWidth > 900) return 3;
+        if (window.innerWidth > 580) return 2;
+        return 1;
+      }
+
+      function maxIndex() { return Math.max(0, total - perView()); }
+
+      // Crée les dots
+      function buildDots() {
+        dotsEl.innerHTML = '';
+        const steps = maxIndex() + 1;
+        for (let i = 0; i < steps; i++) {
+          const d = document.createElement('button');
+          d.className = 'carousel-dot' + (i === current ? ' active' : '');
+          d.setAttribute('aria-label', `Groupe ${i + 1}`);
+          d.setAttribute('role', 'tab');
+          d.addEventListener('click', () => goTo(i));
+          dotsEl.appendChild(d);
+        }
+      }
+
+      function goTo(idx) {
+        current = Math.max(0, Math.min(idx, maxIndex()));
+        const cardW = cards[0].getBoundingClientRect().width;
+        const gap   = 24; // 1.5rem
+        track.style.transform = `translateX(-${current * (cardW + gap)}px)`;
+        dotsEl.querySelectorAll('.carousel-dot').forEach((d, i) => d.classList.toggle('active', i === current));
+        prev.disabled = current === 0;
+        next.disabled = current >= maxIndex();
+      }
+
+      prev.addEventListener('click', () => goTo(current - 1));
+      next.addEventListener('click', () => goTo(current + 1));
+
+      let resizeTimer;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => { buildDots(); goTo(Math.min(current, maxIndex())); }, 150);
+      });
+
+      buildDots();
+      goTo(0);
+    })();
+
     // Navbar compact au scroll
     const nav = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
@@ -1633,7 +1822,7 @@
         '.stats-grid .stat-item',
         '.activities-grid .activity-card',
         '.contact-humain-cards .chc-card',
-        '.temoignages-grid .temoignage-card',
+        '.carousel-track .temoignage-card',
         '.galerie-grid .galerie-item',
         '.about-values .value-item',
         '.equip-grid .equip-item',
