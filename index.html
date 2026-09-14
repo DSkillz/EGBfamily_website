@@ -472,32 +472,7 @@
     .activity-link:hover { color:var(--color-accent); gap:.75rem; }
     .activity-link:hover svg { transform:translateX(3px); }
 
-    /* ── Équipements ──────────────────────────────────────── */
-    .equipements { padding:6rem 2rem; background:var(--color-primary); color:#fff; }
-    .equipements-inner {
-      max-width:1100px; margin:0 auto;
-      display:grid; grid-template-columns:1fr 1fr;
-      gap:4rem; align-items:center;
-    }
-    .equipements-content h2 { color:#fff; margin-bottom:1rem; }
-    .equipements-content p { color:rgba(255,255,255,.75); font-size:1rem; line-height:1.85; margin-bottom:2rem; }
-    .equip-grid { display:grid; grid-template-columns:1fr 1fr; gap:.75rem; }
-    .equip-item {
-      display:flex; align-items:center; gap:.75rem;
-      background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.12);
-      border-radius:var(--radius-md); padding:.75rem 1rem;
-      font-size:.88rem; color:rgba(255,255,255,.9);
-      transition:background var(--transition-fast);
-    }
-    .equip-item:hover { background:rgba(255,255,255,.15); }
-    .equip-item svg { width:16px; height:16px; color:var(--color-accent-light); flex-shrink:0; }
-    .equipements-img-main {
-      width:100%; aspect-ratio:1; border-radius:var(--radius-lg);
-      background:rgba(255,255,255,.08);
-      display:flex; align-items:center; justify-content:center;
-      color:rgba(255,255,255,.15);
-    }
-    .equipements-img-main svg { width:96px; height:96px; }
+
 
     /* ── Galerie ──────────────────────────────────────────── */
     .galerie { padding:6rem 2rem; background:#fff; position:relative; overflow:hidden; }
@@ -854,7 +829,7 @@
 
     /* ── Responsive ───────────────────────────────────────── */
     @media (max-width:900px) {
-      .about-inner, .equipements-inner, .contact-inner { grid-template-columns:1fr; }
+      .about-inner, .contact-inner { grid-template-columns:1fr; }
       .about-badge { right:0; }
       .galerie-item:first-child { grid-column:span 1; aspect-ratio:4/3; }
       .galerie-grid { grid-template-columns:repeat(2,1fr); }
@@ -1100,35 +1075,6 @@
             <a href="#contact" class="activity-link">En savoir plus <svg><use href="#i-arrow-right"/></svg></a>
           </div>
         </article>
-      </div>
-    </section>
-
-    <!-- ════ ÉQUIPEMENTS ═══════════════════════════════════ -->
-    <section class="equipements">
-      <div class="equipements-inner">
-        <div class="equipements-content">
-          <span class="section-eyebrow" style="color:var(--color-accent-light)">Nos installations</span>
-          <h2>Un cadre idéal pour vous et vos chevaux</h2>
-          <hr class="divider-accent" style="margin:1rem 0 1.5rem;">
-          <p>L'Ecurie du Grand Beaulieu dispose de toutes les infrastructures nécessaires pour garantir le bien-être des animaux et le confort des cavaliers, dans un environnement verdoyant aux portes de Clermont-Ferrand.</p>
-          <ul class="equip-grid" role="list">
-            <li class="equip-item"><svg aria-hidden="true"><use href="#i-check"/></svg> Carrière</li>
-            <li class="equip-item"><svg aria-hidden="true"><use href="#i-check"/></svg> Manège</li>
-            <li class="equip-item"><svg aria-hidden="true"><use href="#i-check"/></svg> Prés &amp; paddocks</li>
-            <li class="equip-item"><svg aria-hidden="true"><use href="#i-check"/></svg> Solarium</li>
-            <li class="equip-item"><svg aria-hidden="true"><use href="#i-check"/></svg> Sellerie</li>
-            <li class="equip-item"><svg aria-hidden="true"><use href="#i-check"/></svg> Douches</li>
-            <li class="equip-item"><svg aria-hidden="true"><use href="#i-check"/></svg> Infirmerie</li>
-            <li class="equip-item"><svg aria-hidden="true"><use href="#i-check"/></svg> Club house</li>
-            <li class="equip-item"><svg aria-hidden="true"><use href="#i-check"/></svg> Gardiennage 24h/24</li>
-            <li class="equip-item"><svg aria-hidden="true"><use href="#i-check"/></svg> Logement</li>
-            <li class="equip-item"><svg aria-hidden="true"><use href="#i-check"/></svg> Wi-Fi</li>
-            <li class="equip-item"><svg aria-hidden="true"><use href="#i-check"/></svg> Parking</li>
-          </ul>
-        </div>
-        <div class="equipements-img-main" role="img" aria-label="Photo des installations à venir">
-          <svg aria-hidden="true"><use href="#i-horse"/></svg>
-        </div>
       </div>
     </section>
 
@@ -1682,8 +1628,7 @@
         ['.cta-inner',           ''],
         ['.about-img-wrap',      'reveal-left'],
         ['.about-content',       'reveal-right'],
-        ['.equipements-content', 'reveal-left'],
-        ['.equipements-img-main','reveal-right'],
+
         ['.contact-info',        'reveal-left'],
         ['.map-wrap',            'reveal-right'],
       ];
